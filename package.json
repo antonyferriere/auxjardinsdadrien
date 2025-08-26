@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/antonyferriere/auxjardinsdadrien#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "html-minifier": "^4.0.0"
   }
 }
