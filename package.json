@@ -1,0 +1,20 @@
+{
+  "name": "auxjardinsdadrien",
+  "version": "1.0.0",
+  "description": "Site web Aux Jardins d'Adrien - paysagiste &amp; maraîcher Vence 06",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonyferriere/auxjardinsdadrien.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antonyferriere/auxjardinsdadrien/issues"
+  },
+  "homepage": "https://github.com/antonyferriere/auxjardinsdadrien#readme"
+}

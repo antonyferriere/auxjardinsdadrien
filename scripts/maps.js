@@ -47,7 +47,7 @@ function initMap() {
               <div style="padding: 10px; font-family: var(--font-text);">
                 <h3 style="margin: 0 0 10px; color: #8daf23;">Aux Jardins d'Adrien</h3>
                 <p style="margin: 0; font-size: 14px;">
-                  1531 Chem. des Anciens Combattants A.F.N<br>
+                  1531 Chemin des Anciens Combattants en A.F.N<br>
                   Vence (06140)<br>
                   <strong>06 09 56 45 11</strong>
                 </p>

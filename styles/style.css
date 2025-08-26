@@ -108,6 +108,9 @@ a:hover {
   background: var(--surface-2);
   text-align: center;
 }
+.section-text-alternative {
+  text-align: center;
+}
 .section-text > .container {
   display: flex;
   justify-content: center;
