@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="auto">
+  {% include "../partials/_head.njk" %}
+  <body>
+    {% include "../partials/_header.njk" %}
+    <main id="content" role="main">
+      {{ content | safe }}
+    </main>
+    {% include "../partials/_footer.njk" %} {% include "../partials/_scripts.njk" %}
+    {{ scripts | safe }}
+  </body>
+</html>
