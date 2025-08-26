@@ -4,7 +4,7 @@
   "description": "Site web Aux Jardins d'Adrien - paysagiste &amp; maraîcher Vence 06",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
+    "build": "NODE_ENV=production eleventy",
     "serve": "eleventy --serve"
   },
   "repository": {
@@ -20,5 +20,10 @@
   "homepage": "https://github.com/antonyferriere/auxjardinsdadrien#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2"
+  },
+  "devDependencies": {
+    "eleventy-plugin-terser": "*",
+    "@11ty/eleventy-plugin-postcss": "*",
+    "cssnano": "*"
   }
 }
