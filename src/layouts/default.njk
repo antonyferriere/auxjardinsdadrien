@@ -5,6 +5,19 @@
     {% include "_header.njk" %}
     <main id="content" role="main">
       {{ content | safe }}
+      <!-- CALL TO ACTION -->
+      <section class="section-text section-pad">
+        <div class="container">
+          <h2>Parlons de votre projet</h2>
+          <p>Estimation gratuite et sans engagement — nous vous répondons rapidement.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="estimer.html" aria-label="Faites une estimation"
+              >Demander une estimation</a
+            >
+            <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+          </div>
+        </div>
+      </section>
     </main>
     {% include "_footer.njk" %} {% include "_scripts.njk" %}
     {{ scripts | safe }}
