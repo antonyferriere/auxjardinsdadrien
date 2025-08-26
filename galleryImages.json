@@ -1,0 +1,136 @@
+{
+  "creation": [
+    {
+      "url": "/images/creation_dark.webp",
+      "filename": "creation_dark.webp",
+      "title": "Jardin méditerranéen à Vence",
+      "description": "Création d'un espace méditerranéen avec oliviers centenaires"
+    },
+    {
+      "url": "/images/creation_light.webp",
+      "filename": "creation_light.webp",
+      "title": "Aménagement paysager moderne",
+      "description": "Design contemporain avec matériaux nobles"
+    },
+    {
+      "url": "/images/avant_apres.webp",
+      "filename": "avant_apres.webp",
+      "title": "Terrasse avec piscine",
+      "description": "Intégration paysagère autour d'une piscine"
+    },
+    {
+      "url": "/images/plantation_dark.webp",
+      "filename": "plantation_dark.webp",
+      "title": "Espace zen et détente",
+      "description": "Coin méditation avec fontaine japonaise"
+    },
+    {
+      "url": "/images/plantation_light.webp",
+      "filename": "plantation_light.webp",
+      "title": "Jardin provençal",
+      "description": "Massifs de lavande et romarin"
+    }
+  ],
+  "entretien": [
+    {
+      "url": "/images/arrosage_light.webp",
+      "filename": "arrosage_light.webp",
+      "title": "Entretien annuel premium",
+      "description": "Maintenance complète d'un jardin d'exception"
+    },
+    {
+      "url": "/images/entretien_dark.webp",
+      "filename": "entretien_dark.webp",
+      "title": "Taille artistique d'oliviers",
+      "description": "Sculpture végétale d'oliviers centenaires"
+    },
+    {
+      "url": "/images/entretien_light.webp",
+      "filename": "entretien_light.webp",
+      "title": "Nettoyage de printemps",
+      "description": "Remise en beauté après l'hiver"
+    }
+  ],
+  "maraichage": [
+    {
+      "url": "/images/maraichage_dark.webp",
+      "filename": "maraichage_dark.webp",
+      "title": "Potager bio familial",
+      "description": "Légumes de saison en agriculture biologique"
+    },
+    {
+      "url": "/images/maraichage_light.webp",
+      "filename": "maraichage_light.webp",
+      "title": "Serre maraîchère écologique",
+      "description": "Production sous serre respectueuse"
+    },
+    {
+      "url": "/images/old/maraichage_dark_1.webp",
+      "filename": "maraichage_dark_1.webp",
+      "title": "Carré potager surélevé",
+      "description": "Facilité de culture et d'accès"
+    },
+    {
+      "url": "/images/old/maraichage_light_1.webp",
+      "filename": "maraichage_light_1.webp",
+      "title": "Tunnel de forçage",
+      "description": "Protection naturelle des cultures"
+    },
+    {
+      "url": "/images/old/maraichage_light_2.webp",
+      "filename": "maraichage_light_2.webp",
+      "title": "Permaculture urbaine",
+      "description": "Écosystème productif en ville"
+    },
+    {
+      "url": "/images/old/maraichage_light_3.webp",
+      "filename": "maraichage_light_3.webp",
+      "title": "Serre bioclimatique",
+      "description": "Optimisation des ressources naturelles"
+    }
+  ],
+  "ambiance": [
+    {
+      "url": "/images/old/b4fbc438-8c89-4d77-8178-68c15d6123ce.png",
+      "filename": "b4fbc438-8c89-4d77-8178-68c15d6123ce.png",
+      "title": "Potager bio familial",
+      "description": "Légumes de saison en agriculture biologique"
+    },
+    {
+      "url": "/images/old/Bayview-Villa-01.jpg",
+      "filename": "Bayview-Villa-01.jpg",
+      "title": "Carré potager surélevé",
+      "description": "Facilité de culture et d'accès"
+    },
+    {
+      "url": "/images/old/Bayview-Villa-02.jpg",
+      "filename": "Bayview-Villa-02.jpg",
+      "title": "Tunnel de forçage",
+      "description": "Protection naturelle des cultures"
+    },
+    {
+      "url": "/images/old/Bayview-Villa-15.jpg",
+      "filename": "Bayview-Villa-15.jpg",
+      "title": "Permaculture urbaine",
+      "description": "Écosystème productif en ville"
+    },
+    {
+      "url": "/images/old/Bayview-Villa-16.jpg",
+      "filename": "Bayview-Villa-16.jpg",
+      "title": "Serre bioclimatique",
+      "description": "Optimisation des ressources naturelles"
+    },
+    {
+      "url": "/images/old/Bayview-Villa-18.jpg",
+      "filename": "Bayview-Villa-18.jpg",
+      "title": "Permaculture urbaine",
+      "description": "Écosystème productif en ville"
+    },
+    {
+      "url": "/images/old/fa054f21-e654-4285-8f7d-72ea818a0cfc.png",
+      "filename": "fa054f21-e654-4285-8f7d-72ea818a0cfc.png",
+      "title": "Permaculture urbaine",
+      "description": "Écosystème productif en ville"
+    }
+  ]
+}

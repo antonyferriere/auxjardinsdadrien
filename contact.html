@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- SEO -->
+    <title>Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence</title>
+    <meta
+      name="description"
+      content="Conception et aménagement de jardins sur mesure à Vence : plantations méditerranéennes, arrosage intelligent, paillages & revêtements, maçonnerie paysagère. Estimation gratuite."
+    />
+    <meta name="author" content="Aux Jardins d'Adrien" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Aux Jardins d'Adrien — Paysagiste & Maraîcher à Vence" />
+    <meta
+      property="og:description"
+      content="Conception et aménagement de jardins sur mesure à Vence : plantations méditerranéennes, arrosage intelligent, paillages & revêtements, maçonnerie paysagère. Estimation gratuite."
+    />
+    <meta property="og:image" content="https://www.auxjardinsdadrien.com/images/og-image.jpg" />
+    <meta property="og:url" content="https://www.auxjardinsdadrien.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://www.auxjardinsdadrien.com" />
+    <!-- Icônes -->
+    <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Aux Jardins d'Adrien" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Polices : Light mode (Raleway/Source Sans Pro) & Dark mode (Josefin/Work Sans) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Source+Sans+3:wght@400;500;700&family=Josefin+Sans:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script>
+      /* Thème : appliquer dès le head pour éviter le flash */
+      (function () {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute(
+            'data-theme',
+            window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          );
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="site-header" class="header page-top">
+      <div class="container">
+        <div class="header-row">
+          <div class="header-social">
+            <div class="header-social-inner">
+              <div class="social-wrapper">
+                <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
+                  <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+                </a>
+                <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
+                  <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+                </a>
+                <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
+                  <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+                </a>
+              </div>
+              <a class="btn btn-cta" href="tel:+33609564511" aria-label="Appelez nous">
+                <div class="cta-content">Appelez nous</div>
+                <div class="cta-title">06 09 56 45 11</div>
+              </a>
+            </div>
+          </div>
+          <a class="brand" href="index.html" aria-label="Accueil Aux Jardins d’Adrien">
+            <img
+              class="logo logo-light"
+              src="images/logo_auxjardinsdadrien_light.png"
+              alt="Logo Aux Jardins d’Adrien (clair)"
+            />
+            <img
+              class="logo logo-dark"
+              src="images/logo_auxjardinsdadrien_dark.png"
+              alt="Logo Aux Jardins d’Adrien (sombre)"
+            />
+            <img
+              class="logo logo-contrast"
+              src="images/logo_auxjardinsdadrien_contrast.png"
+              alt="Logo Aux Jardins d’Adrien (contraste)"
+            />
+          </a>
+          <div class="header-ctas">
+            <a class="btn btn-cta" href="estimer.html" aria-label="Faites une estimation">
+              <div class="cta-content">Un projet</div>
+              <div class="cta-title">Faites une estimation</div>
+            </a>
+            <a class="btn btn-cta" href="contact.html" aria-label="Contactez nous">
+              <div class="cta-content">Une demande</div>
+              <div class="cta-title">Contactez nous</div>
+            </a>
+          </div>
+          <!-- MENU MOBILE (slide-in) -->
+          <button
+            id="burger"
+            class="burger"
+            aria-label="Ouvrir le menu"
+            aria-controls="mobile-nav"
+            aria-expanded="false"
+          >
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+          </button>
+        </div>
+        <div class="header-row">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li>
+                <a href="creation.html" aria-label="Accéder à notre page de création">Création</a>
+              </li>
+              <li>
+                <a href="entretien.html" aria-label="Accéder à notre page d'entretien">Entretien</a>
+              </li>
+              <li>
+                <a href="maraichage.html" aria-label="Accéder à notre page de maraîchage"
+                  >Maraîchage</a
+                >
+              </li>
+              <li>
+                <a href="apropos.html" aria-label="Accéder à notre page à propos">À propos</a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="theme-toggle theme-toggle-dark"
+                  aria-label="Basculer le thème sombre"
+                >
+                  <i data-lucide="sun" class="theme-toggle-icon"></i>&nbsp;
+                  <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </a>
+                <a
+                  href="#"
+                  class="theme-toggle theme-toggle-light"
+                  aria-label="Basculer le thème clair"
+                >
+                  <i data-lucide="sun" class="theme-toggle-icon"></i>&nbsp;
+                  <i data-lucide="moon" class="theme-toggle-icon"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <aside id="mobile-nav" class="mobile-nav" aria-hidden="true">
+        <div class="mobile-nav-inner">
+          <a href="creation.html" aria-label="Accéder à notre page de création" class="mnav-link">
+            Création
+          </a>
+          <a href="entretien.html" aria-label="Accéder à notre page d'entretien" class="mnav-link">
+            Entretien
+          </a>
+          <a
+            href="maraichage.html"
+            aria-label="Accéder à notre page de maraîchage"
+            class="mnav-link"
+          >
+            Maraîchage
+          </a>
+          <a href="apropos.html" aria-label="Accéder à notre page à propos" class="mnav-link">
+            À propos
+          </a>
+          <div class="mnav-ctas">
+            <a class="btn btn-primary wide" href="estimer.html" aria-label="Faites une estimation">
+              Faites une estimation
+            </a>
+            <a class="btn btn-primary wide" href="contact.html" aria-label="Contactez nous">
+              Contactez nous
+            </a>
+            <a class="btn btn-primary wide" href="tel:+33609564511" aria-label="Appelez nos">
+              06 09 56 45 11
+            </a>
+            <a class="btn btn-secondary wide theme-toggle" href="#" aria-label="Changez d'ambiance">
+              Changez d'ambiance
+            </a>
+            <div class="mnav-social">
+              <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
+                <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+              </a>
+              <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
+                <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+              </a>
+              <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
+                <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div id="scrim" class="scrim" hidden></div>
+    </header>
+
+    <main>
+      <!-- TITLE  -->
+      <section class="title section-pad" aria-label="Mot du président">
+        <div class="title-img">
+          <img
+            class="title-bg img-light"
+            src="images/maraichage_light.webp"
+            alt=""
+            aria-hidden="true"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="title-bg img-dark"
+            src="images/maraichage_dark.webp"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="title-content">
+            <h1>Titre de la page</h1>
+            <p class="sub">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+              lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras
+              elementum ultrices diam.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-ghost btn-lg" href="estimer.html" aria-label="Faites une estimation"
+                >Faites une estimation</a
+              >
+              <a class="btn btn-ghost btn-lg" href="contact.html" aria-label="Contactez nous"
+                >Contactez nous</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO -->
+      <section class="intro section-text section-pad">
+        <div class="container">
+          <h2>Introduction de la page</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+            lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum
+            ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin
+            porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit
+            amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a,
+            enim. Pellentesque congue.
+          </p>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="section-pad">
+        <div class="container">
+          <h2>Cards section</h2>
+          <ul class="cards">
+            <li class="card">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/creation_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/creation_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card title</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/entretien_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/entretien_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card title</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+            </li>
+
+            <li class="card">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/maraichage_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/maraichage_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card title</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+            </li>
+            <li class="card" data-href="creation.html">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/creation_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/creation_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card with link</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="card-footer">
+                <a class="link" href="creation.html" aria-label="Découvrir la création"
+                  >Découvrir</a
+                >
+              </footer>
+            </li>
+
+            <li class="card" data-href="entretien.html">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/entretien_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/entretien_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card with link</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="card-footer">
+                <a class="link" href="entretien.html" aria-label="Découvrir l’entretien"
+                  >Découvrir</a
+                >
+              </footer>
+            </li>
+
+            <li class="card" data-href="maraichage.html">
+              <div class="card-img">
+                <!-- Image pour le thème clair -->
+                <img
+                  class="img-light"
+                  src="images/maraichage_light.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+                <!-- Image pour le thème sombre -->
+                <img
+                  class="img-dark"
+                  src="images/maraichage_dark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">Card with link</h3>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="card-footer">
+                <a class="link" href="maraichage.html" aria-label="Découvrir le maraîchage"
+                  >Découvrir</a
+                >
+              </footer>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="article section-pad">
+        <div class="container">
+          <div class="article-grid">
+            <div class="article-media">
+              <!-- Image pour le thème clair -->
+              <img
+                class="article-img img-light"
+                src="images/creation_light.webp"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+              <!-- Image pour le thème sombre -->
+              <img
+                class="article-img img-dark"
+                src="images/creation_dark.webp"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+              />
+            </div>
+            <div class="article-content">
+              <h2>Article title</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+                lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+              </p>
+              <p>
+                Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi.
+              </p>
+              <p>
+                Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque
+                vitae, consequat in, pretium a, enim. Pellentesque congue.
+              </p>
+              <div class="article-cta">
+                <a class="btn btn-primary" href="#">En savoir plus</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION GALERIE -->
+      <section class="gallery-section section-pad">
+        <div class="container">
+          <h2>Gallery section</h2>
+
+          <!-- Filtres -->
+          <div class="gallery-filters" id="gallery-filters"></div>
+
+          <!-- Galerie -->
+          <div class="gallery" id="gallery">
+            <div class="loading" id="gallery-loading">
+              <div class="spinner"></div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-container" id="pagination-container" style="display: none">
+            <button class="pagination-btn" id="prev-page" disabled>‹</button>
+            <div class="pagination-numbers" id="pagination-numbers"></div>
+            <button class="pagination-btn" id="next-page">›</button>
+            <div class="pagination-info">
+              <span id="page-info">Page 1 sur 1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+          <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+            <div class="lightbox-info">
+              <h3 class="lightbox-title" id="lightbox-title"></h3>
+              <p class="lightbox-description" id="lightbox-description">
+                Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+              </p>
+            </div>
+            <div class="lightbox-counter">
+              <span id="lightbox-counter">1 / 8</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIA -->
+      <section class="section-media section-pad">
+        <div class="container">
+          <h2>Media section</h2>
+          <div class="section-media-img-container">
+            <img
+              class="section-media-img"
+              src="images/avant_apres.webp"
+              alt="Avant / Après"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- CITATION  -->
+      <section class="quote section-text section-pad" aria-label="Mot du président">
+        <div class="container">
+          <blockquote class="quote-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+              lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+            </p>
+            <cite>John Doe</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- TEMOIGNAGES -->
+      <section class="testimonials section-pad" aria-label="Témoignages">
+        <div class="container">
+          <h2>Testimonials section</h2>
+          <div class="cards">
+            <blockquote class="card card-flat">
+              <div class="card-content">
+                <p class="testimonial-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="testimonial-footer">
+                <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <cite>John D. à City</cite>
+              </footer>
+            </blockquote>
+
+            <blockquote class="card card-flat">
+              <div class="card-content">
+                <p class="testimonial-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="testimonial-footer">
+                <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <cite>John D. à City</cite>
+              </footer>
+            </blockquote>
+
+            <blockquote class="card card-flat">
+              <div class="card-content">
+                <p class="testimonial-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                  Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
+                  dolor.
+                </p>
+              </div>
+              <footer class="testimonial-footer">
+                <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <cite>John D. à City</cite>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION -->
+      <section class="section-text section-pad">
+        <div class="container">
+          <h2>Parlons de votre projet</h2>
+          <p>Estimation gratuite et sans engagement — nous vous répondons rapidement.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="estimer.html" aria-label="Faites une estimation"
+              >Demander une estimation</a
+            >
+            <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <strong>Aux Jardins d’Adrien</strong><br />
+          1531 Chem. des Anciens Combattants A.F.N<br />
+          Vence (06140) — Alpes-Maritimes, France<br />
+          <a href="tel:+33609564511" aria-label="Appelez nos"> 06 09 56 45 11 </a>
+        </div>
+        <div class="footer-links">
+          <a class="link" href="estimation.html">Estimation</a>
+          <a class="link" href="contact.html">Contact</a>
+          <a class="link" href="mentions-legales.html">Mentions légales</a>
+          <a class="link" href="confidentialite.html">Confidentialité</a>
+        </div>
+        <div>
+          <div class="footer-social">
+            <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
+              <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+            </a>
+            <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
+              <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+            </a>
+            <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
+              <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+            </a>
+          </div>
+          <div class="footer-small">© <span id="year"></span> — Tous droits réservés.</div>
+        </div>
+      </div>
+    </footer>
+    <!-- Icônes -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <!-- Données structurées (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LandscapingBusiness",
+        "name": "Aux Jardins d'Adrien",
+        "image": [
+          "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+          "https://www.auxjardinsdadrien.com/images/creation_light.webp",
+          "https://www.auxjardinsdadrien.com/images/entretien_light.webp"
+        ],
+        "description": "Création et entretien de jardins haut de gamme à Vence (Côte d'Azur). Estimation gratuite. Crédit d'impôt 50% sur l'entretien.",
+        "slogan": "Le bien-être prend racine dans votre jardin",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1531 Chemin des Anciens Combattants A.F.N",
+          "addressLocality": "Vence",
+          "postalCode": "06140",
+          "addressCountry": "FR",
+          "addressRegion": "Alpes-Maritimes"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.7223",
+          "longitude": "7.1136"
+        },
+        "url": "https://www.auxjardinsdadrien.com",
+        "telephone": "+33609564511",
+        "priceRange": "€€€",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/auxjardinsdadrien",
+          "https://www.instagram.com/auxjardinsdadrien",
+          "https://www.linkedin.com/company/aux-jardins-d-adrien"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services de jardinage",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Création de jardins",
+                "description": "Conception et aménagement de jardins sur-mesure, élégants et durables"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Entretien de jardins",
+                "description": "Contrats annuels et interventions ponctuelles. Crédit d'impôt 50%"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Maraîchage",
+                "description": "Micro-ferme locale : légumes de saison, ateliers potager & bien-être"
+              }
+            }
+          ]
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "Marie P."
+            },
+            "reviewBody": "Un travail soigné et un suivi impeccable. Notre jardin est devenu un véritable havre de paix méditerranéen."
+          },
+          {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "Laurent M."
+            },
+            "reviewBody": "Professionnalisme et créativité. Adrien a su parfaitement intégrer notre piscine dans un écrin de verdure."
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "3",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      }
+    </script>
+  </body>
+</html>

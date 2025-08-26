@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://auxjardinsdadrien.com/sitemap.xml
