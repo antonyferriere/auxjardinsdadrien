@@ -1,6 +1,11 @@
 const htmlmin = require("html-minifier");
+const nunjucks = require("nunjucks");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setLibrary(
+    "njk",
+    nunjucks.configure(["src/layouts", "src/partials", "src"])
+  );
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
