@@ -18,6 +18,9 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Surveille tout le dossier src pour le rechargement à chaud
+  eleventyConfig.addWatchTarget("src");
+
   return {
     dir: {
       input: "src",

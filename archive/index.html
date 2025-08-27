@@ -11,23 +11,48 @@
     />
     <meta name="author" content="Aux Jardins d'Adrien" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Aux Jardins d'Adrien — Paysagiste & Maraîcher à Vence" />
+    <meta
+      property="og:title"
+      content="Aux Jardins d'Adrien — Paysagiste & Maraîcher à Vence"
+    />
     <meta
       property="og:description"
       content="Création et entretien de jardins haut de gamme à Vence (Côte d'Azur). Estimation gratuite. Crédit d'impôt 50% sur l'entretien."
     />
-    <meta property="og:image" content="https://www.auxjardinsdadrien.com/images/og-image.jpg" />
+    <meta
+      property="og:image"
+      content="https://www.auxjardinsdadrien.com/images/og-image.jpg"
+    />
     <meta property="og:url" content="https://www.auxjardinsdadrien.com" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="canonical" href="https://www.auxjardinsdadrien.com" />
     <!-- Icônes -->
-    <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="icons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
     <link rel="shortcut icon" href="icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
     <meta name="apple-mobile-web-app-title" content="Aux Jardins d'Adrien" />
     <link rel="manifest" href="site.webmanifest" />
     <!-- Polices : Light mode (Raleway/Source Sans Pro) & Dark mode (Josefin/Work Sans) -->
@@ -39,13 +64,15 @@
     <script>
       /* Thème : appliquer dès le head pour éviter le flash */
       (function () {
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light' || saved === 'dark') {
-          document.documentElement.setAttribute('data-theme', saved);
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.setAttribute("data-theme", saved);
         } else {
           document.documentElement.setAttribute(
-            'data-theme',
-            window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            "data-theme",
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
           );
         }
       })();
@@ -59,45 +86,85 @@
           <div class="header-social">
             <div class="header-social-inner">
               <div class="social-wrapper">
-                <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
-                  <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+                <a
+                  class="btn btn-social"
+                  href="#"
+                  aria-label="Accéder à notre Facebook"
+                >
+                  <i
+                    data-lucide="facebook"
+                    absolute-stroke="true"
+                    class="icon-social"
+                  ></i>
                 </a>
-                <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
-                  <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+                <a
+                  class="btn btn-social"
+                  href="#"
+                  aria-label="Accéder à notre Instagram"
+                >
+                  <i
+                    data-lucide="instagram"
+                    absolute-stroke="true"
+                    class="icon-social"
+                  ></i>
                 </a>
-                <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
-                  <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+                <a
+                  class="btn btn-social"
+                  href="#"
+                  aria-label="Accéder à notre LinkedIn"
+                >
+                  <i
+                    data-lucide="linkedin"
+                    absolute-stroke="true"
+                    class="icon-social"
+                  ></i>
                 </a>
               </div>
-              <a class="btn btn-cta" href="tel:+33609564511" aria-label="Appelez nous">
+              <a
+                class="btn btn-cta"
+                href="tel:+33609564511"
+                aria-label="Appelez nous"
+              >
                 <div class="cta-content">Appelez nous</div>
                 <div class="cta-title">06 09 56 45 11</div>
               </a>
             </div>
           </div>
-          <a class="brand" href="index.html" aria-label="Accueil Aux Jardins d’Adrien">
+          <a
+            class="brand"
+            href="index.html"
+            aria-label="Accueil Aux Jardins d’Adrien"
+          >
             <img
               class="logo logo-light"
-              src="images/logo_auxjardinsdadrien_light.png"
+              src="/images/logo_auxjardinsdadrien_light.png"
               alt="Logo Aux Jardins d’Adrien (clair)"
             />
             <img
               class="logo logo-dark"
-              src="images/logo_auxjardinsdadrien_dark.png"
+              src="/images/logo_auxjardinsdadrien_dark.png"
               alt="Logo Aux Jardins d’Adrien (sombre)"
             />
             <img
               class="logo logo-contrast"
-              src="images/logo_auxjardinsdadrien_contrast.png"
+              src="/images/logo_auxjardinsdadrien_contrast.png"
               alt="Logo Aux Jardins d’Adrien (contraste)"
             />
           </a>
           <div class="header-ctas">
-            <a class="btn btn-cta" href="estimer.html" aria-label="Faites une estimation">
+            <a
+              class="btn btn-cta"
+              href="/estimer.html"
+              aria-label="Faites une estimation"
+            >
               <div class="cta-content">Un projet</div>
               <div class="cta-title">Faites une estimation</div>
             </a>
-            <a class="btn btn-cta" href="contact.html" aria-label="Contactez nous">
+            <a
+              class="btn btn-cta"
+              href="/contact.html"
+              aria-label="Contactez nous"
+            >
               <div class="cta-content">Une demande</div>
               <div class="cta-title">Contactez nous</div>
             </a>
@@ -119,18 +186,32 @@
           <nav class="nav">
             <ul class="nav-list">
               <li>
-                <a href="creation.html" aria-label="Accéder à notre page de création">Création</a>
+                <a
+                  href="creation.html"
+                  aria-label="Accéder à notre page de création"
+                  >Création</a
+                >
               </li>
               <li>
-                <a href="entretien.html" aria-label="Accéder à notre page d'entretien">Entretien</a>
+                <a
+                  href="entretien.html"
+                  aria-label="Accéder à notre page d'entretien"
+                  >Entretien</a
+                >
               </li>
               <li>
-                <a href="maraichage.html" aria-label="Accéder à notre page de maraîchage"
+                <a
+                  href="maraichage.html"
+                  aria-label="Accéder à notre page de maraîchage"
                   >Maraîchage</a
                 >
               </li>
               <li>
-                <a href="apropos.html" aria-label="Accéder à notre page à propos">À propos</a>
+                <a
+                  href="apropos.html"
+                  aria-label="Accéder à notre page à propos"
+                  >À propos</a
+                >
               </li>
               <li>
                 <a
@@ -156,10 +237,18 @@
       </div>
       <aside id="mobile-nav" class="mobile-nav" aria-hidden="true">
         <div class="mobile-nav-inner">
-          <a href="creation.html" aria-label="Accéder à notre page de création" class="mnav-link">
+          <a
+            href="creation.html"
+            aria-label="Accéder à notre page de création"
+            class="mnav-link"
+          >
             Création
           </a>
-          <a href="entretien.html" aria-label="Accéder à notre page d'entretien" class="mnav-link">
+          <a
+            href="entretien.html"
+            aria-label="Accéder à notre page d'entretien"
+            class="mnav-link"
+          >
             Entretien
           </a>
           <a
@@ -169,31 +258,75 @@
           >
             Maraîchage
           </a>
-          <a href="apropos.html" aria-label="Accéder à notre page à propos" class="mnav-link">
+          <a
+            href="apropos.html"
+            aria-label="Accéder à notre page à propos"
+            class="mnav-link"
+          >
             À propos
           </a>
           <div class="mnav-ctas">
-            <a class="btn btn-primary wide" href="estimer.html" aria-label="Faites une estimation">
+            <a
+              class="btn btn-primary wide"
+              href="/estimer.html"
+              aria-label="Faites une estimation"
+            >
               Faites une estimation
             </a>
-            <a class="btn btn-primary wide" href="contact.html" aria-label="Contactez nous">
+            <a
+              class="btn btn-primary wide"
+              href="/contact.html"
+              aria-label="Contactez nous"
+            >
               Contactez nous
             </a>
-            <a class="btn btn-primary wide" href="tel:+33609564511" aria-label="Appelez nos">
+            <a
+              class="btn btn-primary wide"
+              href="tel:+33609564511"
+              aria-label="Appelez nos"
+            >
               06 09 56 45 11
             </a>
-            <a class="btn btn-secondary wide theme-toggle" href="#" aria-label="Changez d'ambiance">
+            <a
+              class="btn btn-secondary wide theme-toggle"
+              href="#"
+              aria-label="Changez d'ambiance"
+            >
               Changez d'ambiance
             </a>
             <div class="mnav-social">
-              <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
-                <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+              <a
+                class="btn btn-social"
+                href="#"
+                aria-label="Accéder à notre Facebook"
+              >
+                <i
+                  data-lucide="facebook"
+                  absolute-stroke="true"
+                  class="icon-social"
+                ></i>
               </a>
-              <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
-                <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+              <a
+                class="btn btn-social"
+                href="#"
+                aria-label="Accéder à notre Instagram"
+              >
+                <i
+                  data-lucide="instagram"
+                  absolute-stroke="true"
+                  class="icon-social"
+                ></i>
               </a>
-              <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
-                <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+              <a
+                class="btn btn-social"
+                href="#"
+                aria-label="Accéder à notre LinkedIn"
+              >
+                <i
+                  data-lucide="linkedin"
+                  absolute-stroke="true"
+                  class="icon-social"
+                ></i>
               </a>
             </div>
           </div>
@@ -209,12 +342,20 @@
           <!-- Image gérée par JS en background pour couvrir 100svh -->
           <div class="hero-content">
             <h1>Le bien-être prend racine dans votre jardin</h1>
-            <p class="sub">Paysagiste & maraîcher à Vence — qualité, réactivité, savoir-faire</p>
+            <p class="sub">
+              Paysagiste & maraîcher à Vence — qualité, réactivité, savoir-faire
+            </p>
             <div class="cta-row">
-              <a class="btn btn-ghost btn-lg" href="estimer.html" aria-label="Faites une estimation"
+              <a
+                class="btn btn-ghost btn-lg"
+                href="/estimer.html"
+                aria-label="Faites une estimation"
                 >Faites une estimation</a
               >
-              <a class="btn btn-ghost btn-lg" href="contact.html" aria-label="Contactez nous"
+              <a
+                class="btn btn-ghost btn-lg"
+                href="/contact.html"
+                aria-label="Contactez nous"
                 >Contactez nous</a
               >
             </div>
@@ -241,7 +382,7 @@
                 <!-- Image pour le thème clair -->
                 <img
                   class="img-light"
-                  src="images/creation_light.webp"
+                  src="/images/creation_light.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -249,7 +390,7 @@
                 <!-- Image pour le thème sombre -->
                 <img
                   class="img-dark"
-                  src="images/creation_dark.webp"
+                  src="/images/creation_dark.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -258,11 +399,15 @@
               <div class="card-content">
                 <h3 class="card-title">Création</h3>
                 <p class="card-text">
-                  Conception et aménagement de jardins sur-mesure, élégants et durables.
+                  Conception et aménagement de jardins sur-mesure, élégants et
+                  durables.
                 </p>
               </div>
               <footer class="card-footer">
-                <a class="link" href="creation.html" aria-label="Découvrir la création"
+                <a
+                  class="link"
+                  href="creation.html"
+                  aria-label="Découvrir la création"
                   >Découvrir</a
                 >
               </footer>
@@ -273,7 +418,7 @@
                 <!-- Image pour le thème clair -->
                 <img
                   class="img-light"
-                  src="images/entretien_light.webp"
+                  src="/images/entretien_light.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -281,7 +426,7 @@
                 <!-- Image pour le thème sombre -->
                 <img
                   class="img-dark"
-                  src="images/entretien_dark.webp"
+                  src="/images/entretien_dark.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -290,11 +435,15 @@
               <div class="card-content">
                 <h3 class="card-title">Entretien</h3>
                 <p class="card-text">
-                  Contrats annuels et interventions ponctuelles. Crédit d’impôt 50%.
+                  Contrats annuels et interventions ponctuelles. Crédit d’impôt
+                  50%.
                 </p>
               </div>
               <footer class="card-footer">
-                <a class="link" href="entretien.html" aria-label="Découvrir l’entretien"
+                <a
+                  class="link"
+                  href="entretien.html"
+                  aria-label="Découvrir l’entretien"
                   >Découvrir</a
                 >
               </footer>
@@ -305,7 +454,7 @@
                 <!-- Image pour le thème clair -->
                 <img
                   class="img-light"
-                  src="images/maraichage_light.webp"
+                  src="/images/maraichage_light.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -313,7 +462,7 @@
                 <!-- Image pour le thème sombre -->
                 <img
                   class="img-dark"
-                  src="images/maraichage_dark.webp"
+                  src="/images/maraichage_dark.webp"
                   alt=""
                   aria-hidden="true"
                   loading="lazy"
@@ -322,11 +471,15 @@
               <div class="card-content">
                 <h3 class="card-title">Maraîchage</h3>
                 <p class="card-text">
-                  Micro-ferme locale : légumes de saison, ateliers potager & bien-être.
+                  Micro-ferme locale : légumes de saison, ateliers potager &
+                  bien-être.
                 </p>
               </div>
               <footer class="card-footer">
-                <a class="link" href="maraichage.html" aria-label="Découvrir le maraîchage"
+                <a
+                  class="link"
+                  href="maraichage.html"
+                  aria-label="Découvrir le maraîchage"
                   >Découvrir</a
                 >
               </footer>
@@ -336,12 +489,15 @@
       </section>
 
       <!-- NOS VALEURS  -->
-      <section class="quote section-text section-pad" aria-label="Mot du président">
+      <section
+        class="quote section-text section-pad"
+        aria-label="Mot du président"
+      >
         <div class="container">
           <blockquote class="quote-content">
             <p>
-              Un jardin est un rêve de beauté qui devient réalité, un espace où la nature et l'art
-              s'harmonisent pour créer votre havre de paix.
+              Un jardin est un rêve de beauté qui devient réalité, un espace où
+              la nature et l'art s'harmonisent pour créer votre havre de paix.
             </p>
             <cite>Adrien Goffoz</cite>
           </blockquote>
@@ -356,8 +512,8 @@
             <blockquote class="card card-flat">
               <div class="card-content">
                 <p class="testimonial-text">
-                  Un travail soigné et un suivi impeccable. Notre jardin est devenu un véritable
-                  havre de paix méditerranéen.
+                  Un travail soigné et un suivi impeccable. Notre jardin est
+                  devenu un véritable havre de paix méditerranéen.
                 </p>
               </div>
               <footer class="testimonial-footer">
@@ -369,8 +525,8 @@
             <blockquote class="card card-flat">
               <div class="card-content">
                 <p class="testimonial-text">
-                  Professionnalisme et créativité. Adrien a su parfaitement intégrer notre piscine
-                  dans un écrin de verdure.
+                  Professionnalisme et créativité. Adrien a su parfaitement
+                  intégrer notre piscine dans un écrin de verdure.
                 </p>
               </div>
               <footer class="testimonial-footer">
@@ -382,8 +538,8 @@
             <blockquote class="card card-flat">
               <div class="card-content">
                 <p class="testimonial-text">
-                  Les légumes de la micro-ferme sont délicieux et les ateliers potager très
-                  enrichissants. Une belle découverte !
+                  Les légumes de la micro-ferme sont délicieux et les ateliers
+                  potager très enrichissants. Une belle découverte !
                 </p>
               </div>
               <footer class="testimonial-footer">
@@ -399,12 +555,18 @@
       <section class="section-text section-pad">
         <div class="container">
           <h2>Parlons de votre projet</h2>
-          <p>Estimation gratuite et sans engagement — nous vous répondons rapidement.</p>
+          <p>
+            Estimation gratuite et sans engagement — nous vous répondons
+            rapidement.
+          </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="estimer.html" aria-label="Faites une estimation"
+            <a
+              class="btn btn-primary"
+              href="/estimer.html"
+              aria-label="Faites une estimation"
               >Demander une estimation</a
             >
-            <a class="btn btn-primary" href="contact.html">Nous contacter</a>
+            <a class="btn btn-primary" href="/contact.html">Nous contacter</a>
           </div>
         </div>
       </section>
@@ -417,27 +579,55 @@
           <strong>Aux Jardins d’Adrien</strong><br />
           1531 Chemin des Anciens Combattants en A.F.N<br />
           Vence (06140) — Alpes-Maritimes, France<br />
-          <a href="tel:+33609564511" aria-label="Appelez nos"> 06 09 56 45 11 </a>
+          <a href="tel:+33609564511" aria-label="Appelez nos">
+            06 09 56 45 11
+          </a>
         </div>
         <div class="footer-links">
           <a class="link" href="estimation.html">Estimation</a>
-          <a class="link" href="contact.html">Contact</a>
+          <a class="link" href="/contact.html">Contact</a>
           <a class="link" href="mentions-legales.html">Mentions légales</a>
           <a class="link" href="confidentialite.html">Confidentialité</a>
         </div>
         <div>
           <div class="footer-social">
-            <a class="btn btn-social" href="#" aria-label="Accéder à notre Facebook">
-              <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+            <a
+              class="btn btn-social"
+              href="#"
+              aria-label="Accéder à notre Facebook"
+            >
+              <i
+                data-lucide="facebook"
+                absolute-stroke="true"
+                class="icon-social"
+              ></i>
             </a>
-            <a class="btn btn-social" href="#" aria-label="Accéder à notre Instagram">
-              <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+            <a
+              class="btn btn-social"
+              href="#"
+              aria-label="Accéder à notre Instagram"
+            >
+              <i
+                data-lucide="instagram"
+                absolute-stroke="true"
+                class="icon-social"
+              ></i>
             </a>
-            <a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
-              <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+            <a
+              class="btn btn-social"
+              href="#"
+              aria-label="Accéder à notre LinkedIn"
+            >
+              <i
+                data-lucide="linkedin"
+                absolute-stroke="true"
+                class="icon-social"
+              ></i>
             </a>
           </div>
-          <div class="footer-small">© <span id="year"></span> — Tous droits réservés.</div>
+          <div class="footer-small">
+            © <span id="year"></span> — Tous droits réservés.
+          </div>
         </div>
       </div>
     </footer>
