@@ -5,6 +5,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("eleventy-plugin-postcss"), {
     plugins: [require("cssnano")],
   });
+  eleventyConfig.addPassthroughCopy("src/styles");
+  eleventyConfig.addWatchTarget("src/styles");
 
   return {
     dir: {
