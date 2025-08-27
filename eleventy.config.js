@@ -6,6 +6,10 @@ module.exports = function (eleventyConfig) {
     plugins: [require("cssnano")],
   });
 
+  eleventyConfig.setTemplateFormats(["njk"]);
+  eleventyConfig.addPassthroughCopy("src");
+  eleventyConfig.addWatchTarget("src");
+
   return {
     dir: {
       input: "src",
