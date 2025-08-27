@@ -6,7 +6,6 @@
 
 // Configuration
 const IMAGES_PER_PAGE = 6;
-const BASE_URL = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
 const IMG_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif', '.svg']);
 
 // Variables globales
@@ -32,8 +31,9 @@ async function loadImages() {
     galleryLoading.style.display = 'flex';
 
     // Charger la base de données d'images
-    const res = await fetch(`${BASE_URL}/scripts/galler.json`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Impossible de charger gallery.json');
+    const json = `/scripts/gallery.json`;
+    const res = await fetch(json, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Impossible de charger ${json}`);
     imageDatabase = await res.json();
 
     // Générer les filtres dynamiquement
@@ -46,7 +46,7 @@ async function loadImages() {
         allImages.push({
           ...image,
           category,
-          src: `${BASE_URL}${image.url}`,
+          src: image.url,
           title: image.title,
           description: image.description,
         });

@@ -4,7 +4,7 @@
   <body>
     {% include "_header.njk" %}
     <main id="content" role="main">
-      {{ content | safe }}
+      {% block content %}{% endblock %}
       <!-- CALL TO ACTION -->
       <section class="section-text section-pad">
         <div class="container">
@@ -19,7 +19,6 @@
         </div>
       </section>
     </main>
-    {% include "_footer.njk" %} {% include "_scripts.njk" %}
-    {{ scripts | safe }}
+    {% include "_footer.njk" %} {% include "_scripts.njk" %} {% block scripts %}{% endblock %}
   </body>
 </html>
