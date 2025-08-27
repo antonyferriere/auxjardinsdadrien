@@ -6,9 +6,9 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 <!-- TITLE  -->
 <section class="title section-pad" aria-label="Mot du président">
   <div class="title-img">
-    <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-light" src="/images/maraichage_light.webp" alt="" aria-hidden="true" />
     <!-- Image pour le thème sombre -->
-    <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-dark" src="/images/maraichage_dark.webp" alt="" aria-hidden="true" />
     <div class="title-content">
       <h1>Titre de la page</h1>
       <p class="sub">
@@ -414,4 +414,10 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 {% endblock %} {% block scripts %}
 <script src="/scripts/gallery.js"></script>
+<script src="/scripts/maps.js"></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
 {% endblock %}
