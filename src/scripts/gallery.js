@@ -32,8 +32,8 @@ async function loadImages() {
     galleryLoading.style.display = 'flex';
 
     // Charger la base de données d'images
-    const res = await fetch(`${BASE_URL}/galleryImages.json`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Impossible de charger galleryImages.json');
+    const res = await fetch(`${BASE_URL}/scripts/galler.json`, { cache: 'no-store' });
+    if (!res.ok) throw new Error('Impossible de charger gallery.json');
     imageDatabase = await res.json();
 
     // Générer les filtres dynamiquement
