@@ -3,6 +3,10 @@ module.exports = function (eleventyConfig) {
     plugins: [require("cssnano")],
   });
 
+  eleventyConfig.setTemplateFormats(["njk"]);
+  eleventyConfig.addPassthroughCopy("src");
+  eleventyConfig.addWatchTarget("src");
+
   eleventyConfig.addTransform("jsmin", async (content, path) => {
     if (path.endsWith(".js")) {
       return (await require("terser").minify(content)).code;
