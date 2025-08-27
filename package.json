@@ -20,7 +20,7 @@
   "homepage": "https://github.com/antonyferriere/auxjardinsdadrien#readme",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "html-minifier": "^4.0.0",
+    "html-minifier-terser": "^6.1.0",
     "terser": "^5.43.1"
   },
   "devDependencies": {

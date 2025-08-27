@@ -18,6 +18,20 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.addTransform("htmlmin", async (content, path) => {
+    if (
+      process.env.NODE_ENV === "production" &&
+      path.endsWith(".html")
+    ) {
+      return await require("html-minifier-terser").minify(content, {
+        collapseWhitespace: true,
+        removeComments: true,
+        useShortDoctype: true,
+      });
+    }
+    return content;
+  });
+
   eleventyConfig.addPlugin(require("eleventy-plugin-postcss"), {
     plugins: [require("cssnano")],
   });
