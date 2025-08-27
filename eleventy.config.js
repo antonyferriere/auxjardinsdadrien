@@ -1,6 +1,11 @@
+const nunjucks = require("nunjucks");
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats(["njk"]);
-  eleventyConfig.addPassthroughCopy("src");
+  eleventyConfig.setLibrary(
+    "njk",
+    nunjucks.configure(["src/layouts", "src/partials", "src"])
+  );
   eleventyConfig.addWatchTarget("src");
   eleventyConfig.addPassthroughCopy("src/icons");
   eleventyConfig.addWatchTarget("src/icons");
@@ -19,20 +24,22 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addTransform("htmlmin", async (content, path) => {
-    if (
-      process.env.NODE_ENV === "production" &&
-      path.endsWith(".html")
-    ) {
+    if (process.env.NODE_ENV === "production" && path.endsWith(".html")) {
       return await require("html-minifier-terser").minify(content, {
         collapseWhitespace: true,
         removeComments: true,
         useShortDoctype: true,
+        removeAttributeQuotes: true,
+        minifyCSS: true,
       });
     }
     return content;
   });
 
-  eleventyConfig.addPlugin(require("eleventy-plugin-postcss"), {
+  const postcssPlugin =
+    require("eleventy-plugin-postcss").default ||
+    require("eleventy-plugin-postcss");
+  eleventyConfig.addPlugin(postcssPlugin, {
     plugins: [require("cssnano")],
   });
 
@@ -40,6 +47,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src",
       output: "build",
+      layouts: "layouts",
+      includes: "partials",
     },
   };
 };
