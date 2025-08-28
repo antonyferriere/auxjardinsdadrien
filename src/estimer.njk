@@ -1,10 +1,20 @@
 {% set seo = { title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", description: "Prenez
 contact pour votre projet de jardin à Vence.", canonical: "https://www.auxjardinsdadrien.com",
 ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% extends "default.njk" %}
-{% block content %}
-
+{% block styles %}
+<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %} {% block scripts %}
+<script src="/scripts/gallery.js"></script>
+<script src="/scripts/maps.js"></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %} {% block content %}
 <!-- TITLE  -->
-<section class="title section-pad" aria-label="Mot du président">
+<section class="title" aria-label="Mot du président">
   <div class="title-img">
     <img class="title-bg img-light" src="/images/maraichage_light.webp" alt="" aria-hidden="true" />
     <!-- Image pour le thème sombre -->
@@ -29,7 +39,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- INTRO -->
-<section class="intro section-text section-pad">
+<section class="intro section-text section-elevated">
   <div class="container">
     <h2>Introduction de la page</h2>
     <p>
@@ -44,7 +54,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- CARDS -->
-<section class="section-pad">
+<section class="">
   <div class="container">
     <h2>Cards section</h2>
     <ul class="cards">
@@ -227,7 +237,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
   </div>
 </section>
 
-<section class="article section-pad">
+<section class="article">
   <div class="container">
     <div class="article-grid">
       <div class="article-media">
@@ -273,7 +283,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- SECTION GALERIE -->
-<section class="gallery-section section-pad">
+<section class="gallery-section">
   <div class="container">
     <h2>Gallery section</h2>
 
@@ -319,7 +329,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- SECTION ZONE D'INTERVENTION -->
-<section class="zone-intervention section-pad">
+<section class="zone-intervention">
   <div class="container">
     <h2>Zone d'intervention</h2>
     <div class="zone-intervention-content">
@@ -339,7 +349,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- MEDIA -->
-<section class="section-media section-pad">
+<section class="section-media">
   <div class="container">
     <h2>Media section</h2>
     <div class="section-media-img-container">
@@ -354,7 +364,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- CITATION  -->
-<section class="quote section-text section-pad" aria-label="Mot du président">
+<section class="quote section-text section-elevated" aria-label="Mot du président">
   <div class="container">
     <blockquote class="quote-content">
       <p>
@@ -367,7 +377,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- TEMOIGNAGES -->
-<section class="testimonials section-pad" aria-label="Témoignages">
+<section class="testimonials" aria-label="Témoignages">
   <div class="container">
     <h2>Testimonials section</h2>
     <div class="cards">
@@ -412,12 +422,4 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
     </div>
   </div>
 </section>
-{% endblock %} {% block scripts %}
-<script src="/scripts/gallery.js"></script>
-<script src="/scripts/maps.js"></script>
-<script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
-></script>
 {% endblock %}

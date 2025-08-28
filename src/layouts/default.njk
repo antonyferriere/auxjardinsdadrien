@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="auto">
-  {% include "_head.njk" %}
+  <head>
+    {% include "_head.njk" %} {% block styles %}{% endblock %}
+  </head>
   <body>
     {% include "_header.njk" %}
     <main id="content" role="main">
       {% block content %}{% endblock %}
       <!-- CALL TO ACTION -->
-      <section class="section-text section-pad">
+      <section class="section-text section-elevated">
         <div class="container">
           <h2>Parlons de votre projet</h2>
           <p>Estimation gratuite et sans engagement — nous vous répondons rapidement.</p>

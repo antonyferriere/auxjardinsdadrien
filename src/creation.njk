@@ -3,7 +3,7 @@ contact pour votre projet de jardin à Vence.", canonical: "https://www.auxjardi
 ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% extends "default.njk" %}
 {% block content %}
 <!-- TITLE  -->
-<section class="title section-pad" aria-label="Mot du président">
+<section class="title" aria-label="Mot du président">
   <div class="title-img">
     <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
     <!-- Image pour le thème sombre -->
@@ -27,7 +27,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- INTRO -->
-<section class="intro section-text section-pad">
+<section class="intro section-text section-elevated">
   <div class="container">
     <h2>Un jardin unique, pensé pour durer</h2>
     <p>
@@ -39,7 +39,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- EXPERTISE -->
-<section class="expertise section-pad" aria-label="Nos expertises en création">
+<section class="expertise" aria-label="Nos expertises en création">
   <div class="container">
     <h2>Nos expertises en création</h2>
     <ul class="cards">
@@ -156,7 +156,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- PROCESSUS -->
-<section class="processus section-pad" aria-label="Notre processus">
+<section class="processus" aria-label="Notre processus">
   <div class="container">
     <h2>Notre processus</h2>
     <ul class="cards">
@@ -245,15 +245,17 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- AVANT / APRES -->
-<section class="section-media section-pad">
+<section class="section-media">
   <div class="container">
     <h2>Avant / Après</h2>
-    <img
-      class="section-media-img"
-      src="/images/avant_apres.webp"
-      alt="Avant / Après"
-      loading="lazy"
-    />
+    <div class="section-media-img-container">
+      <img
+        class="section-media-img"
+        src="/images/avant_apres.webp"
+        alt="Avant / Après"
+        loading="lazy"
+      />
+    </div>
   </div>
 </section>
-{% endblock %} {% block scripts %} {% endblock %}
+{% endblock %}

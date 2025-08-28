@@ -1,0 +1,320 @@
+/* ===============================
+   HEADER
+   =============================== */
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--bg);
+  transition: all 0.5s ease;
+  border-bottom: 1px solid var(--separator);
+  padding-top: var(--spacing-sm);
+}
+.header.page-top {
+  background: transparent;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  border: none;
+}
+.header-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0;
+}
+@media (min-width: 980px) {
+  .header-row {
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: var(--spacing-md);
+  }
+}
+
+/* ===============================
+   BRAND
+   =============================== */
+.brand {
+  grid-column: 2;
+  justify-self: left;
+  width: 20%;
+}
+@media (min-width: 980px) {
+  .brand {
+    justify-self: center;
+  }
+}
+
+.logo {
+  height: 4rem;
+}
+.logo-dark {
+  display: none;
+}
+.logo-contrast {
+  display: none;
+}
+[data-theme='dark'] .logo-dark {
+  display: block;
+}
+[data-theme='dark'] .logo-light {
+  display: none;
+}
+[data-theme='light'] .header.page-top .logo-contrast {
+  display: block;
+}
+[data-theme='light'] .header.page-top .logo-light {
+  display: none;
+}
+
+/* ===============================
+   NAV DESKTOP
+   =============================== */
+.header-row:nth-child(2) {
+  display: flex;
+  justify-content: center;
+}
+.nav {
+  display: none;
+  width: 100%;
+}
+@media (min-width: 980px) {
+  .nav {
+    display: block;
+    justify-self: center;
+  }
+}
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-list a {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-flex;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: var(--spacing-sm);
+}
+.nav-list a:hover {
+  text-decoration: none;
+}
+[data-theme='light'] .page-top .nav-list a {
+  color: #fff;
+}
+.nav-list a:hover,
+.nav-list a.active {
+  filter: brightness(1.1);
+}
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+[data-theme='light'] .header.page-top .nav-list a::after {
+  background: #fff;
+}
+.nav-list a:hover::after,
+.nav-list a.active::after {
+  width: 100%;
+}
+
+/* ===============================
+   CTA
+   =============================== */
+.header-social,
+.header-ctas {
+  display: none;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+  width: 40%;
+}
+@media (min-width: 980px) {
+  .header-ctas,
+  .header-social {
+    display: flex;
+  }
+}
+
+.header-social {
+  grid-column: 1;
+}
+
+.header-ctas {
+  grid-column: 3;
+}
+
+.header-social-inner {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.social-wrapper {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-wrapper .btn-social {
+  height: calc(var(--spacing-sm) + var(--spacing-xxs) + var(--spacing-xxs));
+}
+
+.btn-cta {
+  color: var(--primary);
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  border: none;
+}
+[data-theme='light'] .page-top .btn-cta {
+  color: #fff;
+}
+.btn-cta .cta-content {
+  font-weight: 400;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-cta .cta-title {
+  font-family: var(--font-title);
+  letter-spacing: 0.2px;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===============================
+   THEME
+   =============================== */
+a.theme-toggle-light {
+  display: none;
+}
+[data-theme='dark'] a.theme-toggle-dark {
+  display: none;
+}
+[data-theme='dark'] a.theme-toggle-light {
+  display: inline-flex;
+}
+.theme-toggle-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+a.theme-toggle:hover::after,
+a.theme-toggle.active::after {
+  width: 0;
+}
+
+/* ===============================
+   BURGER
+   =============================== */
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--primary);
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+@media (min-width: 980px) {
+  .burger {
+    display: none;
+  }
+}
+.burger-bar {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--bg);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.burger.open .burger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open .burger-bar:nth-child(2) {
+  opacity: 0;
+}
+.burger.open .burger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===============================
+   MOBILE NAV (slide-in)
+   =============================== */
+.mobile-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(76vw, 360px);
+  background: var(--bg);
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+  z-index: 1001;
+  box-shadow: var(--shadow-sm);
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+.mobile-nav-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+.mnav-link {
+  border-radius: var(--border-radius-btn);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-shadow: none;
+}
+.mnav-link:hover,
+.mnav-link.active {
+  background: color-mix(in oklab, var(--primary) 12%, var(--bg));
+}
+.mnav-ctas {
+  margin-top: auto;
+  display: grid;
+  gap: var(--spacing-md);
+}
+.mnav-social {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+/* ===============================
+   SCRIM
+   =============================== */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.scrim.show {
+  opacity: 1;
+}
+.scrim[hidden] {
+  display: none;
+}

@@ -1,10 +1,20 @@
 {% set seo = { title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", description: "Prenez
 contact pour votre projet de jardin à Vence.", canonical: "https://www.auxjardinsdadrien.com",
 ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% extends "default.njk" %}
-{% block content %}
-
+{% block styles %}
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script src="/scripts/contact.js" defer></script>
+<script src="/scripts/maps.js" defer></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %} {% block content %}
 <!-- TITLE -->
-<section class="title section-pad">
+<section class="title">
   <div class="title-img">
     <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
     <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
@@ -16,7 +26,7 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- CONTACT FORM -->
-<section class="section-pad">
+<section class="">
   <div class="container">
     <h2>Envoyez-nous un message</h2>
     <div class="zone-intervention-content">
@@ -56,14 +66,4 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
     </div>
   </div>
 </section>
-
-{% endblock %} {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
-<script src="/scripts/contact.js" defer></script>
-<script src="/scripts/maps.js" defer></script>
-<script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
-></script>
 {% endblock %}
