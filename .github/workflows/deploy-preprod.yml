@@ -1,4 +1,4 @@
-name: Deploy PREPROD (FTP root, clean)
+name: Deploy PREPROD (FTP, clean)
 
 on:
   push:
@@ -32,15 +32,10 @@ jobs:
       - name: Build Eleventy -> build/
         run: npx eleventy --output=build
 
-      # ⚠️ AVERTISSEMENT : tu vas purger la racine de TON FTP
-      # Assure-toi que la racine FTP pointe bien sur le dossier voulu (souvent public_html/ chez o2switch)
       - name: Echo target
-        run: |
-          echo "➡️  Déploiement sur la RACINE FTP ('/')."
-          echo "    Si ta racine FTP = public_html/, tout va bien."
-          echo "    Sinon, STOP et crée un sous-dossier dédié."
+        run: echo "➡️  Déploiement sur '${{ secrets.FTP_DIR }}' (contenu nettoyé avant upload)"
 
-      - name: Deploy via FTP (clean slate on root)
+      - name: Deploy via FTP (clean slate)
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -49,7 +44,7 @@ jobs:
           protocol: ftp
           port: ${{ secrets.FTP_PORT || 21 }}
           local-dir: build/
-          server-dir: /
+          server-dir: ${{ secrets.FTP_DIR }}
           dangerous-clean-slate: true
           # NB: avec 'dangerous-clean-slate: true', tout est supprimé
           # dans 'server-dir' avant l'upload. Les 'exclude' ne protègent PAS
