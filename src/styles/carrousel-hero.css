@@ -50,16 +50,6 @@
 .hero-content > * {
   margin: 0;
 }
-.sub {
-  font-size: clamp(16px, 1.4vw, 18px);
-}
-
-.cta-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-}
 
 /* Points du carrousel */
 .carousel-controls {
