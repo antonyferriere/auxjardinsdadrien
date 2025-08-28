@@ -36,7 +36,7 @@ jobs:
         run: echo "➡️  Déploiement sur '${{ secrets.FTP_DIR }}' (contenu nettoyé avant upload) "
 
       - name: Deploy via FTP (clean slate)
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
