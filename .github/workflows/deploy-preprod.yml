@@ -1,0 +1,56 @@
+name: Deploy PREPROD (FTP root, clean)
+
+on:
+  push:
+    branches: [preprod]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-preprod
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: PREPROD
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build Eleventy -> build/
+        run: npx eleventy --output=build
+
+      # ⚠️ AVERTISSEMENT : tu vas purger la racine de TON FTP
+      # Assure-toi que la racine FTP pointe bien sur le dossier voulu (souvent public_html/ chez o2switch)
+      - name: Echo target
+        run: |
+          echo "➡️  Déploiement sur la RACINE FTP ('/')."
+          echo "    Si ta racine FTP = public_html/, tout va bien."
+          echo "    Sinon, STOP et crée un sous-dossier dédié."
+
+      - name: Deploy via FTP (clean slate on root)
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: ${{ secrets.FTP_PORT || 21 }}
+          local-dir: build/
+          server-dir: /
+          dangerous-clean-slate: true
+          # NB: avec 'dangerous-clean-slate: true', tout est supprimé
+          # dans 'server-dir' avant l'upload. Les 'exclude' ne protègent PAS
+          # les fichiers distants déjà présents.

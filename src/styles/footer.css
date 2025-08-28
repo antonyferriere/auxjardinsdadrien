@@ -14,6 +14,11 @@
   gap: var(--spacing-md);
   align-items: start;
 }
+@media (min-width: 760px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr auto;
+  }
+}
 .footer-links {
   display: flex;
   gap: var(--spacing-xs);
@@ -24,11 +29,6 @@
   margin-bottom: var(--spacing-md);
   display: flex;
   gap: var(--spacing-sm);
-}
-@media (min-width: 760px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr auto;
-  }
 }
 .footer .btn-social {
   background: var(--accent);
