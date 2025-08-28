@@ -1,9 +1,20 @@
-{% set seo = { title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", description: "Prenez
-contact pour votre projet de jardin à Vence.", canonical: "https://www.auxjardinsdadrien.com",
-ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% extends "default.njk" %}
+
+{% extends "default.njk" %}
+
+{% 
+  set seo = { 
+    title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", 
+    description: "Prenez contact pour votre projet de jardin à Vence.", 
+    canonical: "https://www.auxjardinsdadrien.com",
+    ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" 
+  } 
+%} 
+
 {% block styles %}
 <link rel="stylesheet" href="/styles/maps.css" />
-{% endblock %} {% block scripts %}
+{% endblock %} 
+
+{% block scripts %}
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <script src="/scripts/contact.js" defer></script>
 <script src="/scripts/maps.js" defer></script>
@@ -12,7 +23,9 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
   defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
 ></script>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <!-- TITLE -->
 <section class="title">
   <div class="title-img">
@@ -26,9 +39,12 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
 </section>
 
 <!-- CONTACT FORM -->
-<section class="">
+<section class="contact">
   <div class="container">
     <h2>Envoyez-nous un message</h2>
+    <p>
+      Nous intervenons dans un rayon de <strong>20 kilomètres autour de Vence</strong>.
+    </p>
     <div class="zone-intervention-content">
       <form id="contact-form" class="contact-form" action="#" method="post">
         <div class="form-field">
@@ -46,9 +62,6 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
         <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
       </form>
       <div>
-        <p style="margin-top: 0">
-          Nous intervenons dans un rayon de <strong>20 kilomètres autour de Vence</strong>.
-        </p>
         <div class="map-container">
           <div class="map-loader" id="map-loader">
             <div class="spinner"></div>

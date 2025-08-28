@@ -1,10 +1,20 @@
-{% set seo = { title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", description: "Prenez
-contact pour votre projet de jardin à Vence.", canonical: "https://www.auxjardinsdadrien.com",
-ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% extends "default.njk" %}
+{% extends "default.njk" %}
+
+{% 
+  set seo = { 
+    title: "Aux Jardins d’Adrien — Paysagiste & Maraîcher à Vence", 
+    description: "Prenez contact pour votre projet de jardin à Vence.", 
+    canonical: "https://www.auxjardinsdadrien.com", 
+    ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" 
+  } 
+%} 
+
 {% block styles %}
 <link rel="stylesheet" href="/styles/gallery.css" />
 <link rel="stylesheet" href="/styles/maps.css" />
-{% endblock %} {% block scripts %}
+{% endblock %} 
+
+{% block scripts %}
 <script src="/scripts/gallery.js"></script>
 <script src="/scripts/maps.js"></script>
 <script
@@ -12,7 +22,9 @@ ogImage: "https://www.auxjardinsdadrien.com/images/og-contact.jpg" } %} {% exten
   defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
 ></script>
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{% block content %}
 <!-- TITLE  -->
 <section class="title" aria-label="Mot du président">
   <div class="title-img">

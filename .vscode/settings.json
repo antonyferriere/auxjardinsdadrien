@@ -1,5 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.disableLanguages": ["njk"],
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
@@ -13,10 +14,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[njk]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   },
-  "files.associations": {
-    "*.njk": "html"
-  },
-  "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "nunjucksFormat.tagmerge": true,
+  "nunjucksFormat.tagsort": true
 }

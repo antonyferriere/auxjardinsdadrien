@@ -54,6 +54,9 @@
 /* ===============================
    QUOTE
    =============================== */
+.quote .container {
+  align-items: center;
+}
 .quote-content {
   max-width: 800px;
 }
@@ -115,6 +118,7 @@
   flex-direction: column;
   gap: var(--spacing-sm);
   padding: 0 var(--spacing-md);
+  text-align: left;
 }
 .card footer {
   display: flex;
@@ -270,6 +274,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  text-align: left;
 }
 
 .article-content > * {
@@ -346,14 +351,4 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-}
-
-/* ===============================
-   CREATION - EXPERTISE
-   =============================== */
-
-@media (min-width: 680px) {
-  .expertise .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
