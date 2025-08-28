@@ -334,15 +334,16 @@ h6 {
   justify-content: center;
   font-weight: 500;
   border-radius: var(--border-radius-btn);
-  transition:
-    transform 0.12s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
   padding: var(--spacing-xs) var(--spacing-sm);
   color: var(--bg);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: var(--line-height);
   text-decoration: none;
   text-shadow: none;
   background: var(--primary);
+  border: 1px solid var(--primary);
 }
 .btn-lg {
   padding: var(--spacing-sm) var(--spacing-md);
@@ -359,9 +360,11 @@ h6 {
 
 .btn-primary {
   background: var(--primary);
+  border: 1px solid var(--primary);
 }
 .btn-secondary {
   background: var(--accent);
+  border: 1px solid var(--accent);
 }
 .btn-ghost {
   color: #fff;
@@ -421,6 +424,7 @@ h6 {
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
+  border: none;
 }
 [data-theme='light'] .page-top .btn-cta {
   color: #fff;
@@ -483,9 +487,7 @@ a.theme-toggle.active::after {
   height: 2px;
   border-radius: 2px;
   background: var(--bg);
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .burger.open .burger-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
@@ -1325,16 +1327,14 @@ a.theme-toggle.active::after {
 .form-field input,
 .form-field textarea {
   width: 100%;
-  padding: var(--spacing-xs);
+  padding: var(--spacing-sm);
   border: 1px solid var(--separator);
   border-radius: var(--border-radius);
   background: var(--surface-1);
   color: var(--text);
   font-size: 1rem;
   font-family: inherit;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-field textarea {
