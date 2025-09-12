@@ -3,6 +3,7 @@ const placeId = 'ChIJoTkJZTjVzRIR44HWogEyy_M';
 
 async function displayGoogleReviews() {
   const container = document.getElementById('google-reviews');
+  const button = document.getElementById('load-more-reviews');
   if (!container) return;
   try {
     const response = await fetch(`https://places.googleapis.com/v1/places/${placeId}?languageCode=fr`, {
@@ -12,12 +13,17 @@ async function displayGoogleReviews() {
       }
     });
     const data = await response.json();
-    const reviews = (data.reviews || []).filter((r) => r.rating === 5);
+    const reviews = (data.reviews || []).filter(
+      (r) => r.rating === 5 && r.text && r.text.text
+    );
     reviews.sort(() => Math.random() - 0.5);
-    reviews.slice(0, 3).forEach((review) => {
-      const blockquote = document.createElement('blockquote');
-      blockquote.className = 'card card-flat';
-      blockquote.innerHTML = `
+    let displayed = 0;
+    const renderReviews = () => {
+      const next = reviews.slice(displayed, displayed + 3);
+      next.forEach((review) => {
+        const blockquote = document.createElement('blockquote');
+        blockquote.className = 'card card-flat';
+        blockquote.innerHTML = `
         <div class="card-content">
           <p class="testimonial-text">${review.text.text}</p>
         </div>
@@ -26,8 +32,20 @@ async function displayGoogleReviews() {
           <cite>${review.authorAttribution.displayName}</cite>
         </footer>
       `;
-      container.appendChild(blockquote);
-    });
+        container.appendChild(blockquote);
+      });
+      displayed += next.length;
+      if (displayed >= reviews.length && button) {
+        button.style.display = 'none';
+      }
+    };
+    renderReviews();
+    if (button) {
+      if (reviews.length > 3) {
+        button.style.display = 'block';
+      }
+      button.addEventListener('click', renderReviews);
+    }
   } catch (error) {
     console.error('Failed to load Google reviews', error);
   }
