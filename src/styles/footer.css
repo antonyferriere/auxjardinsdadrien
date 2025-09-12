@@ -32,6 +32,7 @@
 }
 .footer .btn-social {
   background: var(--accent);
+  border-color: var(--accent);
   color: var(--bg);
 }
 .footer-small {
