@@ -15,7 +15,8 @@
 
 {% block scripts %}
 <script src="/scripts/carrousel-hero.js"></script>
-{% endblock %} 
+<script src="/scripts/google-reviews.js"></script>
+{% endblock %}
 
 {% block content %}
 <!-- HERO / CARROUSEL plein écran -->
@@ -160,46 +161,7 @@
 <section class="testimonials" aria-label="Témoignages">
   <div class="container">
     <h2>Ce que disent nos clients</h2>
-    <div class="cards">
-      <blockquote class="card card-flat">
-        <div class="card-content">
-          <p class="testimonial-text">
-            Un travail soigné et un suivi impeccable. Notre jardin est devenu un véritable havre de
-            paix méditerranéen.
-          </p>
-        </div>
-        <footer class="testimonial-footer">
-          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <cite>Marie P. à Saint-Paul-de-Vence</cite>
-        </footer>
-      </blockquote>
-
-      <blockquote class="card card-flat">
-        <div class="card-content">
-          <p class="testimonial-text">
-            Professionnalisme et créativité. Adrien a su parfaitement intégrer notre piscine dans un
-            écrin de verdure.
-          </p>
-        </div>
-        <footer class="testimonial-footer">
-          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <cite>Laurent M. à Vence</cite>
-        </footer>
-      </blockquote>
-
-      <blockquote class="card card-flat">
-        <div class="card-content">
-          <p class="testimonial-text">
-            Les légumes de la micro-ferme sont délicieux et les ateliers potager très enrichissants.
-            Une belle découverte !
-          </p>
-        </div>
-        <footer class="testimonial-footer">
-          <div class="stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <cite>Sophie B. à Tourrettes-sur-Loup</cite>
-        </footer>
-      </blockquote>
-    </div>
+    <div class="cards" id="google-reviews"></div>
   </div>
 </section>
 {% endblock %}
