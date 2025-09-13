@@ -14,9 +14,10 @@ let filterBtns = [];
 let allImages = [];
 let filteredImages = [];
 let currentPage = 1;
-let currentFilter = 'all';
 
 const galleryContainer = document.getElementById('gallery');
+const defaultFilter = galleryContainer?.dataset.defaultFilter || 'all';
+let currentFilter = defaultFilter;
 const galleryLoading = document.getElementById('gallery-loading');
 const galleryFilters = document.getElementById('gallery-filters');
 const paginationContainer = document.getElementById('pagination-container');
@@ -53,7 +54,11 @@ async function loadImages() {
       });
     });
 
-    filteredImages = [...allImages];
+    if (currentFilter === 'all') {
+      filteredImages = [...allImages];
+    } else {
+      filteredImages = allImages.filter((img) => img.category === currentFilter);
+    }
 
     galleryLoading.style.display = 'none';
     renderGallery();
@@ -70,7 +75,7 @@ function generateFilters() {
 
   // Bouton "Tout voir"
   const allBtn = document.createElement('button');
-  allBtn.className = 'filter-btn active';
+  allBtn.className = 'filter-btn' + (defaultFilter === 'all' ? ' active' : '');
   allBtn.dataset.filter = 'all';
   allBtn.textContent = 'Tout voir';
   galleryFilters.appendChild(allBtn);
@@ -78,7 +83,7 @@ function generateFilters() {
   // Boutons pour chaque catégorie dans imageDatabase
   Object.keys(imageDatabase).forEach((category) => {
     const categoryBtn = document.createElement('button');
-    categoryBtn.className = 'filter-btn';
+    categoryBtn.className = 'filter-btn' + (defaultFilter === category ? ' active' : '');
     categoryBtn.dataset.filter = category;
 
     // Utiliser le label personnalisé ou capitaliser le nom de catégorie
