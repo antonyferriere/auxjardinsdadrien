@@ -11,11 +11,13 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/styles/carrousel-hero.css" />
+<link rel="stylesheet" href="/styles/gallery.css" />
 {% endblock %} 
 
 {% block scripts %}
 <script src="/scripts/carrousel-hero.js"></script>
 <script src="/scripts/google-reviews.js"></script>
+<script src="/scripts/gallery.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -170,6 +172,52 @@
         rel="noopener"
         >Voir plus d'avis</a
       >
+    </div>
+  </div>
+</section>
+
+<!-- SECTION GALERIE -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+
+    <!-- Filtres -->
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <!-- Galerie -->
+    <div class="gallery" id="gallery">
+      <div class="loading" id="gallery-loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container" style="display: none">
+      <button class="pagination-btn" id="prev-page" disabled>‹</button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button class="pagination-btn" id="next-page">›</button>
+      <div class="pagination-info">
+        <span id="page-info">Page 1 sur 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description">
+          Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+        </p>
+      </div>
+      <div class="lightbox-counter">
+        <span id="lightbox-counter">1 / 8</span>
+      </div>
     </div>
   </div>
 </section>
