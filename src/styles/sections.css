@@ -134,6 +134,9 @@
   padding: 0 var(--spacing-md);
   text-align: left;
 }
+.card-content:first-child {
+  padding-top: var(--spacing-md);
+}
 .card footer {
   display: flex;
   gap: var(--spacing-sm);
