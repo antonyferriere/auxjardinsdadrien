@@ -6,16 +6,17 @@ async function displayGoogleReviews() {
   const button = document.getElementById('load-more-reviews');
   if (!container) return;
   try {
-    const response = await fetch(`https://places.googleapis.com/v1/places/${placeId}?languageCode=fr`, {
-      headers: {
-        'X-Goog-Api-Key': apiKey,
-        'X-Goog-FieldMask': 'reviews'
+    const response = await fetch(
+      `https://places.googleapis.com/v1/places/${placeId}?languageCode=fr`,
+      {
+        headers: {
+          'X-Goog-Api-Key': apiKey,
+          'X-Goog-FieldMask': 'reviews',
+        },
       }
-    });
-    const data = await response.json();
-    const reviews = (data.reviews || []).filter(
-      (r) => r.rating === 5 && r.text && r.text.text
     );
+    const data = await response.json();
+    const reviews = (data.reviews || []).filter((r) => r.rating === 5 && r.text && r.text.text);
     reviews.sort(() => Math.random() - 0.5);
     let displayed = 0;
     const renderReviews = () => {
@@ -28,7 +29,9 @@ async function displayGoogleReviews() {
           <p class="testimonial-text">${review.text.text}</p>
         </div>
         <footer class="testimonial-footer">
-          <div class="stars" aria-label="${review.rating} étoiles sur 5">${'★'.repeat(review.rating)}</div>
+          <div class="stars" aria-label="${review.rating} étoiles sur 5">${'★'.repeat(
+          review.rating
+        )}</div>
           <cite>${review.authorAttribution.displayName}</cite>
         </footer>
       `;
