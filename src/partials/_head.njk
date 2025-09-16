@@ -9,8 +9,8 @@
 <link rel="alternate" hreflang="fr" href="{{ seo.canonical }}" />
 {% endif %}
 <!-- Open Graph / Twitter -->
-<meta property="og:title" content="{{ seo.title }}" />
-<meta property="og:description" content="{{ seo.description }}" />
+<meta property="og:title" content="{{ seo.ogTitle | default(seo.title) }}" />
+<meta property="og:description" content="{{ seo.ogDescription | default(seo.description) }}" />
 <meta property="og:image" content="{{ seo.ogImage }}" />
 <meta property="og:image:alt" content="{{ seo.ogImageAlt | default(seo.title) }}" />
 <meta property="og:url" content="{{ seo.canonical }}" />
@@ -18,8 +18,8 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="{{ site.name }}" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="{{ seo.title }}" />
-<meta name="twitter:description" content="{{ seo.description }}" />
+<meta name="twitter:title" content="{{ seo.twitterTitle | default(seo.title) }}" />
+<meta name="twitter:description" content="{{ seo.twitterDescription | default(seo.description) }}" />
 <meta name="twitter:image" content="{{ seo.ogImage }}" />
 <meta name="twitter:image:alt" content="{{ seo.ogImageAlt | default(seo.title) }}" />
 <!-- Icônes -->
