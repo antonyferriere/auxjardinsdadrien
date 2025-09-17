@@ -37,6 +37,7 @@
 }
 .footer-small {
   opacity: 0.7;
+  text-align: left;
 }
 
 /* Helper : focus visible */
