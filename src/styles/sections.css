@@ -6,7 +6,8 @@
 }
 
 .sub {
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
 }
 
 .cta-row {
