@@ -17,11 +17,13 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/beforeafter.css" />
 <link rel="stylesheet" href="/styles/maps.css" />
 {% endblock %} 
 
 {% block scripts %}
 <script src="/scripts/gallery.js"></script>
+<script src="/scripts/beforeafter.js"></script>
 <script src="/scripts/maps.js"></script>
 <script
   async
@@ -201,6 +203,42 @@
   </div>
 </section>
 
+<!-- AVANT / APRES -->
+<section class="before-after section-elevated" aria-label="Avant et après notre entretien">
+  <div class="container">
+    <h2>Avant / Après</h2>
+    <p>Visualisez l'impact de nos interventions sur les jardins que nous remettons en valeur : un extérieur soigné, structuré et prêt à traverser les saisons.</p>
+    <div class="before-after-slider" data-before-after>
+      <figure class="before-after-figure">
+        <img
+          class="before-after-image before-after-image--before"
+          src="/images/entretien_avant.webp"
+          alt="Jardin avant notre intervention"
+          loading="lazy"
+        />
+        <img
+          class="before-after-image before-after-image--after"
+          src="/images/entretien_apres.webp"
+          alt="Jardin après notre intervention"
+          loading="lazy"
+        />
+        <div class="before-after-handle" aria-hidden="true">
+          <span class="before-after-handle-line"></span>
+          <span class="before-after-handle-grip"></span>
+        </div>
+      </figure>
+      <input
+        class="before-after-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Comparer les photos avant et après"
+      />
+    </div>
+  </div>
+</section>
+
 <!-- REALISATIONS -->
 <section class="gallery-section">
   <div class="container">
@@ -247,3 +285,4 @@
   </div>
 </section>
 {% endblock %}
+

@@ -18,10 +18,12 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/beforeafter.css" />
 <link rel="stylesheet" href="/styles/pages/creation.css" />
 {% endblock %} 
 
 {% block scripts %}
+<script src="/scripts/beforeafter.js"></script>
 <script src="/scripts/gallery.js"></script>
 {% endblock %}  
 
@@ -233,6 +235,43 @@
         </div>
       </li>
     </ul>
+  </div>
+</section>
+
+
+<!-- AVANT / APRES -->
+<section class="before-after section-elevated" aria-label="Avant et après notre création paysagère">
+  <div class="container">
+    <h2>Avant / Après</h2>
+    <p>Découvrez comment nos conceptions transforment vos extérieurs : reliefs repensés, circulations fluides et plantations qui révèlent tout le potentiel de votre jardin.</p>
+    <div class="before-after-slider" data-before-after>
+      <figure class="before-after-figure">
+        <img
+          class="before-after-image before-after-image--before"
+          src="/images/creation_avant.webp"
+          alt="Projet de jardin avant notre intervention"
+          loading="lazy"
+        />
+        <img
+          class="before-after-image before-after-image--after"
+          src="/images/creation_apres.webp"
+          alt="Projet de jardin après notre intervention"
+          loading="lazy"
+        />
+        <div class="before-after-handle" aria-hidden="true">
+          <span class="before-after-handle-line"></span>
+          <span class="before-after-handle-grip"></span>
+        </div>
+      </figure>
+      <input
+        class="before-after-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Comparer les photos avant et après"
+      />
+    </div>
   </div>
 </section>
 
