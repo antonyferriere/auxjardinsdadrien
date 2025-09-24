@@ -181,6 +181,7 @@ a:hover {
 [data-theme='light'] .page-top .btn-social {
   color: var(--primary);
   background: var(--bg);
+  border-color: var(--bg);
 }
 .btn-social .icon-social {
   width: 1rem;

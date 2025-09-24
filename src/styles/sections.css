@@ -216,8 +216,43 @@
 .card footer.testimonial-footer {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
   text-align: left;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--surface-1);
+}
+
+.testimonial-avatar--initials {
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--surface-2);
 }
 
 .stars {
