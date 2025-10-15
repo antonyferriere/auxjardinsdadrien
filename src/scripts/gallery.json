@@ -1,136 +1,230 @@
 {
-  "création": [
+  "creation": [
     {
-      "url": "/images/creation_dark.webp",
-      "filename": "creation_dark.webp",
-      "title": "Jardin méditerranéen à Vence",
-      "description": "Création d'un espace méditerranéen avec oliviers centenaires"
+      "url": "/images/gallery/creation/chantier2-1.jpg",
+      "filename": "chantier2-1.jpg",
+      "title": "Terrassement en cours",
+      "description": "Modelage du terrain pour l amenagement."
     },
     {
-      "url": "/images/creation_light.webp",
-      "filename": "creation_light.webp",
-      "title": "Aménagement paysager moderne",
-      "description": "Design contemporain avec matériaux nobles"
+      "url": "/images/gallery/creation/chantier2-2.jpg",
+      "filename": "chantier2-2.jpg",
+      "title": "Nivellement",
+      "description": "Mise a niveau des allees et planchers."
     },
     {
-      "url": "/images/avant_apres.webp",
-      "filename": "avant_apres.webp",
-      "title": "Terrasse avec piscine",
-      "description": "Intégration paysagère autour d'une piscine"
+      "url": "/images/gallery/creation/chantier2-3.jpg",
+      "filename": "chantier2-3.jpg",
+      "title": "Pose des structures",
+      "description": "Installation des bordures et retenues."
     },
     {
-      "url": "/images/plantation_dark.webp",
-      "filename": "plantation_dark.webp",
-      "title": "Espace zen et détente",
-      "description": "Coin méditation avec fontaine japonaise"
+      "url": "/images/gallery/creation/chantier2-4.jpg",
+      "filename": "chantier2-4.jpg",
+      "title": "Organisation des allees",
+      "description": "Definition des zones de passage du jardin."
     },
     {
-      "url": "/images/plantation_light.webp",
-      "filename": "plantation_light.webp",
-      "title": "Jardin provençal",
-      "description": "Massifs de lavande et romarin"
+      "url": "/images/gallery/creation/chantier2-5.jpg",
+      "filename": "chantier2-5.jpg",
+      "title": "Gestion des volumes",
+      "description": "Ajustement des massifs mineraux."
+    },
+    {
+      "url": "/images/gallery/creation/chantier2-7.jpg",
+      "filename": "chantier2-7.jpg",
+      "title": "Mise en scene finale",
+      "description": "Mobilier et elements decoratifs installes."
+    },
+    {
+      "url": "/images/gallery/creation/arrosage5.jpg",
+      "filename": "arrosage5.jpg",
+      "title": "Uniformite d arrosage",
+      "description": "Controle des zones sensibles."
+    },
+    {
+      "url": "/images/gallery/creation/chantier1-1.jpg",
+      "filename": "chantier1-1.jpg",
+      "title": "Implantation du chantier",
+      "description": "Repere les volumes avant la creation du jardin."
+    },
+    {
+      "url": "/images/gallery/creation/chantier1-2.jpg",
+      "filename": "chantier1-2.jpg",
+      "title": "Tracages au sol",
+      "description": "Preparation des circulations et massifs."
+    },
+    {
+      "url": "/images/gallery/creation/eclairage1.jpg",
+      "filename": "eclairage1.jpg",
+      "title": "Mise en lumiere",
+      "description": "Projection de l eclairage scenographique."
+    },
+    {
+      "url": "/images/gallery/creation/eclairage2.jpg",
+      "filename": "eclairage2.jpg",
+      "title": "Balises lumineuses",
+      "description": "Points lumineux pour securiser le parcours."
+    },
+    {
+      "url": "/images/gallery/creation/eclairage3.jpg",
+      "filename": "eclairage3.jpg",
+      "title": "Ambiance nocturne",
+      "description": "Jeu d ombres mettant en valeur le jardin."
+    },
+    {
+      "url": "/images/gallery/creation/plantes1.jpg",
+      "filename": "plantes1.jpg",
+      "title": "Palette vegetale",
+      "description": "Selection des especes adaptees au site."
+    },
+    {
+      "url": "/images/gallery/creation/plantes2.jpg",
+      "filename": "plantes2.jpg",
+      "title": "Plantes mediterraneennes",
+      "description": "Focus sur les vegetaux selectionnes."
+    },
+    {
+      "url": "/images/gallery/creation/arrosage1.jpg",
+      "filename": "arrosage1.jpg",
+      "title": "Raccordement d arrosage",
+      "description": "Controle du reseau automatique."
+    },
+    {
+      "url": "/images/gallery/creation/arrosage2.jpg",
+      "filename": "arrosage2.jpg",
+      "title": "Buses en fonctionnement",
+      "description": "Verification de la couverture d arrosage."
+    },
+    {
+      "url": "/images/gallery/creation/arrosage3.jpg",
+      "filename": "arrosage3.jpg",
+      "title": "Tests de pulverisation",
+      "description": "Ajustement des gicleurs et debits."
+    },
+    {
+      "url": "/images/gallery/creation/arrosage4.jpg",
+      "filename": "arrosage4.jpg",
+      "title": "Programmation de l arrosage",
+      "description": "Reglage des cycles d arrosage."
+    },
+    {
+      "url": "/images/gallery/creation/terrasse1.jpg",
+      "filename": "terrasse1.jpg",
+      "title": "Terrasse finalisee",
+      "description": "Espace de vie convivial relie au jardin."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-1.jpg",
+      "filename": "chantier3-1.jpg",
+      "title": "Vue d ensemble du chantier",
+      "description": "Avancement du projet de creation paysagere."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-2.jpg",
+      "filename": "chantier3-2.jpg",
+      "title": "Cheminements stabilises",
+      "description": "Chemin en place et integration des niveaux."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-1590.jpg",
+      "filename": "chantier3-1590.jpg",
+      "title": "Transition minerale",
+      "description": "Lien entre terrasses et massifs vegetaux."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-2551.jpg",
+      "filename": "chantier3-2551.jpg",
+      "title": "Integration des murets",
+      "description": "Traitement des soutenements de talus."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-2552.jpg",
+      "filename": "chantier3-2552.jpg",
+      "title": "Acces vers la terrasse",
+      "description": "Escalier et plate forme harmonises."
+    },
+    {
+      "url": "/images/gallery/creation/chantier3-2553.jpg",
+      "filename": "chantier3-2553.jpg",
+      "title": "Finalisation du chantier",
+      "description": "Derniers reglages avant plantations."
     }
   ],
   "entretien": [
     {
-      "url": "/images/arrosage_light.webp",
-      "filename": "arrosage_light.webp",
-      "title": "Entretien annuel premium",
-      "description": "Maintenance complète d'un jardin d'exception"
+      "url": "/images/gallery/entretien/entretien2.jpg",
+      "filename": "entretien2.jpg",
+      "title": "Nettoyage de terrasse",
+      "description": "Balayage et reprise des joints."
     },
     {
-      "url": "/images/entretien_dark.webp",
-      "filename": "entretien_dark.webp",
-      "title": "Taille artistique d'oliviers",
-      "description": "Sculpture végétale d'oliviers centenaires"
+      "url": "/images/gallery/entretien/entretien3.jpg",
+      "filename": "entretien3.jpg",
+      "title": "Ramassage des dechets",
+      "description": "Evacuation des residues verts."
     },
     {
-      "url": "/images/entretien_light.webp",
-      "filename": "entretien_light.webp",
-      "title": "Nettoyage de printemps",
-      "description": "Remise en beauté après l'hiver"
+      "url": "/images/gallery/entretien/avant-apres-2.jpg",
+      "filename": "avant-apres-2.jpg",
+      "title": "Resultat avant apres",
+      "description": "Comparatif apres entretien complet."
+    },
+    {
+      "url": "/images/gallery/entretien/arrosage.jpg",
+      "filename": "arrosage.jpg",
+      "title": "Controle d arrosage",
+      "description": "Verification des diffuseurs existants."
+    },
+    {
+      "url": "/images/gallery/entretien/arrosage2.jpg",
+      "filename": "arrosage2.jpg",
+      "title": "Test des programmateurs",
+      "description": "Ajustement des cycles d arrosage."
+    },
+    {
+      "url": "/images/gallery/entretien/elagage1.jpg",
+      "filename": "elagage1.jpg",
+      "title": "Finitions d elagage",
+      "description": "Equilibrage des volumes vegetaux."
+    },
+    {
+      "url": "/images/gallery/entretien/materiels.jpg",
+      "filename": "materiels.jpg",
+      "title": "Materiel de jardinage",
+      "description": "Vue d ensemble du materiel mobilise."
+    },
+    {
+      "url": "/images/gallery/entretien/debroussaillage.jpg",
+      "filename": "debroussaillage.jpg",
+      "title": "Debroussaillage massif",
+      "description": "Nettoyage des zones embroussaillees."
+    },
+    {
+      "url": "/images/gallery/entretien/elagage.jpg",
+      "filename": "elagage.jpg",
+      "title": "Elagage structurel",
+      "description": "Taille douce des arbres et arbustes."
+    },
+    {
+      "url": "/images/gallery/entretien/entretien1-1.jpg",
+      "filename": "entretien1-1.jpg",
+      "title": "Tonte et bordures",
+      "description": "Remise au propre des surfaces engazonnees."
+    },
+    {
+      "url": "/images/gallery/entretien/entretien1-2.jpg",
+      "filename": "entretien1-2.jpg",
+      "title": "Soins des massifs",
+      "description": "Desherbage et finition des plantations."
     }
   ],
   "maraichage": [
     {
-      "url": "/images/maraichage_dark.webp",
-      "filename": "maraichage_dark.webp",
-      "title": "Potager bio familial",
-      "description": "Légumes de saison en agriculture biologique"
-    },
-    {
-      "url": "/images/maraichage_light.webp",
-      "filename": "maraichage_light.webp",
-      "title": "Serre maraîchère écologique",
-      "description": "Production sous serre respectueuse"
-    },
-    {
-      "url": "/images/old/maraichage_dark_1.webp",
-      "filename": "maraichage_dark_1.webp",
-      "title": "Carré potager surélevé",
-      "description": "Facilité de culture et d'accès"
-    },
-    {
-      "url": "/images/old/maraichage_light_1.webp",
-      "filename": "maraichage_light_1.webp",
-      "title": "Tunnel de forçage",
-      "description": "Protection naturelle des cultures"
-    },
-    {
-      "url": "/images/old/maraichage_light_2.webp",
-      "filename": "maraichage_light_2.webp",
-      "title": "Permaculture urbaine",
-      "description": "Écosystème productif en ville"
-    },
-    {
-      "url": "/images/old/maraichage_light_3.webp",
-      "filename": "maraichage_light_3.webp",
-      "title": "Serre bioclimatique",
-      "description": "Optimisation des ressources naturelles"
-    }
-  ],
-  "ambiance": [
-    {
-      "url": "/images/old/b4fbc438-8c89-4d77-8178-68c15d6123ce.png",
-      "filename": "b4fbc438-8c89-4d77-8178-68c15d6123ce.png",
-      "title": "Potager bio familial",
-      "description": "Légumes de saison en agriculture biologique"
-    },
-    {
-      "url": "/images/old/Bayview-Villa-01.jpg",
-      "filename": "Bayview-Villa-01.jpg",
-      "title": "Carré potager surélevé",
-      "description": "Facilité de culture et d'accès"
-    },
-    {
-      "url": "/images/old/Bayview-Villa-02.jpg",
-      "filename": "Bayview-Villa-02.jpg",
-      "title": "Tunnel de forçage",
-      "description": "Protection naturelle des cultures"
-    },
-    {
-      "url": "/images/old/Bayview-Villa-15.jpg",
-      "filename": "Bayview-Villa-15.jpg",
-      "title": "Permaculture urbaine",
-      "description": "Écosystème productif en ville"
-    },
-    {
-      "url": "/images/old/Bayview-Villa-16.jpg",
-      "filename": "Bayview-Villa-16.jpg",
-      "title": "Serre bioclimatique",
-      "description": "Optimisation des ressources naturelles"
-    },
-    {
-      "url": "/images/old/Bayview-Villa-18.jpg",
-      "filename": "Bayview-Villa-18.jpg",
-      "title": "Permaculture urbaine",
-      "description": "Écosystème productif en ville"
-    },
-    {
-      "url": "/images/old/fa054f21-e654-4285-8f7d-72ea818a0cfc.png",
-      "filename": "fa054f21-e654-4285-8f7d-72ea818a0cfc.png",
-      "title": "Permaculture urbaine",
-      "description": "Écosystème productif en ville"
+      "url": "/images/gallery/maraichage/panier-aout-2025.jpg",
+      "filename": "panier-aout-2025.jpg",
+      "title": "Panier août 2025",
+      "description": "Legumes frais cueillis en plein ete."
     }
   ]
 }

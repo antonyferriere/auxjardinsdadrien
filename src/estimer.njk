@@ -29,32 +29,49 @@
 <!-- TITLE  -->
 <section class="title" aria-label="Estimation de projet">
   <div class="title-img">
-    <img class="title-bg img-light" src="/images/maraichage_light.webp" alt="" aria-hidden="true" />
-    <img class="title-bg img-dark" src="/images/maraichage_dark.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
     <div class="title-content">
       <h1>Estimez votre projet de jardin</h1>
       <p class="sub">
         Donnez-nous quelques informations pour recevoir une première estimation gratuite de vos travaux paysagers.
       </p>
-      <div class="cta-row">
-        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
-          >Devis gratuit</a
-        >
-        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
-          >Contactez-nous</a
-        >
-      </div>
     </div>
   </div>
 </section>
 
-<!-- INTRO -->
-<section class="intro section-text section-elevated">
+<!-- CONTACT FORM -->
+<section class="contact">
   <div class="container">
     <h2>Pourquoi demander une estimation ?</h2>
     <p>
       Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
     </p>
+    <div class="zone-intervention-content">
+      <form id="contact-form" class="contact-form" action="#" method="post">
+        <div class="form-field">
+          <input type="text" id="name" name="name" placeholder="Votre nom" required />
+        </div>
+        <div class="form-field">
+          <input type="email" id="email" name="email" placeholder="Votre email" required />
+        </div>
+        <div class="form-field">
+          <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
+        </div>
+        <div class="form-field">
+          <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
+      </form>
+      <div>
+        <div class="map-container">
+          <div class="map-loader" id="map-loader">
+            <div class="spinner"></div>
+          </div>
+          <div id="google-map"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}
