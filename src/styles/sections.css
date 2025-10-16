@@ -348,6 +348,20 @@
   display: grid;
   gap: var(--spacing-md);
   max-width: 600px;
+  position: relative;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.honeypot label {
+  display: none;
 }
 
 .form-field {
@@ -385,6 +399,18 @@
   box-shadow: 0 0 0 1px var(--primary);
 }
 
+.form-field input.is-invalid,
+.form-field textarea.is-invalid {
+  border-color: var(--error);
+  color: var(--error);
+  background-color: color-mix(in oklab, var(--error) 10%, var(--bg));
+}
+
+.form-field input.is-invalid:focus,
+.form-field textarea.is-invalid:focus {
+  box-shadow: 0 0 0 1px var(--error);
+}
+
 .popup {
   position: fixed;
   inset: 0;
@@ -405,4 +431,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+}
+
+.popup.is-error .popup-content {
+  border: 1px solid var(--error);
+}
+
+.popup.is-error .popup-content p {
+  color: var(--error);
 }

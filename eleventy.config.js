@@ -17,6 +17,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/styles');
   eleventyConfig.addPassthroughCopy('src/scripts');
   eleventyConfig.addWatchTarget('src/scripts');
+  eleventyConfig.addPassthroughCopy({ 'src/forms': 'forms' });
+  eleventyConfig.addWatchTarget('src/forms');
 
   eleventyConfig.addTransform('jsmin', async (content, path) => {
     if (path.endsWith('.js')) {

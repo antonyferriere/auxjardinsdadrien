@@ -29,6 +29,7 @@
   --surface-1: color-mix(in oklab, var(--primary) 2%, var(--bg));
   --surface-2: color-mix(in oklab, var(--primary) 4%, var(--bg));
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --error: #c0392b; /* rouge vif */
 }
 
 [data-theme='dark'] {
@@ -45,4 +46,5 @@
   --surface-1: color-mix(in oklab, var(--bg) 98%, white);
   --surface-2: color-mix(in oklab, var(--bg) 96%, white);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --error: #c0392b; /* rouge vif */
 }

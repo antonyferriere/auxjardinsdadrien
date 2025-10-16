@@ -21,7 +21,6 @@
 {% endblock %} 
 
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 <script src="/scripts/contact.js" defer></script>
 <script src="/scripts/maps.js" defer></script>
 <script
@@ -52,7 +51,20 @@
       Nous intervenons dans un rayon de <strong>30 kilomètres autour de Vence</strong>.
     </p>
     <div class="zone-intervention-content">
-      <form id="contact-form" class="contact-form" action="#" method="post">
+      <!--<form id="contact-form" class="contact-form" action="/forms/contact.php" method="post" novalidate>-->      
+      <form id="contact-form" class="contact-form" action="http://localhost:9000/forms/contact.php" method="post" novalidate>
+        <div class="honeypot" aria-hidden="true">
+          <label for="contact-check">Laissez ce champ vide</label>
+          <input
+            type="text"
+            id="contact-check"
+            name="contact_check"
+            tabindex="-1"
+            autocomplete="new-password"
+            inputmode="none"
+            data-lpignore="true"
+          />
+        </div>
         <div class="form-field">
           <input type="text" id="name" name="name" placeholder="Votre nom" required />
         </div>
@@ -80,7 +92,7 @@
 
   <div id="contact-popup" class="popup" hidden>
     <div class="popup-content">
-      <p>Merci, nous vous contactons rapidement.</p>
+      <p id="contact-popup-message">Merci, nous vous contactons rapidement.</p>
       <button id="close-popup" class="btn btn-primary">Fermer</button>
     </div>
   </div>
