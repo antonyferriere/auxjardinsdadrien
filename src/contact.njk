@@ -21,6 +21,7 @@
 {% endblock %} 
 
 {% block scripts %}
+<script src="/scripts/form-utils.js" defer></script>
 <script src="/scripts/contact.js" defer></script>
 <script src="/scripts/maps.js" defer></script>
 <script
@@ -51,7 +52,7 @@
       Nous intervenons dans un rayon de <strong>30 kilomètres autour de Vence</strong>.
     </p>
     <div class="zone-intervention-content">
-      <form id="contact-form" class="form" action="/forms/contact.php" method="post" novalidate>
+      <form id="contact-form" class="form" action="/forms/contact.php" method="post">
         <div class="honeypot" aria-hidden="true">
           <label for="contact-check">Laissez ce champ vide</label>
           <input

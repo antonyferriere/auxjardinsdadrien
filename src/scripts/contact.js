@@ -1,15 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
-  const popup = document.getElementById('contact-popup');
-  const popupMessage = document.getElementById('contact-popup-message');
-  const closeBtn = document.getElementById('close-popup');
-  const submitButton = form?.querySelector('button[type="submit"]');
-  const honeypotField = form?.querySelector('input[name="contact_check"]');
-
   if (!form) return;
 
-  const defaultPopupText = popupMessage?.innerHTML ?? '';
+  if (!window.AJDFormUtils) {
+    console.error('AJDFormUtils is required for the contact form.');
+    return;
+  }
+
+  const {
+    createPopupController,
+    toggleSubmitting,
+    prepareFormData,
+    submitFormData,
+    DEFAULT_PENDING_TEXT,
+  } = window.AJDFormUtils;
+
+  const popupElement = document.getElementById('contact-popup');
+  const popupMessageElement = document.getElementById('contact-popup-message');
+  const popupCloseButton = document.getElementById('close-popup');
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  const popupController = createPopupController({
+    popup: popupElement,
+    message: popupMessageElement,
+    closeButton: popupCloseButton,
+  });
+
+  const defaultPopupText = popupController.defaultMessage || '';
   const defaultSubmitText = submitButton?.textContent ?? 'Envoyer';
+
+  const hidePopup = () => popupController.hide();
+  const openPopup = (message, isError = false) => popupController.open(message, isError);
+
+  const setSubmittingState = (isSubmitting) =>
+    toggleSubmitting(form, isSubmitting, {
+      submitButton,
+      pendingText: DEFAULT_PENDING_TEXT,
+      defaultText: defaultSubmitText,
+    });
+
+  const prepareFormDataForSubmit = () => prepareFormData(form);
+  const submitForm = (formData) => submitFormData(form, formData);
 
   const fields = {
     name: form.querySelector('#name'),
@@ -39,44 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const markFieldInvalid = (input) => {
     input.classList.add('is-invalid');
     input.setAttribute('aria-invalid', 'true');
-  };
-
-  const setSubmittingState = (isSubmitting) => {
-    form.classList.toggle('is-submitting', isSubmitting);
-    if (isSubmitting) {
-      form.setAttribute('aria-busy', 'true');
-    } else {
-      form.removeAttribute('aria-busy');
-    }
-
-    const interactiveElements = form.querySelectorAll(
-      'input:not([type="hidden"]):not([name="contact_check"]), textarea, select, button'
-    );
-    interactiveElements.forEach((element) => {
-      element.disabled = isSubmitting;
-    });
-
-    if (submitButton) {
-      submitButton.textContent = isSubmitting ? 'Envoi en cours...' : defaultSubmitText;
-    }
-  };
-
-  const hidePopup = () => {
-    if (!popup) return;
-    popup.setAttribute('hidden', '');
-    popup.classList.remove('is-error');
-    if (popupMessage) {
-      popupMessage.innerHTML = defaultPopupText;
-    }
-  };
-
-  const openPopup = (message, isError = false) => {
-    if (!popup) return;
-    if (popupMessage) {
-      popupMessage.innerHTML = message || defaultPopupText;
-    }
-    popup.classList.toggle('is-error', isError);
-    popup.removeAttribute('hidden');
   };
 
   const validateForm = () => {
@@ -124,13 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const formData = new FormData(form);
-
-    if (honeypotField) {
-      honeypotField.value = '';
-      formData.set('contact_check', '');
-      formData.set('hp_js_token', '1');
-    }
+    const formData = prepareFormDataForSubmit();
 
     const validation = validateForm();
     if (!validation.isValid) {
@@ -142,42 +129,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setSubmittingState(true);
 
     try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-      });
+      const { success, data } = await submitForm(formData);
 
-      const data = await response.json().catch(() => ({}));
-      const isSuccess = response.ok && data?.success;
-
-      if (isSuccess) {
+      if (success) {
         form.reset();
         Object.values(fields).forEach((input) => {
           if (input) {
             clearFieldError(input);
           }
         });
-        openPopup(data.message || defaultPopupText);
+        openPopup(data?.message || defaultPopupText);
         return;
       }
 
       const errorMessage =
         data?.message ||
-        "L'envoi a echoue. Vous pouvez egalement nous contacter par telephone ou directement a l'adresse <a href=\"mailto:auxjardinsdadrien@gmail.com\">auxjardinsdadrien@gmail.com</a>.";
+        'L\'envoi a echoue. Vous pouvez egalement nous contacter au <a href="tel:+33609564511">06 09 56 45 11</a> ou <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.';
       openPopup(errorMessage, true);
     } catch (error) {
       console.error('Erreur lors de la soumission du formulaire', error);
       openPopup(
-        'Une erreur technique est survenue. Merci de reessayer dans quelques instants ou de nous contacter directement a l\'adresse <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.',
+        'Une erreur technique est survenue. Merci de reessayer dans quelques instants ou de nous contacter au <a href="tel:+33609564511">06 09 56 45 11</a> ou <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.',
         true
       );
     } finally {
       setSubmittingState(false);
     }
   });
-
-  closeBtn?.addEventListener('click', hidePopup);
 });

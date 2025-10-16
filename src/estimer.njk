@@ -18,7 +18,8 @@
 {% block scripts %}
 <script src="/scripts/gallery.js"></script>
 <script src="/scripts/maps.js"></script>
-<script src="/scripts/estimation.js"></script>
+<script src="/scripts/form-utils.js" defer></script>
+<script src="/scripts/estimation.js" defer></script>
 <script
   async
   defer
@@ -41,21 +42,21 @@
   </div>
 </section>
 
-<!-- CONTACT FORM -->
-<section class="contact">
+<!-- ESTIMATION FORM -->
+<section class="estimation">
   <div class="container">
     <h2>Pourquoi demander une estimation ?</h2>
     <p>
       Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
     </p>
     <div class="zone-intervention-content">
-      <form id="contact-form" class="form" action="#" method="post">
+      <form id="estimation-form" class="form" action="/forms/estimation.php" method="post">
         <div class="honeypot" aria-hidden="true">
-          <label for="contact-check">Laissez ce champ vide</label>
+          <label for="estimation-check">Laissez ce champ vide</label>
           <input
             type="text"
-            id="contact-check"
-            name="contact_check"
+            id="estimation-check"
+            name="estimation_check"
             tabindex="-1"
             autocomplete="new-password"
             inputmode="none"
@@ -113,6 +114,13 @@
           <div id="google-map"></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="estimation-popup" class="popup" hidden>
+    <div class="popup-content">
+      <p id="estimation-popup-message">Merci, nous revenons vers vous tres vite.</p>
+      <button id="close-popup" class="btn btn-primary">Fermer</button>
     </div>
   </div>
 </section>

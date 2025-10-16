@@ -1,6 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('estimation-form');
+  const popup = document.getElementById('estimation-popup');
+  const popupMessage = document.getElementById('estimation-popup-message');
+  const closeBtn = document.getElementById('close-popup');
+  const submitButton = form?.querySelector('button[type="submit"]');
+
   if (!form) return;
+
+  if (!window.AJDFormUtils) {
+    console.error('AJDFormUtils est requis pour le formulaire d’estimation.');
+    return;
+  }
+
+  const {
+    createPopupController,
+    toggleSubmitting,
+    prepareFormData,
+    submitFormData,
+    DEFAULT_PENDING_TEXT,
+  } = window.AJDFormUtils;
+
+  const popupController = createPopupController({
+    popup,
+    message: popupMessage,
+    closeButton: closeBtn,
+  });
+
+  const defaultPopupText = popupController.defaultMessage || '';
+  const defaultSubmitText = submitButton?.textContent ?? 'Envoyer';
+
+  const hidePopup = () => popupController.hide();
+  const openPopup = (message, isError = false) => popupController.open(message, isError);
+
+  const setSubmittingState = (isSubmitting) =>
+    toggleSubmitting(form, isSubmitting, {
+      submitButton,
+      pendingText: DEFAULT_PENDING_TEXT,
+      defaultText: defaultSubmitText,
+    });
+
+  const prepareFormDataForSubmit = () =>
+    prepareFormData(form, { honeypotField: 'estimation_check' });
+  const submitForm = (formData) => submitFormData(form, formData);
 
   const steps = Array.from(form.querySelectorAll('.form-step'));
   if (steps.length === 0) return;
@@ -235,10 +276,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
     const currentStep = steps[currentStepIndex];
-    if (!validateStep(currentStep)) {
-      event.preventDefault();
+    const isValid = validateStep(currentStep);
+    if (!isValid) {
+      hidePopup();
+      return;
+    }
+
+    const formData = prepareFormDataForSubmit();
+
+    setSubmittingState(true);
+
+    try {
+      const { success, data } = await submitForm(formData);
+
+      if (success) {
+        form.reset();
+
+        const fields = Array.from(form.querySelectorAll('input, textarea, select')).filter(
+          (field) => !field.closest('.honeypot')
+        );
+        fields.forEach((field) => {
+          clearInvalid(field);
+        });
+
+        await goToStep(0);
+        openPopup(data?.message || defaultPopupText);
+        return;
+      }
+
+      const errorMessage =
+        data?.message ||
+        'L\'envoi a echoue. Vous pouvez egalement nous contacter au <a href="tel:+33609564511">06 09 56 45 11</a> ou <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.';
+      openPopup(errorMessage, true);
+    } catch (error) {
+      console.error('Erreur lors de la soumission du formulaire', error);
+      openPopup(
+        'Une erreur technique est survenue. Merci de reessayer dans quelques instants ou de nous contacter au <a href="tel:+33609564511">06 09 56 45 11</a> ou <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.',
+        true
+      );
+    } finally {
+      setSubmittingState(false);
     }
   });
 });
