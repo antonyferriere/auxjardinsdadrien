@@ -18,6 +18,7 @@
 {% block scripts %}
 <script src="/scripts/gallery.js"></script>
 <script src="/scripts/maps.js"></script>
+<script src="/scripts/estimation.js"></script>
 <script
   async
   defer
@@ -48,20 +49,61 @@
       Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
     </p>
     <div class="zone-intervention-content">
-      <form id="contact-form" class="contact-form" action="#" method="post">
-        <div class="form-field">
-          <input type="text" id="name" name="name" placeholder="Votre nom" required />
+      <form id="contact-form" class="form" action="#" method="post">
+        <div class="honeypot" aria-hidden="true">
+          <label for="contact-check">Laissez ce champ vide</label>
+          <input
+            type="text"
+            id="contact-check"
+            name="contact_check"
+            tabindex="-1"
+            autocomplete="new-password"
+            inputmode="none"
+            data-lpignore="true"
+          />
         </div>
-        <div class="form-field">
-          <input type="email" id="email" name="email" placeholder="Votre email" required />
+        <div class="form-steps" data-step-container>
+          <div class="form-step" id="form-step-1" data-step="1" role="group" aria-labelledby="form-step-1-heading">
+            <p class="step-indicator" id="form-step-1-heading">Étape 1 sur 2</p>
+            <div class="form-field">
+              <input type="text" id="city" name="city" placeholder="Votre ville" required />
+            </div>
+            <div class="form-field">
+              <select type="text" id="project" name="project" placeholder="Sélectionnez un type de projet" required >
+                <option value="" disabled selected>Sélectionnez votre projet</option>
+                <option value="Création de jardin">Création de jardin</option>
+                <option value="Aménagement extérieur">Aménagement extérieur</option>
+                <option value="Entretien de jardin">Entretien de jardin</option>
+                <option value="Elagage et Abattage">Élagage et Abattage</option>
+                <option value="Debroussaillage">Débroussaillage</option>
+                <option value="Potager">Potager</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <textarea id="description" name="description" placeholder="Décrivez brièvement votre projet" required></textarea>
+            </div>
+            <button type="button" class="btn btn-lg btn-link" data-form-action="next">
+              Suivant <i data-lucide="chevron-right" absolute-stroke="true"></i>
+            </button>
+          </div>
+          <div class="form-step" id="form-step-2" data-step="2" role="group" aria-labelledby="form-step-2-heading" hidden>
+            <p class="step-indicator" id="form-step-2-heading">Étape 2 sur 2</p>
+            <div class="form-field">
+              <input type="text" id="name" name="name" placeholder="Votre nom" required />
+            </div>
+            <div class="form-field">
+              <input type="email" id="email" name="email" placeholder="Votre email" required />
+            </div>
+            <div class="form-field">
+              <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
+            </div>
+            <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
+            <button type="button" class="btn btn-lg btn-link" data-form-action="previous">
+              <i data-lucide="chevron-left" absolute-stroke="true"></i> Précédent
+            </button>
+          </div>
         </div>
-        <div class="form-field">
-          <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
-        </div>
-        <div class="form-field">
-          <textarea id="message" name="message" placeholder="Votre message" required></textarea>
-        </div>
-        <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
       </form>
       <div>
         <div class="map-container">
@@ -75,4 +117,7 @@
   </div>
 </section>
 {% endblock %}
+
+
+
 
