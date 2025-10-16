@@ -10,17 +10,17 @@ use PHPMailer\PHPMailer\Exception as MailException;
 use PHPMailer\PHPMailer\PHPMailer;
 
 
-$recipient = getenv('MAIL_TO_ADDRESS') ?: 'antony.ferriere@pm.me';//'auxjardinsdadrien@gmail.com';
+$recipient = 'auxjardinsdadrien@gmail.com';
 $subject = '[auxjardinsdadrien.com] Demande de contact';
 
-$fromAddress = getenv('MAIL_FROM_ADDRESS') ?: 'no-reply@auxjardinsdadrien.com';
-$fromName = getenv('MAIL_FROM_NAME') ?: "Aux Jardins d'Adrien";
+$fromAddress = 'no-reply@auxjardinsdadrien.com';
+$fromName = "Aux Jardins d'Adrien";
 
-$smtpHost = getenv('SMTP_HOST') ?: 'auxjardinsdadrien.com';
-$smtpPort =  (getenv('SMTP_PORT') ?: 465);
-$smtpUser = getenv('SMTP_USERNAME') ?: 'no-reply@auxjardinsdadrien.com';
-$smtpPass = getenv('SMTP_PASSWORD') ?: 'D({g4CbMEWAq';
-$smtpTimeout = (int) (getenv('SMTP_TIMEOUT') ?: 15);
+$smtpHost = 'auxjardinsdadrien.com';
+$smtpPort = 465;
+$smtpUser = 'no-reply@auxjardinsdadrien.com';
+$smtpPass = 'D({g4CbMEWAq';
+$smtpTimeout = 15;
 
 
 $acceptHeader = $_SERVER['HTTP_ACCEPT'] ?? '';

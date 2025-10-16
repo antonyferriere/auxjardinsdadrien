@@ -42,9 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const setSubmittingState = (isSubmitting) => {
-    if (!submitButton) return;
-    submitButton.disabled = isSubmitting;
-    submitButton.textContent = isSubmitting ? 'Envoi en cours...' : defaultSubmitText;
+    form.classList.toggle('is-submitting', isSubmitting);
+    if (isSubmitting) {
+      form.setAttribute('aria-busy', 'true');
+    } else {
+      form.removeAttribute('aria-busy');
+    }
+
+    const interactiveElements = form.querySelectorAll(
+      'input:not([type="hidden"]):not([name="contact_check"]), textarea, select, button'
+    );
+    interactiveElements.forEach((element) => {
+      element.disabled = isSubmitting;
+    });
+
+    if (submitButton) {
+      submitButton.textContent = isSubmitting ? 'Envoi en cours...' : defaultSubmitText;
+    }
   };
 
   const hidePopup = () => {

@@ -399,6 +399,44 @@
   box-shadow: 0 0 0 1px var(--primary);
 }
 
+.form-field input:disabled,
+.form-field textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: color-mix(in oklab, var(--surface-1) 60%, var(--bg));
+}
+
+.contact-form.is-submitting,
+.contact-form.is-submitting input,
+.contact-form.is-submitting textarea,
+.contact-form.is-submitting button[type='submit'] {
+  cursor: wait;
+}
+
+.contact-form.is-submitting button[type='submit'] {
+  background: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
+  background-size: 200% 200%;
+  animation: contactFormLuxeGlow 4s ease-in-out infinite;
+  border-color: transparent;
+}
+
+.contact-form.is-submitting button[type='submit'] {
+  position: relative;
+  padding-right: calc(var(--spacing-md) + 1.75rem);
+}
+
+@keyframes contactFormLuxeGlow {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 .form-field input.is-invalid,
 .form-field textarea.is-invalid {
   border-color: var(--error);
