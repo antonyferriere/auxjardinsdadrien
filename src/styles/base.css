@@ -242,6 +242,13 @@ section {
   background: var(--surface-2);
 }
 
+.section-staff {
+  background-image: url('/images/equipe.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
 /* ===============================
    CONTAINER
    =============================== */

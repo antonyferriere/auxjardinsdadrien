@@ -1,6 +1,43 @@
 {
   "creation": [
     {
+      "url": "/images/gallery/creation/IMG-20251031-WA0005.jpg",
+      "filename": "IMG-20251031-WA0005.jpg",
+      "title": "Jardin finalise",
+      "description": "Vue generale du nouvel amenagement paysager."
+    },
+    {
+      "url": "/images/gallery/creation/IMG-20251031-WA0006.jpg",
+      "filename": "IMG-20251031-WA0006.jpg",
+      "title": "Terrasse mineralisee",
+      "description": "Dalles et plantations structurent l espace de reception."
+    },
+    {
+      "url": "/images/gallery/creation/eclairage1.jpg",
+      "filename": "eclairage1.jpg",
+      "title": "Mise en lumiere",
+      "description": "Projection de l eclairage scenographique."
+    },
+    {
+      "url": "/images/gallery/creation/IMG-20251031-WA0004.jpg",
+      "filename": "IMG-20251031-WA0004.jpg",
+      "title": "Cheminement principal",
+      "description": "Allees minerales et bordures guident la circulation."
+    },
+    {
+      "url": "/images/gallery/creation/IMG-20251031-WA0015.jpg",
+      "filename": "IMG-20251031-WA0015.jpg",
+      "title": "Espace detente",
+      "description": "Coin lounge entoure de plantations."
+    },
+    {
+      "url": "/images/gallery/creation/plantes1.jpg",
+      "filename": "plantes1.jpg",
+      "title": "Palette vegetale",
+      "description": "Selection des especes adaptees au site."
+    },
+
+    {
       "url": "/images/gallery/creation/chantier1-1.jpg",
       "filename": "chantier1-1.jpg",
       "title": "Implantation du chantier",
@@ -13,28 +50,22 @@
       "description": "Preparation des circulations et massifs."
     },
     {
-      "url": "/images/gallery/creation/eclairage1.jpg",
-      "filename": "eclairage1.jpg",
-      "title": "Mise en lumiere",
-      "description": "Projection de l eclairage scenographique."
-    },
-    {
       "url": "/images/gallery/creation/eclairage2.jpg",
       "filename": "eclairage2.jpg",
       "title": "Balises lumineuses",
       "description": "Points lumineux pour securiser le parcours."
     },
     {
+      "url": "/images/gallery/creation/IMG-20251031-WA0007.jpg",
+      "filename": "IMG-20251031-WA0007.jpg",
+      "title": "Acces jardin",
+      "description": "Transition soigne entre terrasse et massif arbore."
+    },
+    {
       "url": "/images/gallery/creation/eclairage3.jpg",
       "filename": "eclairage3.jpg",
       "title": "Ambiance nocturne",
       "description": "Jeu d ombres mettant en valeur le jardin."
-    },
-    {
-      "url": "/images/gallery/creation/plantes1.jpg",
-      "filename": "plantes1.jpg",
-      "title": "Palette vegetale",
-      "description": "Selection des especes adaptees au site."
     },
     {
       "url": "/images/gallery/creation/plantes2.jpg",
@@ -153,10 +184,34 @@
   ],
   "entretien": [
     {
+      "url": "/images/gallery/entretien/entretien5-1.jpg",
+      "filename": "entretien5-1.jpg",
+      "title": "Avant entretien complet",
+      "description": "Vegetation dense et bordures envahies avant notre passage."
+    },
+    {
+      "url": "/images/gallery/entretien/entretien5-2.jpg",
+      "filename": "entretien5-2.jpg",
+      "title": "Apres entretien complet",
+      "description": "Haies taillees et pelouse remise a niveau apres intervention."
+    },
+    {
       "url": "/images/gallery/entretien/entretien2.jpg",
       "filename": "entretien2.jpg",
       "title": "Nettoyage de terrasse",
       "description": "Balayage et reprise des joints."
+    },
+    {
+      "url": "/images/gallery/entretien/entretien4-1.jpg",
+      "filename": "entretien4-1.jpg",
+      "title": "Avant entretien saisonnier",
+      "description": "Massifs et circulations avant taille et nettoyage."
+    },
+    {
+      "url": "/images/gallery/entretien/entretien4-2.jpg",
+      "filename": "entretien4-2.jpg",
+      "title": "Apres entretien saisonnier",
+      "description": "Plantations degagees et allees nettes apres intervention."
     },
     {
       "url": "/images/gallery/entretien/entretien3.jpg",
@@ -223,7 +278,19 @@
     {
       "url": "/images/gallery/maraichage/panier-aout-2025.jpg",
       "filename": "panier-aout-2025.jpg",
-      "title": "Panier août 2025",
+      "title": "Panier aout 2025",
+      "description": "Legumes frais cueillis en plein ete."
+    },
+    {
+      "url": "/images/gallery/maraichage/tomates.jpg",
+      "filename": "tomates.jpg",
+      "title": "Tomates",
+      "description": "Legumes frais cueillis en plein ete."
+    },
+    {
+      "url": "/images/gallery/maraichage/tomates-cerise.jpg",
+      "filename": "tomates-cerise.jpg",
+      "title": "Tomates cerise",
       "description": "Legumes frais cueillis en plein ete."
     }
   ]

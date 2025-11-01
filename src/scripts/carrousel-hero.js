@@ -12,18 +12,20 @@ const BASE_URL = window.location.pathname.substring(0, window.location.pathname.
 
 const lightImages = [
   `${BASE_URL}/images/carrousel/carrousel_light_1.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_dark_3.webp`,
   `${BASE_URL}/images/carrousel/carrousel_light_2.webp`,
-  `${BASE_URL}/images/carrousel/carrousel_light_3.webp`,
-  `${BASE_URL}/images/carrousel/carrousel_light_4.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_dark_4.webp`,
   `${BASE_URL}/images/carrousel/carrousel_light_5.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_light_3.webp`,
 ];
 
 const darkImages = [
-  `${BASE_URL}/images/carrousel/carrousel_dark_1.webp`,
-  `${BASE_URL}/images/carrousel/carrousel_dark_2.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_light_1.webp`,
   `${BASE_URL}/images/carrousel/carrousel_dark_3.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_light_2.webp`,
   `${BASE_URL}/images/carrousel/carrousel_dark_4.webp`,
-  `${BASE_URL}/images/carrousel/carrousel_dark_5.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_light_5.webp`,
+  `${BASE_URL}/images/carrousel/carrousel_light_3.webp`,
 ];
 
 let slideIdx = 0;
