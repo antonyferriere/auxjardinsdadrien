@@ -1,0 +1,129 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Estimer votre projet de jardin | Aux Jardins d’Adrien",
+    description: "Obtenez une estimation gratuite et rapide pour vos travaux paysagers à Vence.",
+    canonical: "https://www.auxjardinsdadrien.com/estimer",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    breadcrumb: "Estimation"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %}
+
+{% block scripts %}
+<script src="/scripts/maps.js"></script>
+<script src="/scripts/form-utils.js" defer></script>
+<script src="/scripts/estimation.js" defer></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %}
+
+{% block content %}
+<!-- TITLE  -->
+<section class="title" aria-label="Estimation de projet">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Estimez votre projet de jardin</h1>
+      <p class="sub">
+        Donnez-nous quelques informations pour recevoir une première estimation gratuite de vos travaux paysagers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATION FORM -->
+<section class="estimation">
+  <div class="container">
+    <h2>Pourquoi demander une estimation ?</h2>
+    <p>
+      Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
+    </p>
+    <div class="zone-intervention-content">
+      <form id="estimation-form" class="form" action="/forms/estimation.php" method="post">
+        <div class="honeypot" aria-hidden="true">
+          <label for="estimation-check">Laissez ce champ vide</label>
+          <input
+            type="text"
+            id="estimation-check"
+            name="estimation_check"
+            tabindex="-1"
+            autocomplete="new-password"
+            inputmode="none"
+            data-lpignore="true"
+          />
+        </div>
+        <div class="form-steps" data-step-container>
+          <div class="form-step" id="form-step-1" data-step="1" role="group" aria-labelledby="form-step-1-heading">
+            <p class="step-indicator" id="form-step-1-heading">Étape 1 sur 2</p>
+            <div class="form-field">
+              <input type="text" id="city" name="city" placeholder="Votre ville" required />
+            </div>
+            <div class="form-field">
+              <select type="text" id="project" name="project" placeholder="Sélectionnez un type de projet" required >
+                <option value="" disabled selected>Sélectionnez votre projet</option>
+                <option value="Création de jardin">Création de jardin</option>
+                <option value="Aménagement extérieur">Aménagement extérieur</option>
+                <option value="Entretien de jardin">Entretien de jardin</option>
+                <option value="Elagage et Abattage">Élagage et Abattage</option>
+                <option value="Debroussaillage">Débroussaillage</option>
+                <option value="Potager">Potager</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <textarea id="description" name="description" placeholder="Décrivez brièvement votre projet" required></textarea>
+            </div>
+            <button type="button" class="btn btn-lg btn-link" data-form-action="next">
+              Suivant <i data-lucide="chevron-right" absolute-stroke="true"></i>
+            </button>
+          </div>
+          <div class="form-step" id="form-step-2" data-step="2" role="group" aria-labelledby="form-step-2-heading" hidden>
+            <p class="step-indicator" id="form-step-2-heading">Étape 2 sur 2</p>
+            <div class="form-field">
+              <input type="text" id="name" name="name" placeholder="Votre nom" required />
+            </div>
+            <div class="form-field">
+              <input type="email" id="email" name="email" placeholder="Votre email" required />
+            </div>
+            <div class="form-field">
+              <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
+            </div>
+            <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
+            <button type="button" class="btn btn-lg btn-link" data-form-action="previous">
+              <i data-lucide="chevron-left" absolute-stroke="true"></i> Précédent
+            </button>
+          </div>
+        </div>
+      </form>
+      <div>
+        <div class="map-container">
+          <div class="map-loader" id="map-loader">
+            <div class="spinner"></div>
+          </div>
+          <div id="google-map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="estimation-popup" class="popup" hidden>
+    <div class="popup-content">
+      <p id="estimation-popup-message">Merci, nous revenons vers vous tres vite.</p>
+      <button id="close-popup" class="btn btn-primary">Fermer</button>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+

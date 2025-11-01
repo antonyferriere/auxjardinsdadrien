@@ -1,0 +1,50 @@
+/* ===============================
+   VARIABLES DE THÈME
+   =============================== */
+:root {
+  --container: 1220px;
+  --border-radius: 1rem;
+  --border-radius-btn: 50px;
+
+  --font-size: 16px; /* Taille par défaut */
+  --line-height: 1.6;
+
+  --spacing-xxs: 0.5rem;
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem; /* Espace par défaut */
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+
+  /* Polices Light (Luxe minimal – Côte d’Azur) */
+  --font-title: 'Raleway', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-text: 'Source Sans Pro', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  /* Couleurs Light (Luxe minimal – Côte d’Azur) */
+  --bg: #ffffff; /* blanc pur */
+  --text: #2a2a2a; /* gris anthracite */
+  --text-2: color-mix(in oklab, var(--text) 80%, var(--bg));
+  --primary: #8daf23; /* vert olive */
+  --accent: #5bc0eb; /* bleu azur */
+  --separator: #e9e9e9; /* gris clair */
+  --surface-1: color-mix(in oklab, var(--primary) 2%, var(--bg));
+  --surface-2: color-mix(in oklab, var(--primary) 4%, var(--bg));
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --error: #c0392b; /* rouge vif */
+}
+
+[data-theme='dark'] {
+  /* Polices Dark (Dark mode premium) */
+  --font-title: 'Josefin Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-text: 'Work Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  /* Couleurs Dark (Dark mode premium) */
+  --bg: #0d0d0d; /* noir profond */
+  --text: #f0f0f0; /* blanc cassé */
+  --text-2: color-mix(in oklab, var(--text) 80%, var(--bg));
+  --primary: #a9d93b; /* vert fluo */
+  --accent: #c8a35d; /* doré patiné */
+  --separator: #242424; /* gris très foncé */
+  --surface-1: color-mix(in oklab, var(--bg) 98%, white);
+  --surface-2: color-mix(in oklab, var(--bg) 96%, white);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --error: #c0392b; /* rouge vif */
+}

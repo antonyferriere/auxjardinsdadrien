@@ -1,4 +1,4 @@
-<script src="scripts/script.js"></script>
+<script src="/scripts/base.js"></script>
 {{ scripts }}
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
@@ -7,108 +7,204 @@
 
 <!-- Données structurées (Schema.org) -->
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LandscapingBusiness",
-    "name": "Aux Jardins d'Adrien",
-    "image": [
-      "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
-      "https://www.auxjardinsdadrien.com/images/creation_light.webp",
-      "https://www.auxjardinsdadrien.com/images/entretien_light.webp"
-    ],
-    "description": "Création et entretien de jardins haut de gamme à Vence (Côte d'Azur). Estimation gratuite. Crédit d'impôt 50% sur l'entretien.",
-    "slogan": "Le bien-être prend racine dans votre jardin",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1531 Chemin des Anciens Combattants en A.F.N",
-      "addressLocality": "Vence",
-      "postalCode": "06140",
-      "addressCountry": "FR",
-      "addressRegion": "Alpes-Maritimes"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "43.7223",
-      "longitude": "7.1136"
-    },
-    "url": "https://www.auxjardinsdadrien.com",
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "@id": "https://www.auxjardinsdadrien.com/#business",
+  "name": "Aux Jardins d'Adrien",
+  "image": [
+    "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    "https://www.auxjardinsdadrien.com/images/creation_light.webp",
+    "https://www.auxjardinsdadrien.com/images/entretien_light.webp"
+  ],
+  "logo": "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+  "description": "Paysagiste & maraîcher à Vence (Côte d’Azur) : création et entretien de jardins haut de gamme, micro-maraîchage local, estimation gratuite et crédit d’impôt 50% sur l’entretien.",
+  "slogan": "Le bien-être prend racine dans votre jardin",
+  "url": "https://www.auxjardinsdadrien.com",
+  "email": "auxjardinsdadrien@gmail.com",
+  "telephone": "+33-6-09-56-45-11",
+  "priceRange": "€€€",
+  "founder": {
+    "@type": "Person",
+    "name": "Adrien Goffoz",
+    "jobTitle": "Paysagiste & Maraîcher",
+    "url": "https://www.auxjardinsdadrien.com/a-propos"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
     "telephone": "+33609564511",
-    "priceRange": "€€€",
-    "openingHoursSpecification": {
+    "contactType": "customer service",
+    "availableLanguage": "French"
+  }
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1531 Chemin des Anciens Combattants en A.F.N",
+    "addressLocality": "Vence",
+    "postalCode": "06140",
+    "addressRegion": "Provence-Alpes-Côte d’Azur",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.7223,
+    "longitude": 7.1136
+  },
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Vence, Alpes-Maritimes, Côte d’Azur"
+    },
+    {
+      "@type": "Place",
+      "name": "Nice, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Cagnes-sur-Mer, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Saint-Paul-de-Vence, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Saint-Paul-de-Vence, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Villeneuve-Loubet, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Antibes, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Mougins, Alpes-Maritimes"
+    },
+    {
+      "@type": "Place",
+      "name": "Grasse, Alpes-Maritimes"
+    }
+  ],
+  "openingHoursSpecification": [
+    {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       "opens": "08:00",
       "closes": "18:00"
-    },
-    "sameAs": [
-      "https://www.facebook.com/auxjardinsdadrien",
-      "https://www.instagram.com/auxjardinsdadrien",
-      "https://www.linkedin.com/company/aux-jardins-d-adrien"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services de jardinage",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Création de jardins",
-            "description": "Conception et aménagement de jardins sur-mesure, élégants et durables"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Entretien de jardins",
-            "description": "Contrats annuels et interventions ponctuelles. Crédit d'impôt 50%"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Maraîchage",
-            "description": "Micro-ferme locale : légumes de saison, ateliers potager & bien-être"
-          }
-        }
-      ]
-    },
-    "review": [
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/auxjardinsdadrien",
+    "https://www.instagram.com/auxjardinsdadrien",
+    "https://www.linkedin.com/company/aux-jardins-d-adrien"
+  ],
+  "knowsAbout": [
+    "paysagiste Vence",
+    "entretien de jardin Alpes-Maritimes",
+    "création de jardin Côte d’Azur",
+    "élagage arbres",
+    "maraîchage local",
+    "crédit d’impôt entretien jardin"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services de jardinage et maraîchage",
+    "itemListElement": [
       {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Marie P."
-        },
-        "reviewBody": "Un travail soigné et un suivi impeccable. Notre jardin est devenu un véritable havre de paix méditerranéen."
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "serviceType": "Création de jardins",
+          "name": "Conception et aménagement de jardins",
+          "description": "Création de jardins sur-mesure, élégants et durables, adaptés au climat méditerranéen."
+        }
       },
       {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Laurent M."
-        },
-        "reviewBody": "Professionnalisme et créativité. Adrien a su parfaitement intégrer notre piscine dans un écrin de verdure."
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "serviceType": "Entretien de jardins",
+          "name": "Entretien de jardins",
+          "description": "Contrats annuels et interventions ponctuelles. Crédit d'impôt immédiat de 50%."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "serviceType": "Maraîchage local",
+          "name": "Micro-ferme maraîchère",
+          "description": "Production locale de légumes de saison, ateliers potagers et activités de bien-être liées au jardin."
+        }
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "3",
-      "bestRating": "5",
-      "worstRating": "1"
+    ]
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Marie P."
+      },
+      "reviewBody": "Un travail soigné et un suivi impeccable. Notre jardin est devenu un véritable havre de paix méditerranéen."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laurent M."
+      },
+      "reviewBody": "Professionnalisme et créativité. Adrien a su parfaitement intégrer notre piscine dans un écrin de verdure."
     }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": 2,
+    "bestRating": "5",
+    "worstRating": "1"
   }
+}
 </script>
+
+{% if seo.breadcrumb %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "{{ site.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ seo.breadcrumb }}",
+      "item": "{{ seo.canonical }}"
+    }
+  ]
+}
+</script>
+{% endif %}
+

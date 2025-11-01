@@ -1,0 +1,51 @@
+name: Deploy PROD (FTP, clean)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: PROD
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build site
+        run: npx eleventy --output=build
+
+      - name: Echo target
+        run: echo "➡️  Déploiement sur '${{ secrets.FTP_DIR }}' (contenu nettoyé avant upload) "
+
+      - name: Deploy via FTP (clean slate)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: ${{ secrets.FTP_PORT || 21 }}
+          local-dir: build/
+          server-dir: ${{ secrets.FTP_DIR }}
+          dangerous-clean-slate: true
+          # NB: avec 'dangerous-clean-slate: true', tout est supprimé
+          # dans 'server-dir' avant l'upload. Les 'exclude' ne protègent PAS
+          # les fichiers distants déjà présents.

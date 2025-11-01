@@ -1,0 +1,61 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Politique de confidentialité | Aux Jardins d’Adrien",
+    description: "Découvrez comment nous protégeons vos données personnelles.",
+    canonical: "https://www.auxjardinsdadrien.com/confidentialite",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    breadcrumb: "Confidentialité"
+  }
+%}
+
+{% block content %}
+<!-- TITLE -->
+<section class="title" aria-label="Politique de confidentialité">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/maraichage.jpg" alt="" aria-hidden="true" />
+    <img class="title-bg img-dark" src="/images/maraichage.jpg" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Politique de confidentialité</h1>
+      <p class="sub">Aux Jardins d’Adrien s’engage à protéger vos données personnelles.</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-text">
+  <div class="container">
+    <h2>Collecte des informations</h2>
+    <p>
+      Nous ne recueillons que les données nécessaires au traitement de vos demandes (formulaire de
+      contact ou estimation).
+    </p>
+  </div>
+</section>
+<section class="section-text">
+  <div class="container">
+    <h2>Utilisation des données</h2>
+    <p>
+      Les informations fournies sont utilisées exclusivement pour répondre à vos sollicitations et
+      ne sont jamais vendues ou partagées avec des tiers.
+    </p>
+  </div>
+</section>
+<section class="section-text">
+  <div class="container">
+    <h2>Vos droits</h2>
+    <p>
+      Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos
+      données en écrivant à
+      <a href="mailto:auxjardinsdadrien@gmail.com">auxjardinsdadrien@gmail.com</a>.
+    </p>
+  </div>
+</section>
+{% endblock %}

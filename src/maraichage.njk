@@ -1,0 +1,181 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Maraîchage agroécologique à Vence – Légumes locaux de saison",
+    description: "Micro-ferme maraîchère à Vence : légumes cultivés en agroécologie, vente directe, paniers hebdomadaires et ateliers potager. Fraîcheur et respect de la nature garantis.",
+    ogTitle: "Maraîchage local & durable – Aux Jardins d’Adrien",
+    ogDescription: "Découvrez nos légumes de saison en vente directe et nos ateliers potager à Vence.",
+    twitterTitle: "Maraîchage | Aux Jardins d’Adrien – Vence",
+    twitterDescription: "Savourez des légumes de saison cultivés localement en agroécologie à Vence.",
+    canonical: "https://www.auxjardinsdadrien.com/maraichage",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Maraîchage"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %} 
+
+{% block scripts %}
+<script src="/scripts/gallery.js"></script>
+<script src="/scripts/maps.js"></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %} 
+
+{% block content %}
+<!-- TITLE  -->
+<section class="title" aria-label="Mot du président">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/maraichage_light.webp" alt="" aria-hidden="true" />
+    <!-- Image pour le thème sombre -->
+    <img class="title-bg img-dark" src="/images/maraichage_dark.webp" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Maraîchage à Vence – Des légumes locaux cultivés avec passion</h1>
+      <p class="sub">
+        Du jardin à l’assiette, dans le respect de la nature.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODE DE VENTE -->
+<section class="intro section-text">
+  <div class="container">
+    <h2>🌿🛠️ Ouverture début 2026 🛠️🌿</h2>
+  </div>
+</section>
+
+<!-- PROMESSE -->
+<section class="intro section-text section-elevated">
+  <div class="container">
+    <h2>Un potager durable, des produits sains et savoureux</h2>
+    <p>
+      Nous cultivons à Vence en micro-ferme maraîchère selon les principes de l’agroécologie et de la permaculture. Nos fruits et légumes de saison, récoltés à maturité, allient fraîcheur, goût et respect de l’environnement.
+    </p>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="">
+  <div class="container">
+    <h2>Notre philosophie</h2>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🛒🌿 Produits & partenaires locaux</h3>
+          <p class="card-text">
+            Zéro phyto, intrants issus de recyclage local. Partenariats avec artisans voisins de Cagnes-sur-Mer et La Colle-sur-Loup, pour soutenir l’économie locale.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🌱 Semences paysannes</h3>
+          <p class="card-text">
+            Nos cultures reposent sur des semences rustiques et reproductibles, garantes de biodiversité et de qualité gustative.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">✅🌍 Label Bio</h3>
+          <p class="card-text">
+            Engagés dans une agriculture respectueuse, nous visons la certification bio pour garantir des produits sans pesticides ni engrais chimiques.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">♻️ Permaculture intensive</h3>
+          <p class="card-text">
+            Densité de plantation, rotation et association des cultures permettent de préserver les sols et d’optimiser les récoltes.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🦆 Canards protecteurs</h3>
+          <p class="card-text">
+            Nos canards contribuent à l’équilibre naturel du potager en limitant naturellement les insectes nuisibles.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🐝🌾 Jachères et biodiversité</h3>
+          <p class="card-text">
+            Des espaces en repos assurent la régénération des sols et favorisent la faune auxiliaire.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Galerie</h2>
+
+    <!-- Filtres -->
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <!-- Galerie -->
+    <div class="gallery" id="gallery" data-default-filter="maraichage">
+      <div class="loading" id="gallery-loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container" style="display: none">
+      <button class="pagination-btn" id="prev-page" disabled>‹</button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button class="pagination-btn" id="next-page">›</button>
+      <div class="pagination-info">
+        <span id="page-info">Page 1 sur 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description">
+          Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+        </p>
+      </div>
+      <div class="lightbox-counter">
+        <span id="lightbox-counter">1 / 8</span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

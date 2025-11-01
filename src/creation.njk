@@ -1,0 +1,367 @@
+
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Création de jardins sur mesure à Vence – Paysagiste expert",
+    description: "Aménagements paysagers haut de gamme : plantations méditerranéennes, systèmes d’arrosage, paillages, maçonnerie et éclairages extérieurs. Conception personnalisée pour un jardin unique.",
+    ogTitle: "Création de jardins d’exception à Vence",
+    ogDescription: "Aux Jardins d’Adrien réalise des créations paysagères sur mesure pour sublimer vos extérieurs.",
+    twitterTitle: "Création de jardins | Aux Jardins d’Adrien – Vence",
+    twitterDescription: "Transformez votre extérieur avec une création paysagère sur mesure signée Aux Jardins d’Adrien.",
+    canonical: "https://www.auxjardinsdadrien.com/creation",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Création"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/beforeafter.css" />
+<link rel="stylesheet" href="/styles/pages/creation.css" />
+{% endblock %} 
+
+{% block scripts %}
+<script src="/scripts/beforeafter.js"></script>
+<script src="/scripts/gallery.js"></script>
+{% endblock %}  
+
+{% block content %}
+<!-- TITRE DE PAGE  -->
+<section class="title" aria-label="Mot du président">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
+    <!-- Image pour le thème sombre -->
+    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Création de jardins sur-mesure</h1>
+      <p class="sub">
+        Design, plantations, arrosage intelligent, paillages &amp; revêtements, maçonnerie
+        paysagère.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESSES -->
+<section class="intro section-text section-elevated">
+  <div class="container">
+    <h2>Un jardin unique, pensé pour durer</h2>
+    <p>
+      Nous concevons et réalisons des jardins élégants, adaptés à vos usages et au climat
+      méditerranéen. Du dessin des plans jusqu’aux finitions, notre équipe pilote chaque étape avec
+      soin pour un résultat harmonieux et pérenne.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+      <a class="btn btn-primary" href="/contact" aria-label="Contactez-nous">Contactez-nous</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISES -->
+<section class="expertise" aria-label="Nos expertises en création">
+  <div class="container">
+    <h2>Nos expertises en création</h2>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/plantes.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/plantes.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Plantes</h3>
+          <p class="card-text">
+            Des végétaux résilients et élégants, adaptés au climat méditerranéen : peu d’arrosage, peu d’entretien, mais une richesse de formes et de couleurs toute l’année.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/sol.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/sol.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Paillages et revêtements de sol</h3>
+          <p class="card-text">
+            Des sols harmonieux et pratiques : paillages végétaux ou minéraux qui subliment vos massifs, limitent l’arrosage et structurent vos allées.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/gazon.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/gazon.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Gazon</h3>
+          <p class="card-text">
+            Un tapis vert impeccable, qu’il soit en semis, en plaques ou en version alternative résistante et économe en eau.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/bordure2.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/bordure2.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Bordures</h3>
+          <p class="card-text">
+            Acier, bois ou béton : des lignes nettes qui structurent et délimitent vos espaces verts pour un rendu harmonieux et raffiné.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/arrosage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/arrosage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Systèmes d’arrosage</h3>
+          <p class="card-text">
+            Des solutions automatiques et connectées, discrètes et efficaces, pour un jardin toujours verdoyant avec une consommation d’eau maîtrisée.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/maconnerie.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/maconnerie.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Maçonnerie paysagère et éclairage extérieur</h3>
+          <p class="card-text">
+            Murets, allées, terrasses et éclairages subtils : la structure qui sublime vos espaces et crée des ambiances uniques, de jour comme de nuit.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- AVANT / APRES -->
+<section class="before-after section-elevated" aria-label="Avant et après notre création paysagère">
+  <div class="container">
+    <h2>Avant / Après</h2>
+    <p>Découvrez comment nos conceptions transforment vos extérieurs : reliefs repensés, circulations fluides et plantations qui révèlent tout le potentiel de votre jardin.</p>
+    <div class="before-after-slider" data-before-after>
+      <figure class="before-after-figure">
+        <img
+          class="before-after-image before-after-image--before"
+          src="/images/creation_avant.jpg"
+          alt="Projet de jardin avant notre intervention"
+          loading="lazy"
+        />
+        <img
+          class="before-after-image before-after-image--after"
+          src="/images/creation_apres.jpg"
+          alt="Projet de jardin après notre intervention"
+          loading="lazy"
+        />
+        <div class="before-after-handle" aria-hidden="true">
+          <span class="before-after-handle-line"></span>
+          <span class="before-after-handle-grip"></span>
+        </div>
+      </figure>
+      <input
+        class="before-after-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Comparer les photos avant et après"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="processus" aria-label="Notre processus">
+  <div class="container">
+    <h2>Un accompagnement sur-mesure, de A à Z</h2>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">✏️🌿 Étude et design</h3>
+          <p class="card-text">
+            Visite sur site, relevés, croquis et conseils matériaux & végétaux.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🛠️🌳 Réalisation</h3>
+          <p class="card-text">
+            Préparation des sols, réseaux, plantations, maçonnerie et finitions.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🎉🏡 Réception</h3>
+          <p class="card-text">
+            Réception du chantier, conseils d’entretien.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🤝🍃 Suivi</h3>
+          <p class="card-text">
+            Accompagnement pour l'entretien de votre jardin.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+
+    <!-- Filtres -->
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <!-- Galerie -->
+    <div class="gallery" id="gallery" data-default-filter="creation">
+      <div class="loading" id="gallery-loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container" style="display: none">
+      <button class="pagination-btn" id="prev-page" disabled>‹</button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button class="pagination-btn" id="next-page">›</button>
+      <div class="pagination-info">
+        <span id="page-info">Page 1 sur 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description">
+          Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+        </p>
+      </div>
+      <div class="lightbox-counter">
+        <span id="lightbox-counter">1 / 8</span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

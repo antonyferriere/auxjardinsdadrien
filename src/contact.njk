@@ -1,0 +1,100 @@
+
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Contact & devis gratuit – Aux Jardins d’Adrien, paysagiste à Vence",
+    description: "Contactez Aux Jardins d’Adrien pour vos projets de création, entretien ou maraîchage à Vence. Demande de devis gratuit en 48h par téléphone, email ou formulaire.",
+    ogTitle: "Contactez Aux Jardins d’Adrien – Devis gratuit",
+    ogDescription: "Échangez avec un paysagiste expert à Vence pour vos projets d’aménagement extérieur.",
+    twitterTitle: "Contact | Aux Jardins d’Adrien – Paysagiste à Vence",
+    twitterDescription: "Demandez votre devis gratuit en 48h auprès de l’équipe Aux Jardins d’Adrien.",
+    canonical: "https://www.auxjardinsdadrien.com/contact",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Contact"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %} 
+
+{% block scripts %}
+<script src="/scripts/form-utils.js" defer></script>
+<script src="/scripts/contact.js" defer></script>
+<script src="/scripts/maps.js" defer></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %} 
+
+{% block content %}
+<!-- TITLE -->
+<section class="title">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
+    <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Contact</h1>
+      <p class="sub">Parlons de votre projet de jardin à Vence et sur la Côte d’Azur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact">
+  <div class="container">
+    <h2>Envoyez-nous un message</h2>
+    <p>
+      Nous intervenons dans un rayon de <strong>30 kilomètres autour de Vence</strong>.
+    </p>
+    <div class="zone-intervention-content">
+      <form id="contact-form" class="form" action="/forms/contact.php" method="post">
+        <div class="honeypot" aria-hidden="true">
+          <label for="contact-check">Laissez ce champ vide</label>
+          <input
+            type="text"
+            id="contact-check"
+            name="contact_check"
+            tabindex="-1"
+            autocomplete="new-password"
+            inputmode="none"
+            data-lpignore="true"
+          />
+        </div>
+        <div class="form-field">
+          <input type="text" id="name" name="name" placeholder="Votre nom" required />
+        </div>
+        <div class="form-field">
+          <input type="email" id="email" name="email" placeholder="Votre email" required />
+        </div>
+        <div class="form-field">
+          <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
+        </div>
+        <div class="form-field">
+          <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Envoyer</button>
+      </form>
+      <div>
+        <div class="map-container">
+          <div class="map-loader" id="map-loader">
+            <div class="spinner"></div>
+          </div>
+          <div id="google-map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-popup" class="popup" hidden>
+    <div class="popup-content">
+      <p id="contact-popup-message">Merci, nous vous contactons rapidement.</p>
+      <button id="close-popup" class="btn btn-primary">Fermer</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

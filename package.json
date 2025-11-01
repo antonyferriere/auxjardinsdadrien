@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production eleventy",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve --output=build"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/antonyferriere/auxjardinsdadrien#readme",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "html-minifier-terser": "^6.1.0",
+    "terser": "^5.43.1"
   },
   "devDependencies": {
-    "eleventy-plugin-terser": "*",
-    "@11ty/eleventy-plugin-postcss": "*",
-    "cssnano": "*"
+    "cssnano": "*",
+    "eleventy-plugin-postcss": "*"
   }
 }

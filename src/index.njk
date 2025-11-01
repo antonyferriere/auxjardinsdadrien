@@ -1,0 +1,273 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Paysagiste & maraîcher à Vence – Création & entretien de jardins d’exception",
+    description: "Aux Jardins d’Adrien conçoit, crée et entretient des jardins haut de gamme sur la Côte d’Azur. Estimation gratuite, crédit d’impôt 50% sur l’entretien. Profitez d’un savoir-faire artisanal et écologique.",
+    ogTitle: "Aux Jardins d’Adrien – Paysagiste & maraîcher à Vence",
+    ogDescription: "Découvrez nos services de création et d'entretien de jardins d'exception sur la Côte d’Azur.",
+    twitterTitle: "Aux Jardins d’Adrien | Paysagiste & maraîcher à Vence",
+    twitterDescription: "Faites de votre jardin un véritable havre de paix avec Aux Jardins d’Adrien.",
+    canonical: "https://www.auxjardinsdadrien.com",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Accueil"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/carrousel-hero.css" />
+<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/pages/index.css" />
+{% endblock %} 
+
+{% block scripts %}
+<script src="/scripts/carrousel-hero.js"></script>
+<script src="/scripts/google-reviews.js"></script>
+<script src="/scripts/gallery.js"></script>
+{% endblock %}
+
+{% block content %}
+<!-- HERO / CARROUSEL plein écran -->
+<section id="hero" class="hero section-nopad" aria-label="Bannière principale">
+  <div class="hero-slide">
+    <!-- Image gérée par JS en background pour couvrir 100svh -->
+    <div class="hero-content">
+      <h1>Paysagiste & maraîcher à Vence<br /><i>Aux Jardins d’Adrien</i></h1>
+      <p class="sub">Le bien-être prend racine dans votre jardin</p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+
+    <!-- Contrôles carrousel -->
+    <div class="carousel-controls" aria-label="Contrôles du carrousel">
+      <button class="dot" data-slide="0" aria-label="Slide 1"></button>
+      <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="dot" data-slide="3" aria-label="Slide 4"></button>
+      <button class="dot" data-slide="4" aria-label="Slide 5"></button>
+      <button class="dot" data-slide="5" aria-label="Slide 6"></button>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" aria-label="Nos services">
+  <div class="container">
+    <h2>Nos services</h2>
+    <ul class="cards">
+      <li class="card" data-href="creation">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/creation_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/creation_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Création</h3>
+          <p class="card-text">
+            Conception et aménagement de jardins sur-mesure, élégants et durables.
+          </p>
+        </div>
+        <footer class="card-footer">
+          <a class="link" href="/creation" aria-label="Découvrir la création">Découvrir</a>
+        </footer>
+      </li>
+
+      <li class="card" data-href="/entretien">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/entretien_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/entretien_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Entretien</h3>
+          <p class="card-text">
+            Contrats annuels et interventions ponctuelles. <b>Crédit d’impôt 50%</b>.
+          </p>
+        </div>
+        <footer class="card-footer">
+          <a class="link" href="/entretien" aria-label="Découvrir l’entretien">Découvrir</a>
+        </footer>
+      </li>
+
+      <li class="card" data-href="/maraichage">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/maraichage_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/maraichage_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Maraîchage</h3>
+          <p class="card-text">
+            Micro-ferme locale : vente de légumes de saison et ateliers potagers.
+          </p>
+        </div>
+        <footer class="card-footer">
+          <a class="link" href="/maraichage" aria-label="Découvrir le maraîchage">Découvrir</a>
+        </footer>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROMESSE  -->
+<section class="promesses" aria-label="Promesse de qualité">
+  <div class="container">
+    <h2>Votre jardin mérite l’excellence</h2>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🌿 Qualité durable</h3>
+          <p class="card-text">
+            Des jardins esthétiques et pérennes, pensés pour le climat méditerranéen et réalisés avec des matériaux haut de gamme.
+          </p>
+        </div>
+      </li>
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">⚡ Réactivité garantie</h3>
+          <p class="card-text">
+            Devis rapide, délais respectés et suivi rigoureux : nous nous adaptons à vos besoins pour un service sans mauvaises surprises.
+          </p>
+        </div>
+      </li>
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🛠️ Savoir-faire artisanal</h3>
+          <p class="card-text">
+            Un paysagiste passionné et expérimenté qui conjugue précision, créativité et respect des règles de l’art pour sublimer vos extérieurs.
+          </p>
+        </div>
+      </li>
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">💶 Un jardin à moitié prix</h3>
+          <p class="card-text">
+            Bénéficiez de 50% de crédit d’impôt immédiat sur l’entretien de votre jardin grâce à notre agrément service à la personne.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- NOS VALEURS  -->
+<section class="quote section-text section-staff" aria-label="Mot du président">
+  <div class="container">
+    <blockquote class="quote-content">
+      <p>
+        Un jardin, c’est la nature devenue art pour créer votre havre de paix.
+      </p>
+      <cite>Adrien Goffoz, fondateur d’Aux Jardins d’Adrien</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="testimonials" aria-label="Témoignages">
+  <div class="container">
+    <h2>Ce que disent nos clients</h2>
+    <div class="cards" id="google-reviews"></div>
+    <div>
+      <a
+        class="btn btn-primary"
+        href="https://www.google.com/search?sca_esv=5df02e083550f121&hl=fr-FR&gl=fr&sxsrf=AE3TifPBc5WJTnXzOBQl4enX0NJ5SWcocg:1757770644777&uds=AOm0WdE2fekQnsyfYEw8JPYozOKzR35K3OV_dV_e_eNJncrtaFKl-7mqvMsadzzLvTtb8sQb2sIfwW7KbhL5vESiR-VDDQ_6gLFSGaySii1tlnU2svw-J6wF-GkD8d1ET8aKk_UEpkSD5w0W-JOCjrtQpqfZ4Ax453-_hzRGV43D35JOFbvfW74LYiu-dL4OnY_94dkK_pFyPTV9KD2lKJYoLyPESwy1BSHxVsMjHeucooM9LUR4KO9IY42jGryIfY8-Nm4-aB89qWHLF_rC8GgaiOARC4j1StUlvZ4_tRLOb1u9mNdJChOkPe9TBaG2aXW737qSLSA6&q=Aux+Jardins+d%27Adrien+-+Cr%C3%A9ation+%26+Am%C3%A9nagements+d%27ext%C3%A9rieurs+-+Vence+%26+Alentours+Avis&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1suaeZGwGBLw0ldx4kOxR8BnYEYXnaVrNvbIMbSTiA1G5RuQyHgc7FiUxM8Lqj_jiG1FG1_pCyVrTe6MwAhU-MiL-f699adlnBBJj87LLyO3p3eaTEokItbjqTcSH4Xku_8lUq1OCtnwBl-ki39K6XD3c6v_vdjmRqJfbLZzvxTVt7dFw%3D%3D&sa=X&ved=2ahUKEwjorIP37dWPAxUvV6QEHYm5CgYQ_4MLegQIOBAL&cshid=1757770775373216&biw=1745&bih=835&dpr=1.1"
+        target="_blank"
+        rel="noopener"
+        >Voir plus d'avis</a
+      >
+    </div>
+  </div>
+</section> 
+
+<!-- GALERIE -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+
+    <!-- Filtres -->
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <!-- Galerie -->
+    <div class="gallery" id="gallery">
+      <div class="loading" id="gallery-loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container" style="display: none">
+      <button class="pagination-btn" id="prev-page" disabled>‹</button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button class="pagination-btn" id="next-page">›</button>
+      <div class="pagination-info">
+        <span id="page-info">Page 1 sur 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description">
+          Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+        </p>
+      </div>
+      <div class="lightbox-counter">
+        <span id="lightbox-counter">1 / 8</span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

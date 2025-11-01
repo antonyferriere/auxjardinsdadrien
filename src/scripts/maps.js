@@ -1,6 +1,6 @@
 // Configuration
 const VENCE_COORDINATES = { lat: 43.7223, lng: 7.1136 };
-const INTERVENTION_RADIUS = 20000; // 20 km en mètres
+const INTERVENTION_RADIUS = 30000; // 30 km en mètres
 
 let map;
 let circle;

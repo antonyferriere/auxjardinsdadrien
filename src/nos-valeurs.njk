@@ -1,0 +1,115 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Nos valeurs – Paysagiste écoresponsable à Vence",
+    description: "Engagement écologique et savoir-faire artisanal : zéro phyto, recyclage des déchets verts, matériel électrique et amendements bio. Aux Jardins d’Adrien façonne des jardins durables.",
+    ogTitle: "Aux Jardins d’Adrien – Nos valeurs écoresponsables",
+    ogDescription: "Découvrez nos engagements pour des jardins durables et respectueux de la nature.",
+    twitterTitle: "Nos valeurs | Aux Jardins d’Adrien – Paysagiste écoresponsable",
+    twitterDescription: "Aux Jardins d’Adrien met l’écologie et l’artisanat au cœur de son savoir-faire.",
+    canonical: "https://www.auxjardinsdadrien.com/nos-valeurs",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Nos valeurs"
+  }
+%}
+
+{% block styles %}
+{% endblock %} 
+
+{% block scripts %}
+{% endblock %} 
+
+{% block content %}
+<!-- TITLE  --> 
+<section class="title" aria-label="Mot du président">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/equipe.jpg" alt="" aria-hidden="true" />
+    <!-- Image pour le thème sombre -->
+    <img class="title-bg img-dark" src="/images/equipe.jpg" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Nos valeurs</h1>
+      <p class="sub">
+        Cultiver la beauté, respecter la nature.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITATION  -->
+<section class="quote section-text section-elevated" aria-label="Mot du président">
+  <div class="container">
+    <blockquote class="quote-content">
+      <p>
+        Chaque jardin est une promesse : celle d’un espace qui embellit votre quotidien tout en préservant la terre qui nous nourrit.
+      </p>
+      <cite>Adrien Goffoz, fondateur d’Aux Jardins d’Adrien</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="">
+  <div class="container">
+  <h2>Nos valeurs</h2>
+    <p>
+      Chez <i>Aux Jardins d’Adrien</i>, nous croyons qu’un jardin ne se limite pas à l’esthétique. C’est un lieu de vie qui doit être pensé dans le respect de l’environnement, avec des pratiques durables et responsables. Nos engagements se traduisent chaque jour par des actions concrètes :
+    </p>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">♻️ Recyclage & valorisation</h3>
+          <p class="card-text">
+            Nous transformons nos déchets verts en paillages et amendements naturels, afin de rendre au sol ce qu’il nous donne.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🔋 Matériel électrique</h3>
+          <p class="card-text">
+            Des outils propres et silencieux pour limiter notre empreinte carbone et préserver le confort de vos espaces.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🌍 Énergies alternatives</h3>
+          <p class="card-text">
+            Nous adoptons le GPL et le biogaz pour réduire nos émissions et avancer vers une mobilité plus durable.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🚫 Zéro phyto</h3>
+          <p class="card-text">
+            Aucun produit chimique : nous privilégions les solutions naturelles pour protéger la biodiversité et vos sols.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-content">
+          <h3 class="card-title">🌿 Amendements bio</h3>
+          <p class="card-text">
+            Engrais organiques et composts enrichissent durablement la terre, pour des plantations saines et vivaces.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+{% endblock %}

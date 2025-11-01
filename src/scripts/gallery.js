@@ -6,7 +6,6 @@
 
 // Configuration
 const IMAGES_PER_PAGE = 6;
-const BASE_URL = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
 const IMG_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif', '.svg']);
 
 // Variables globales
@@ -15,9 +14,10 @@ let filterBtns = [];
 let allImages = [];
 let filteredImages = [];
 let currentPage = 1;
-let currentFilter = 'all';
 
 const galleryContainer = document.getElementById('gallery');
+const defaultFilter = galleryContainer?.dataset.defaultFilter || 'all';
+let currentFilter = defaultFilter;
 const galleryLoading = document.getElementById('gallery-loading');
 const galleryFilters = document.getElementById('gallery-filters');
 const paginationContainer = document.getElementById('pagination-container');
@@ -32,8 +32,9 @@ async function loadImages() {
     galleryLoading.style.display = 'flex';
 
     // Charger la base de données d'images
-    const res = await fetch(`${BASE_URL}/galleryImages.json`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Impossible de charger galleryImages.json');
+    const json = `/scripts/gallery.json`;
+    const res = await fetch(json, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Impossible de charger ${json}`);
     imageDatabase = await res.json();
 
     // Générer les filtres dynamiquement
@@ -46,14 +47,18 @@ async function loadImages() {
         allImages.push({
           ...image,
           category,
-          src: `${BASE_URL}${image.url}`,
+          src: image.url,
           title: image.title,
           description: image.description,
         });
       });
     });
 
-    filteredImages = [...allImages];
+    if (currentFilter === 'all') {
+      filteredImages = [...allImages];
+    } else {
+      filteredImages = allImages.filter((img) => img.category === currentFilter);
+    }
 
     galleryLoading.style.display = 'none';
     renderGallery();
@@ -70,7 +75,7 @@ function generateFilters() {
 
   // Bouton "Tout voir"
   const allBtn = document.createElement('button');
-  allBtn.className = 'filter-btn active';
+  allBtn.className = 'filter-btn' + (defaultFilter === 'all' ? ' active' : '');
   allBtn.dataset.filter = 'all';
   allBtn.textContent = 'Tout voir';
   galleryFilters.appendChild(allBtn);
@@ -78,7 +83,7 @@ function generateFilters() {
   // Boutons pour chaque catégorie dans imageDatabase
   Object.keys(imageDatabase).forEach((category) => {
     const categoryBtn = document.createElement('button');
-    categoryBtn.className = 'filter-btn';
+    categoryBtn.className = 'filter-btn' + (defaultFilter === category ? ' active' : '');
     categoryBtn.dataset.filter = category;
 
     // Utiliser le label personnalisé ou capitaliser le nom de catégorie

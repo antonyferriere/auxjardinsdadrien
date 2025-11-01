@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="auto">
-  {% include "../partials/_head.njk" %}
+  <head>
+    {% include "_head.njk" %} {% block styles %}{% endblock %}
+  </head>
   <body>
-    {% include "../partials/_header.njk" %}
+    {% include "_header.njk" %}
     <main id="content" role="main">
-      {{ content | safe }}
+      {% block content %}{% endblock %}
+      <!-- CALL TO ACTION -->
+      <section class="section-text section-elevated">
+        <div class="container">
+          <h2>Parlons de votre projet</h2>
+          <p>Estimation gratuite et sans engagement — nous vous répondons rapidement.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+            <a class="btn btn-primary" href="/contact" aria-label="Contactez-nous">Contactez-nous</a>
+          </div>
+        </div>
+      </section>
     </main>
-    {% include "../partials/_footer.njk" %} {% include "../partials/_scripts.njk" %}
-    {{ scripts | safe }}
+    {% include "_footer.njk" %} {% include "_scripts.njk" %} {% block scripts %}{% endblock %}
   </body>
 </html>

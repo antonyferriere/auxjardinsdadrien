@@ -1,0 +1,288 @@
+{% extends "default.njk" %}
+
+{%
+  set seo = {
+    title: "Entretien de jardin à Vence – Crédit d’impôt 50% immédiat",
+    description: "Tonte, taille, élagage et remise en état de jardin. Aux Jardins d’Adrien vous accompagne toute l’année avec un crédit d’impôt immédiat de 50%. Votre extérieur impeccable sans effort.",
+    ogTitle: "Entretien de jardins à Vence – Aux Jardins d’Adrien",
+    ogDescription: "Forfaits annuels et interventions ponctuelles avec avantage fiscal immédiat.",
+    twitterTitle: "Entretien de jardin | Aux Jardins d’Adrien – Vence",
+    twitterDescription: "Profitez d’un jardin toujours parfait avec 50% de crédit d’impôt sur l’entretien.",
+    canonical: "https://www.auxjardinsdadrien.com/entretien",
+    ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
+    ogImageAlt: "Logo Aux Jardins d'Adrien - Paysagiste & Maraîcher à Vence",
+    breadcrumb: "Entretien"
+  }
+%}
+
+{% block styles %}
+<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/beforeafter.css" />
+<link rel="stylesheet" href="/styles/maps.css" />
+{% endblock %} 
+
+{% block scripts %}
+<script src="/scripts/gallery.js"></script>
+<script src="/scripts/beforeafter.js"></script>
+<script src="/scripts/maps.js"></script>
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+></script>
+{% endblock %} 
+
+{% block content %}
+<!-- TITRE DE PAGE  -->
+<section class="title" aria-label="Mot du président">
+  <div class="title-img">
+    <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
+    <!-- Image pour le thème sombre -->
+    <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
+    <div class="title-content">
+      <h1>Entretien de jardins à Vence et sur la Côte d’Azur</h1>
+      <p class="sub">
+        Un jardin impeccable toute l’année, à moitié prix grâce au crédit d’impôt immédiat.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-ghost btn-lg" href="/estimer" aria-label="Devis gratuit"
+          >Devis gratuit</a
+        >
+        <a class="btn btn-ghost btn-lg" href="/contact" aria-label="Contactez-nous"
+          >Contactez-nous</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESSE -->
+<section class="intro section-text section-elevated">
+  <div class="container">
+    <h2>Votre jardin, toujours soigné sans effort</h2>
+    <p>
+      Confiez l’entretien de vos espaces verts à des professionnels rigoureux et profitez d’un extérieur harmonieux au fil des saisons. Avec notre agrément « service à la personne », bénéficiez immédiatement de <b>50 % de crédit d’impôt</b> : l’excellence de l’entretien au meilleur coût.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+      <a class="btn btn-primary" href="/contact" aria-label="Contactez-nous">Contactez-nous</a>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRETIEN ANNUEL -->
+<section class="article">
+  <div class="container">
+    <div class="article-grid">
+      <div class="article-media">
+        <!-- Image pour le thème clair -->
+        <img
+          class="article-img img-light"
+          src="/images/entretien_suivi.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+        <!-- Image pour le thème sombre -->
+        <img
+          class="article-img img-dark"
+          src="/images/entretien_suivi.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+      </div>
+      <div class="article-content">
+        <h2>Un suivi régulier pour un jardin toujours impeccable</h2>
+        <p>
+          Parce qu’un jardin vit et évolue chaque jour, son entretien demande du temps, de l’expertise et une régularité sans faille. 
+          Aux Jardins d’Adrien vous propose des <b>contrats d’entretien annuel personnalisés</b> : tontes, tailles, désherbage, nettoyage des allées, suivi phytosanitaire, 
+          ajustement de l’arrosage… Tout est planifié pour que vos espaces verts restent soignés et florissants à chaque saison.
+        </p>
+        <p>
+          Notre valeur ajoutée : nous sommes agréés « services à la personne ». 
+          Vous bénéficiez ainsi de 50 % de <b>crédit d’impôt en avance immédiate</b>, directement déduit de votre facture via l’Urssaf. 
+          Concrètement, vous profitez de prestations haut de gamme à moitié prix, sans démarches administratives lourdes.
+        </p>
+        <p>
+          En choisissant Aux Jardins d’Adrien, 
+          vous gagnez en sérénité : nos jardiniers-paysagistes interviennent avec ponctualité, savoir-faire artisanal et respect de l’environnement. 
+          Votre seul rôle ? Profiter de la beauté et du confort de votre jardin, toute l’année.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESTATIONS -->
+<section class="">
+  <div class="container">
+    <h2>Nos prestations ponctuelles</h2>
+    <ul class="cards">
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/entretien_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/entretien_miniature.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Remise en état</h3>
+          <p class="card-text">
+            Redonnez vie à votre jardin après une pause d'entretien ou des travaux. Nous restructurons vos espaces, nettoyons les allées, taillons les haies et revalorisons vos plantations pour un extérieur comme neuf.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/elagage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/elagage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Élagage et Abattage</h3>
+          <p class="card-text">
+            Confiez vos arbres à un élagueur certifié. Taille sanitaire pour préserver leur santé, restructuration pour un meilleur développement, abattage sécurisé avec demande d’autorisation en mairie si nécessaire. Nous intervenons dans les règles de l’art, en toute sécurité.
+          </p>
+        </div>
+      </li>
+
+      <li class="card">
+        <div class="card-img">
+          <!-- Image pour le thème clair -->
+          <img
+            class="img-light"
+            src="/images/debroussaillage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+          <!-- Image pour le thème sombre -->
+          <img
+            class="img-dark"
+            src="/images/debroussaillage.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+          />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Débroussaillage</h3>
+          <p class="card-text">
+            Protégez votre maison et respectez la réglementation incendie. Nos équipes réalisent le débroussaillage de vos terrains selon les normes légales en vigueur (obligation DFCI), réduisant les risques tout en préservant l’esthétique naturelle de votre jardin.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- AVANT / APRES -->
+<section class="before-after section-elevated" aria-label="Avant et après notre entretien">
+  <div class="container">
+    <h2>Avant / Après</h2>
+    <p>Visualisez l'impact de nos interventions sur les jardins que nous remettons en valeur : un extérieur soigné, structuré et prêt à traverser les saisons.</p>
+    <div class="before-after-slider" data-before-after>
+      <figure class="before-after-figure">
+        <img
+          class="before-after-image before-after-image--before"
+          src="/images/entretien_avant.webp"
+          alt="Jardin avant notre intervention"
+          loading="lazy"
+        />
+        <img
+          class="before-after-image before-after-image--after"
+          src="/images/entretien_apres.webp"
+          alt="Jardin après notre intervention"
+          loading="lazy"
+        />
+        <div class="before-after-handle" aria-hidden="true">
+          <span class="before-after-handle-line"></span>
+          <span class="before-after-handle-grip"></span>
+        </div>
+      </figure>
+      <input
+        class="before-after-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Comparer les photos avant et après"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="gallery-section">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+
+    <!-- Filtres -->
+    <div class="gallery-filters" id="gallery-filters"></div>
+
+    <!-- Galerie -->
+    <div class="gallery" id="gallery" data-default-filter="entretien">
+      <div class="loading" id="gallery-loading">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container" id="pagination-container" style="display: none">
+      <button class="pagination-btn" id="prev-page" disabled>‹</button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button class="pagination-btn" id="next-page">›</button>
+      <div class="pagination-info">
+        <span id="page-info">Page 1 sur 1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-info">
+        <h3 class="lightbox-title" id="lightbox-title"></h3>
+        <p class="lightbox-description" id="lightbox-description">
+          Réalisation Aux Jardins d'Adrien - Paysagiste à Vence
+        </p>
+      </div>
+      <div class="lightbox-counter">
+        <span id="lightbox-counter">1 / 8</span>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

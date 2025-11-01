@@ -1,34 +1,45 @@
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{{ seo.title }}</title>
-    <meta name="description" content="{{ seo.description }}" />
-    <meta name="author" content="Aux Jardins d’Adrien" />
-    <meta name="robots" content="{{ seo.robots | default('index, follow') }}" />
-    {% if seo.canonical %}
-        <link rel="canonical" href="{{ seo.canonical }}" />
-    {% endif %}
-    <!-- Open Graph / Twitter -->
-    <meta property="og:title" content="{{ seo.title }}" />
-    <meta property="og:description" content="{{ seo.description }}" />
-    <meta property="og:image" content="{{ seo.ogImage }}" />
-    <meta property="og:url" content="{{ seo.canonical }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- Icônes -->
-    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
-    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Aux Jardins d'Adrien" />
-    <link rel="manifest" href="site.webmanifest" />
-    <!-- Styles & Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Source+Sans+3:wght@400;500;700&family=Josefin+Sans:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <!-- Thème : appliquer dès le head pour éviter le flash -->
-    <script src="/scripts/theme.js" defer></script>
-</head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}" />
+<meta name="author" content="Aux Jardins d’Adrien" />
+<meta name="robots" content="{{ seo.robots | default('index, follow') }}" />
+{% if seo.canonical %}
+<link rel="canonical" href="{{ seo.canonical }}" />
+<link rel="alternate" hreflang="fr" href="{{ seo.canonical }}" />
+{% endif %}
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="{{ seo.ogTitle | default(seo.title) }}" />
+<meta property="og:description" content="{{ seo.ogDescription | default(seo.description) }}" />
+<meta property="og:image" content="{{ seo.ogImage }}" />
+<meta property="og:image:alt" content="{{ seo.ogImageAlt | default(seo.title) }}" />
+<meta property="og:url" content="{{ seo.canonical }}" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ seo.twitterTitle | default(seo.title) }}" />
+<meta name="twitter:description" content="{{ seo.twitterDescription | default(seo.description) }}" />
+<meta name="twitter:image" content="{{ seo.ogImage }}" />
+<meta name="twitter:image:alt" content="{{ seo.ogImageAlt | default(seo.title) }}" />
+<!-- Icônes -->
+<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+<link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+<link rel="shortcut icon" href="/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Aux Jardins d'Adrien" />
+<link rel="manifest" href="/site.webmanifest" />
+<!-- Styles & Fonts -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&family=Source+Sans+3:wght@400;500;700&family=Josefin+Sans:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="/styles/theme.css" />
+<link rel="stylesheet" href="/styles/base.css" />
+<link rel="stylesheet" href="/styles/header.css" />
+<link rel="stylesheet" href="/styles/footer.css" />
+<link rel="stylesheet" href="/styles/sections.css" />
+<!-- Thème : appliquer dès le head pour éviter le flash -->
+<script src="/scripts/theme.js" defer></script>
