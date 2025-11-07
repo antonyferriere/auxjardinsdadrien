@@ -10,7 +10,11 @@ use PHPMailer\PHPMailer\Exception as MailException;
 use PHPMailer\PHPMailer\PHPMailer;
 
 const FORM_MAIL_SETTINGS = [
-  'recipient' => 'antony.ferriere@pm.me',//'auxjardinsdadrien@gmail.com',
+  'recipients' => [
+    'antony.ferriere@pm.me',
+    'antony.ferriere@gmail.com',
+    'auxjardinsdadrien@gmail.com',
+  ],
   'fromAddress' => 'no-reply@auxjardinsdadrien.com',
   'fromName' => "Aux Jardins d'Adrien",
   'smtpHost' => 'auxjardinsdadrien.com',
@@ -141,7 +145,29 @@ function form_create_mailer(): PHPMailer
 
   $mailer->Timeout = max(5, (int) $settings['smtpTimeout']);
   $mailer->setFrom($settings['fromAddress'], $settings['fromName']);
-  $mailer->addAddress($settings['recipient']);
+
+  $recipients = $settings['recipients'] ?? ($settings['recipient'] ?? []);
+
+  if (is_string($recipients)) {
+    $recipients = array_map('trim', explode(',', $recipients));
+  } elseif (!is_array($recipients)) {
+    $recipients = [];
+  }
+
+  $hasRecipient = false;
+
+  foreach ($recipients as $recipient) {
+    $email = filter_var((string) $recipient, FILTER_VALIDATE_EMAIL);
+    if ($email === false) {
+      continue;
+    }
+    $mailer->addAddress($email);
+    $hasRecipient = true;
+  }
+
+  if (!$hasRecipient) {
+    throw new RuntimeException('Aucun destinataire email configure pour les formulaires.');
+  }
 
   return clone $mailer;
 }
