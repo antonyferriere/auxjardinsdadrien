@@ -45,7 +45,7 @@ jobs:
           port: ${{ secrets.FTP_PORT || 21 }}
           local-dir: build/
           server-dir: ${{ secrets.FTP_DIR }}
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           # NB: avec 'dangerous-clean-slate: true', tout est supprimé
           # dans 'server-dir' avant l'upload. Les 'exclude' ne protègent PAS
           # les fichiers distants déjà présents.
