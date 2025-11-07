@@ -10,7 +10,7 @@ use PHPMailer\PHPMailer\Exception as MailException;
 use PHPMailer\PHPMailer\PHPMailer;
 
 const FORM_MAIL_SETTINGS = [
-  'recipient' => 'antony.ferriere@pm.me',//'auxjardinsdadrien@gmail.com',
+  'recipient' => 'antony.ferriere@gmail.com',//'auxjardinsdadrien@gmail.com',
   'fromAddress' => 'no-reply@auxjardinsdadrien.com',
   'fromName' => "Aux Jardins d'Adrien",
   'smtpHost' => 'auxjardinsdadrien.com',
