@@ -59,10 +59,11 @@
 [data-theme='dark'] .logo-light {
   display: none;
 }
-[data-theme='light'] .header.page-top .logo-contrast {
+.header.page-top .logo-contrast {
   display: block;
 }
-[data-theme='light'] .header.page-top .logo-light {
+.header.page-top .logo-light,
+.header.page-top .logo-dark {
   display: none;
 }
 
@@ -103,7 +104,7 @@
 .nav-list a:hover {
   text-decoration: none;
 }
-[data-theme='light'] .page-top .nav-list a {
+.page-top .nav-list a {
   color: #fff;
 }
 .nav-list a:hover,
@@ -121,7 +122,7 @@
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
-[data-theme='light'] .header.page-top .nav-list a::after {
+.header.page-top .nav-list a::after {
   background: #fff;
 }
 .nav-list a:hover::after,
@@ -178,7 +179,7 @@
   padding: 0;
   border: none;
 }
-[data-theme='light'] .page-top .btn-cta {
+.page-top .btn-cta {
   color: #fff;
 }
 .btn-cta .cta-content {
@@ -197,6 +198,33 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.page-top .btn-header {
+  color: rgb(255, 255, 255, 1);
+  background: rgb(255, 255, 255, 0.1);
+  border: 1px solid rgb(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgb(255, 255, 255, 0.1);
+}
+
+.page-top .btn-header:hover {
+  background: rgb(255, 255, 255, 0.2);
+  border-color: rgb(255, 255, 255, 0.3);
+  box-shadow: 0 4px 35px rgb(255, 255, 255, 0.15);
+}
+
+.page-top .btn-header:active {
+  background: rgb(255, 255, 255, 0.15);
+}
+
+/* Effet brillance */
+.page-top .btn-header::before {
+  background: linear-gradient(
+    225deg,
+    rgb(255, 255, 255, 0.4) 0%,
+    rgb(255, 255, 255, 0.1) 20%,
+    rgb(255, 255, 255, 0) 80%
+  );
 }
 
 /* ===============================
