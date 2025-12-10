@@ -1,8 +1,0 @@
-/* ===============================
-   PROCESSUS
-   =============================== */
-@media (min-width: 680px) {
-  .processus .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
