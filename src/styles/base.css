@@ -107,6 +107,7 @@ a:hover {
   line-height: var(--line-height);
   text-decoration: none;
   text-shadow: none;
+  white-space: nowrap;
   transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
   background: var(--primary);
   color: var(--bg);
@@ -174,6 +175,43 @@ a:hover {
     rgba(255, 255, 255, 0.4) 0%,
     rgba(255, 255, 255, 0.1) 20%,
     rgba(255, 255, 255, 0) 80%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-header {
+  color: var(--primary);
+  position: relative;
+  background: rgb(from var(--primary) r g b / 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(from var(--primary) r g b / 0.2);
+  box-shadow: 0 4px 30px rgb(from var(--primary) r g b / 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-header:hover {
+  background: rgb(from var(--primary) r g b / 0.2);
+  border-color: rgb(from var(--primary) r g b / 0.3);
+  box-shadow: 0 4px 35px rgb(from var(--primary) r g b / 0.15);
+}
+
+.btn-header:active {
+  background: rgb(from var(--primary) r g b / 0.15);
+  transform: scale(0.98);
+}
+
+/* Effet brillance */
+.btn-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    225deg,
+    rgb(from var(--primary) r g b / 0.4) 0%,
+    rgb(from var(--primary) r g b / 0.1) 20%,
+    rgb(from var(--primary) r g b / 0) 80%
   );
   border-radius: inherit;
   pointer-events: none;

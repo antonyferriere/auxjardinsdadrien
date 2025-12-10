@@ -1,158 +1,139 @@
 // Configuration
-const VENCE_COORDINATES = { lat: 43.7223, lng: 7.1136 };
-const INTERVENTION_RADIUS = 30000; // 30 km en mètres
+const VENCE_COORDINATES = [43.7223, 7.1136];
+const INTERVENTION_RADIUS = 30000; // 30 km radius
+const MAP_ZOOM = 10;
 
 let map;
 let circle;
+let activeTileLayer;
+let tileLayers = {};
+let mapLoader;
 
-// Initialisation de la carte Google Maps
-function initMap() {
-  const mapLoader = document.getElementById('map-loader');
+const MAP_SVG = `
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="20" r="18" fill="#8daf23" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="20" cy="20" r="8" fill="#ffffff"/>
+  </svg>
+`;
 
-  try {
-    // Configuration de la carte
-    map = new google.maps.Map(document.getElementById('google-map'), {
-      zoom: 10,
-      center: VENCE_COORDINATES,
-      mapTypeId: 'roadmap',
-      styles: getCurrentMapStyle(),
-      mapTypeControl: true,
-      streetViewControl: false,
-      fullscreenControl: true,
-      zoomControl: true,
-    });
+function getCurrentTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+}
 
-    // Marqueur principal pour Vence
-    const venceMarker = new google.maps.Marker({
-      position: VENCE_COORDINATES,
-      map: map,
-      title: "Aux Jardins d'Adrien - Vence",
-      icon: {
-        url:
-          'data:image/svg+xml;charset=UTF-8,' +
-          encodeURIComponent(`
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="20" cy="20" r="18" fill="#8daf23" stroke="#ffffff" stroke-width="4"/>
-                  <circle cx="20" cy="20" r="8" fill="#ffffff"/>
-                </svg>
-              `),
-        scaledSize: new google.maps.Size(40, 40),
-        anchor: new google.maps.Point(20, 20),
-      },
-    });
+function createTileLayers() {
+  tileLayers = {
+    light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 19,
+    }),
+    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution:
+        '&copy; <a href="https://carto.com/attributions">CARTO</a> &copy; OpenStreetMap contributors',
+      maxZoom: 19,
+    }),
+  };
+}
 
-    // Info window pour Vence
-    const venceInfoWindow = new google.maps.InfoWindow({
-      content: `
-              <div style="padding: 10px; font-family: var(--font-text);">
-                <h3 style="margin: 0 0 10px; color: #8daf23;">Aux Jardins d'Adrien</h3>
-                <p style="margin: 0; font-size: 14px;">
-                  1531 Chemin des Anciens Combattants en A.F.N<br>
-                  Vence (06140)<br>
-                  <strong>06 09 56 45 11</strong>
-                </p>
-              </div>
-            `,
-    });
+function showLoader() {
+  if (mapLoader) {
+    mapLoader.classList.remove('hidden');
+  }
+}
 
-    venceMarker.addListener('click', () => {
-      venceInfoWindow.open(map, venceMarker);
-    });
-
-    // Cercle de 20km
-    circle = new google.maps.Circle({
-      strokeColor: '#8daf23',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#8daf23',
-      fillOpacity: 0.1,
-      map: map,
-      center: VENCE_COORDINATES,
-      radius: INTERVENTION_RADIUS,
-    });
-
-    // Masquer le loader
+function hideLoader() {
+  if (mapLoader) {
     mapLoader.classList.add('hidden');
-  } catch (error) {
-    console.error("Erreur lors de l'initialisation de la carte:", error);
-    mapLoader.innerHTML = '<p style="color: var(--text-2);">Erreur de chargement de la carte</p>';
   }
 }
 
-// Styles de carte pour les thèmes
-function getCurrentMapStyle() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+function setTileLayer(theme) {
+  if (!map || !tileLayers.light || !tileLayers.dark) return;
 
-  if (isDark) {
-    // Style sombre
-    return [
-      { elementType: 'geometry', stylers: [{ color: '#212121' }] },
-      { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-      { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-      { elementType: 'labels.text.stroke', stylers: [{ color: '#212121' }] },
-      { featureType: 'administrative', elementType: 'geometry', stylers: [{ color: '#757575' }] },
-      {
-        featureType: 'administrative.country',
-        elementType: 'labels.text.fill',
-        stylers: [{ color: '#9e9e9e' }],
-      },
-      {
-        featureType: 'administrative.locality',
-        elementType: 'labels.text.fill',
-        stylers: [{ color: '#bdbdbd' }],
-      },
-      { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-      { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#181818' }] },
-      { featureType: 'poi.park', elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] },
-      {
-        featureType: 'poi.park',
-        elementType: 'labels.text.stroke',
-        stylers: [{ color: '#1b1b1b' }],
-      },
-      { featureType: 'road', elementType: 'geometry.fill', stylers: [{ color: '#2c2c2c' }] },
-      { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#8a8a8a' }] },
-      { featureType: 'road.arterial', elementType: 'geometry', stylers: [{ color: '#373737' }] },
-      { featureType: 'road.highway', elementType: 'geometry', stylers: [{ color: '#3c3c3c' }] },
-      {
-        featureType: 'road.highway.controlled_access',
-        elementType: 'geometry',
-        stylers: [{ color: '#4e4e4e' }],
-      },
-      {
-        featureType: 'road.local',
-        elementType: 'labels.text.fill',
-        stylers: [{ color: '#616161' }],
-      },
-      { featureType: 'transit', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-      { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#000000' }] },
-      { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#3d3d3d' }] },
-    ];
-  } else {
-    // Style par défaut (clair)
-    return [];
+  const nextLayer = theme === 'dark' ? tileLayers.dark : tileLayers.light;
+  if (activeTileLayer === nextLayer) return;
+
+  if (activeTileLayer) {
+    activeTileLayer.off('load', hideLoader);
+    activeTileLayer.off('tileerror', hideLoader);
+    map.removeLayer(activeTileLayer);
   }
+
+  showLoader();
+  nextLayer.once('load', hideLoader);
+  nextLayer.once('tileerror', hideLoader);
+  nextLayer.addTo(map);
+  activeTileLayer = nextLayer;
 }
 
-// Fonction pour mettre à jour le style de la carte selon le thème
+function buildMarkerIcon() {
+  return L.icon({
+    iconUrl: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(MAP_SVG),
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -12],
+  });
+}
+
+// Initialisation de la carte Leaflet
+function initMap() {
+  const mapContainer = document.getElementById('google-map');
+  mapLoader = document.getElementById('map-loader');
+
+  if (!mapContainer) return;
+
+  if (typeof L === 'undefined') {
+    console.error('Leaflet library is missing.');
+    if (mapLoader) {
+      mapLoader.innerHTML =
+        '<p style="color: var(--text-2); text-align: center; padding: 20px;">Impossible de charger la carte pour le moment.</p>';
+    }
+    return;
+  }
+
+  createTileLayers();
+
+  map = L.map(mapContainer, {
+    zoomControl: true,
+    scrollWheelZoom: true,
+    attributionControl: true,
+  }).setView(VENCE_COORDINATES, MAP_ZOOM);
+
+  setTileLayer(getCurrentTheme());
+
+  const marker = L.marker(VENCE_COORDINATES, {
+    icon: buildMarkerIcon(),
+    title: "Aux Jardins d'Adrien - Vence",
+  }).addTo(map);
+
+  marker.bindPopup(`
+    <div style="padding: 10px; font-family: var(--font-text);">
+      <h3 style="margin: 0 0 10px; color: #8daf23;">Aux Jardins d'Adrien</h3>
+      <p style="margin: 0; font-size: 14px;">
+        1531 Chemin des Anciens Combattants en A.F.N<br>
+        Vence (06140)<br>
+        <strong>06 09 56 45 11</strong>
+      </p>
+    </div>
+  `);
+
+  circle = L.circle(VENCE_COORDINATES, {
+    radius: INTERVENTION_RADIUS,
+    color: '#8daf23',
+    weight: 2,
+    opacity: 0.8,
+    fillColor: '#8daf23',
+    fillOpacity: 0.1,
+  }).addTo(map);
+
+  setTimeout(() => {
+    map.invalidateSize();
+  }, 100);
+}
+
 function updateMapStyle() {
-  if (map) {
-    map.setOptions({ styles: getCurrentMapStyle() });
-  }
+  setTileLayer(getCurrentTheme());
 }
-
-// Fonction de basculement de thème
-function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', newTheme);
-  updateMapStyle();
-}
-
-// Gestion des erreurs de chargement de l'API Google Maps
-window.gm_authFailure = function () {
-  document.getElementById('map-loader').innerHTML =
-    '<p style="color: var(--text-2); text-align: center; padding: 20px;">Erreur d\'authentification Google Maps<br>Veuillez vérifier votre clé API</p>';
-};
 
 // Observer pour les changements de thème
 const observer = new MutationObserver((mutations) => {
@@ -168,7 +149,4 @@ observer.observe(document.documentElement, {
   attributeFilter: ['data-theme'],
 });
 
-// Initialisation automatique si l'API Google Maps est déjà chargée
-if (typeof google !== 'undefined' && google.maps) {
-  initMap();
-}
+document.addEventListener('DOMContentLoaded', initMap);

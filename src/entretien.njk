@@ -23,11 +23,6 @@
 {% block scripts %}
 <script src="/scripts/gallery.js"></script>
 <script src="/scripts/beforeafter.js"></script>
-<script
-  async
-  defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
-></script>
 {% endblock %} 
 
 {% block content %}
@@ -107,6 +102,7 @@
           vous gagnez en sérénité : nos jardiniers-paysagistes interviennent avec ponctualité, savoir-faire artisanal et respect de l’environnement. 
           Votre seul rôle ? Profiter de la beauté et du confort de votre jardin, toute l’année.
         </p>
+        <p><a class="btn btn-primary" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a></p>
       </div>
     </div>
   </div>
@@ -117,7 +113,7 @@
   <div class="container">
     <h2>Nos prestations ponctuelles</h2>
     <ul class="cards">
-      <li class="card">
+      <li class="card" data-href="/estimer">
         <div class="card-img">
           <!-- Image pour le thème clair -->
           <img
@@ -142,9 +138,12 @@
             Redonnez vie à votre jardin après une pause d'entretien ou des travaux. Nous restructurons vos espaces, nettoyons les allées, taillons les haies et revalorisons vos plantations pour un extérieur comme neuf.
           </p>
         </div>
+        <footer class="card-footer">
+          <a class="link" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+        </footer>
       </li>
 
-      <li class="card">
+      <li class="card" data-href="/estimer">
         <div class="card-img">
           <!-- Image pour le thème clair -->
           <img
@@ -169,9 +168,12 @@
             Confiez vos arbres à un élagueur certifié. Taille sanitaire pour préserver leur santé, restructuration pour un meilleur développement, abattage sécurisé avec demande d’autorisation en mairie si nécessaire. Nous intervenons dans les règles de l’art, en toute sécurité.
           </p>
         </div>
+        <footer class="card-footer">
+          <a class="link" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+        </footer>
       </li>
 
-      <li class="card">
+      <li class="card" data-href="/estimer">
         <div class="card-img">
           <!-- Image pour le thème clair -->
           <img
@@ -196,6 +198,9 @@
             Protégez votre maison et respectez la réglementation incendie. Nos équipes réalisent le débroussaillage de vos terrains selon les normes légales en vigueur (obligation DFCI), réduisant les risques tout en préservant l’esthétique naturelle de votre jardin.
           </p>
         </div>
+        <footer class="card-footer">
+          <a class="link" href="/estimer" aria-label="Devis gratuit">Devis gratuit</a>
+        </footer>
       </li>
     </ul>
   </div>
