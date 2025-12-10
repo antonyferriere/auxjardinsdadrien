@@ -16,18 +16,18 @@
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   crossorigin=""
 />
-<link rel="stylesheet" href="/styles/maps.css" />
+<link rel="stylesheet" href="/styles/maps.css{{ cacheBuster.query }}" />
 {% endblock %}
 
 {% block scripts %}
-<script src="/scripts/form-utils.js" defer></script>
-<script src="/scripts/estimation.js" defer></script>
+<script src="/scripts/form-utils.js{{ cacheBuster.query }}" defer></script>
+<script src="/scripts/estimation.js{{ cacheBuster.query }}" defer></script>
 <script
   defer
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   crossorigin=""
 ></script>
-<script src="/scripts/maps.js" defer></script>
+<script src="/scripts/maps.js{{ cacheBuster.query }}" defer></script>
 {% endblock %}
 
 {% block content %}
