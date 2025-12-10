@@ -1,6 +1,4 @@
-const apiKey = 'AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI';
-const placeId = 'ChIJoTkJZTjVzRIR44HWogEyy_M';
-
+const REVIEWS_ENDPOINT = '/scripts/google-review.json';
 const STAR_ICON = '&#9733;';
 
 const escapeHtml = (value = '') =>
@@ -33,44 +31,53 @@ const getInitials = (value = '') => {
   return parts.slice(0, 2).join('').toUpperCase();
 };
 
+const sanitizeReviews = (rawReviews = []) =>
+  rawReviews
+    .filter((review) => Number(review.rating) >= 4 && review.text && review.text.text)
+    .map((review) => ({
+      ...review,
+      rating: Math.round(Number(review.rating) || 0),
+    }));
+
+const shuffleReviews = (items = []) => [...items].sort(() => Math.random() - 0.5);
+
+const loadLocalReviews = async () => {
+  const response = await fetch(REVIEWS_ENDPOINT);
+  if (!response.ok) {
+    throw new Error(`Impossible de charger les avis (${response.status})`);
+  }
+  return response.json();
+};
+
 async function displayGoogleReviews() {
   const container = document.getElementById('google-reviews');
-  const button = document.getElementById('load-more-reviews');
   if (!container) return;
-  try {
-    const response = await fetch(
-      `https://places.googleapis.com/v1/places/${placeId}?languageCode=fr`,
-      {
-        headers: {
-          'X-Goog-Api-Key': apiKey,
-          'X-Goog-FieldMask': 'reviews',
-        },
-      }
-    );
-    const data = await response.json();
-    const reviews = (data.reviews || []).filter(
-      (r) => r.rating === 5 && r.text && r.text.text
-    );
-    reviews.sort(() => Math.random() - 0.5);
-    let displayed = 0;
 
-    const renderReviews = () => {
-      const next = reviews.slice(displayed, displayed + 3);
-      next.forEach((review) => {
-        const blockquote = document.createElement('blockquote');
-        blockquote.className = 'card card-flat';
-        const authorName =
-          review.authorAttribution?.displayName?.trim() || 'Client Google';
-        const safeAuthorName = escapeHtml(authorName);
-        const avatarUrl = review.authorAttribution?.photoUri;
-        const safeAvatarUrl = avatarUrl ? escapeHtml(avatarUrl) : '';
-        const initials = escapeHtml(getInitials(authorName));
-        const avatarMarkup = avatarUrl
-          ? `<img class="testimonial-avatar" src="${safeAvatarUrl}" alt="Photo de ${safeAuthorName}" loading="lazy" width="48" height="48" />`
-          : `<span class="testimonial-avatar testimonial-avatar--initials" aria-hidden="true">${initials}</span>`;
-        blockquote.innerHTML = `
+  try {
+    const reviews = sanitizeReviews(await loadLocalReviews());
+    const orderedReviews = shuffleReviews(reviews).slice(0, 3);
+
+    if (!orderedReviews.length) {
+      container.innerHTML =
+        '<p class="testimonial-text">Les avis sont temporairement indisponibles.</p>';
+      return;
+    }
+
+    orderedReviews.forEach((review) => {
+      const blockquote = document.createElement('blockquote');
+      blockquote.className = 'card card-flat';
+      const authorName =
+        review.authorAttribution?.displayName?.trim() || 'Client Google';
+      const safeAuthorName = escapeHtml(authorName);
+      const avatarUrl = review.authorAttribution?.photoUri;
+      const safeAvatarUrl = avatarUrl ? escapeHtml(avatarUrl) : '';
+      const initials = escapeHtml(getInitials(authorName));
+      const avatarMarkup = avatarUrl
+        ? `<img class="testimonial-avatar" src="${safeAvatarUrl}" alt="Photo de ${safeAuthorName}" loading="lazy" width="48" height="48" />`
+        : `<span class="testimonial-avatar testimonial-avatar--initials" aria-hidden="true">${initials}</span>`;
+      blockquote.innerHTML = `
         <div class="card-content">
-          <p class="testimonial-text">${review.text.text}</p>
+          <p class="testimonial-text">${escapeHtml(review.text.text)}</p>
         </div>
         <footer class="testimonial-footer">
           <div class="testimonial-author">
@@ -84,24 +91,12 @@ async function displayGoogleReviews() {
           </div>
         </footer>
       `;
-        container.appendChild(blockquote);
-      });
-      displayed += next.length;
-      if (displayed >= reviews.length && button) {
-        button.style.display = 'none';
-      }
-    };
-
-    renderReviews();
-
-    if (button) {
-      if (reviews.length > 3) {
-        button.style.display = 'block';
-      }
-      button.addEventListener('click', renderReviews);
-    }
+      container.appendChild(blockquote);
+    });
   } catch (error) {
-    console.error('Failed to load Google reviews', error);
+    console.error('Impossible de charger les avis', error);
+    container.innerHTML =
+      '<p class="testimonial-text">Les avis sont temporairement indisponibles.</p>';
   }
 }
 
