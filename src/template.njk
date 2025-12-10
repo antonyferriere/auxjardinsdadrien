@@ -12,17 +12,22 @@
 
 {% block styles %}
 <link rel="stylesheet" href="/styles/gallery.css" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  crossorigin=""
+/>
 <link rel="stylesheet" href="/styles/maps.css" />
 {% endblock %} 
 
 {% block scripts %}
 <script src="/scripts/gallery.js"></script>
-<script src="/scripts/maps.js"></script>
 <script
-  async
   defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEGFBK_ZLae9kogIr_tH4kZW-yoKidTkI&callback=initMap&loading=async&libraries=geometry"
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  crossorigin=""
 ></script>
+<script src="/scripts/maps.js" defer></script>
 {% endblock %} 
 
 {% block content %}
