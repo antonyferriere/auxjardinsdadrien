@@ -16,15 +16,15 @@
 %}
 
 {% block styles %}
-<link rel="stylesheet" href="/styles/carrousel-hero.css" />
-<link rel="stylesheet" href="/styles/gallery.css" />
-<link rel="stylesheet" href="/styles/pages/index.css" />
+<link rel="stylesheet" href="/styles/carrousel-hero.css{{ cacheBuster.query }}" />
+<link rel="stylesheet" href="/styles/gallery.css{{ cacheBuster.query }}" />
+<link rel="stylesheet" href="/styles/pages/index.css{{ cacheBuster.query }}" />
 {% endblock %} 
 
 {% block scripts %}
-<script src="/scripts/carrousel-hero.js"></script>
-<script src="/scripts/google-reviews.js"></script>
-<script src="/scripts/gallery.js"></script>
+<script src="/scripts/carrousel-hero.js{{ cacheBuster.query }}"></script>
+<script src="/scripts/google-reviews.js{{ cacheBuster.query }}"></script>
+<script src="/scripts/gallery.js{{ cacheBuster.query }}"></script>
 {% endblock %}
 
 {% block content %}

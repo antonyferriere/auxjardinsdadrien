@@ -11,23 +11,23 @@
 %}
 
 {% block styles %}
-<link rel="stylesheet" href="/styles/gallery.css" />
+<link rel="stylesheet" href="/styles/gallery.css{{ cacheBuster.query }}" />
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   crossorigin=""
 />
-<link rel="stylesheet" href="/styles/maps.css" />
+<link rel="stylesheet" href="/styles/maps.css{{ cacheBuster.query }}" />
 {% endblock %} 
 
 {% block scripts %}
-<script src="/scripts/gallery.js"></script>
+<script src="/scripts/gallery.js{{ cacheBuster.query }}"></script>
 <script
   defer
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   crossorigin=""
 ></script>
-<script src="/scripts/maps.js" defer></script>
+<script src="/scripts/maps.js{{ cacheBuster.query }}" defer></script>
 {% endblock %} 
 
 {% block content %}
