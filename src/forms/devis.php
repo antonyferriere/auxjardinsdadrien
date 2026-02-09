@@ -7,8 +7,8 @@ require_once __DIR__ . '/form_utils.php';
 use PHPMailer\PHPMailer\Exception as MailException;
 
 $responseOptions = [
-  'returnPath' => '/estimer',
-  'returnLabel' => "Retourner au formulaire d'estimation",
+  'returnPath' => '/devis',
+  'returnLabel' => "Retourner au formulaire de devis",
   'successDefaultMessage' => 'Votre demande a bien ete envoyee.',
 ];
 
@@ -38,14 +38,14 @@ try {
   throw $runtimeException;
 }
 
-$city = isset($_POST['city']) ? trim(strip_tags((string) $_POST['city'])) : '';
+$address = isset($_POST['address']) ? trim(strip_tags((string) $_POST['address'])) : '';
 $project = isset($_POST['project']) ? trim(strip_tags((string) $_POST['project'])) : '';
 $description = isset($_POST['description']) ? trim((string) $_POST['description']) : '';
 $name = isset($_POST['name']) ? trim(strip_tags((string) $_POST['name'])) : '';
 $email = isset($_POST['email']) ? filter_var((string) $_POST['email'], FILTER_VALIDATE_EMAIL) : false;
 $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
 
-if ($city === '' || $project === '' || $description === '' || $name === '' || $email === false) {
+if ($address === '' || $project === '' || $description === '' || $name === '' || $email === false || $phone === '') {
   form_respond(
     $wantsJson,
     422,
@@ -65,14 +65,15 @@ if ($descriptionLength > 4000) {
 }
 
 $normalizedPhone = $phone !== '' ? $phone : 'Non renseigne';
+$normalizedAddress = $address !== '' ? $address : 'Non renseignee';
 
 $bodyLines = [
   '<p><strong>Informations de contact</strong><br>' .
     '<b>Nom : </b>' . htmlspecialchars($name, ENT_QUOTES | ENT_HTML5) . '<br>' .
     '<b>Email : </b>' . htmlspecialchars((string) $email, ENT_QUOTES | ENT_HTML5) . '<br>' .
-    '<b>Mobile : </b>' . htmlspecialchars($normalizedPhone, ENT_QUOTES | ENT_HTML5) . '</p>',
+    '<b>Mobile : </b>' . htmlspecialchars($normalizedPhone, ENT_QUOTES | ENT_HTML5) . '<br>' .
+    '<b>Adresse : </b>' . htmlspecialchars($normalizedAddress, ENT_QUOTES | ENT_HTML5) . '</p>',
   '<p><strong>Details du projet</strong><br>' .
-    '<b>Ville : </b>' . htmlspecialchars($city, ENT_QUOTES | ENT_HTML5) . '<br>' .
     '<b>Type de projet : </b>' . htmlspecialchars($project, ENT_QUOTES | ENT_HTML5) . '</p>',
   '<p><strong>Description :</strong><br>' .
     nl2br(htmlspecialchars($description, ENT_QUOTES | ENT_HTML5)) . '</p>',
@@ -85,7 +86,7 @@ $mailer = form_create_mailer();
 try {
   form_dispatch_mail(
     $mailer,
-    '[auxjardinsdadrien.com] Demande d\'estimation',
+    '[auxjardinsdadrien.com] Demande de devis',
     $body,
     (string) $email,
     $name
@@ -94,11 +95,11 @@ try {
   form_respond(
     $wantsJson,
     200,
-    ['success' => true, 'message' => 'Merci, nous revenons vers vous avec une estimation personnalisee.'],
+    ['success' => true, 'message' => 'Merci, nous revenons vers vous avec un devis personnalise.'],
     $responseOptions
   );
 } catch (MailException $exception) {
-  error_log('[estimation.php] PHPMailer exception: ' . $exception->getMessage());
+  error_log('[devis.php] PHPMailer exception: ' . $exception->getMessage());
 }
 
 form_respond(

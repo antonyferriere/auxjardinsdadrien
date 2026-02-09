@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     name: form.querySelector('#name'),
     email: form.querySelector('#email'),
     phone: form.querySelector('#phone'),
+    address: form.querySelector('#address'),
     message: form.querySelector('#message'),
   };
 
@@ -57,7 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     phone: (input) => {
       const value = input.value.trim();
-      return value.length === 0 || input.checkValidity();
+      return value.length > 0 && input.checkValidity();
+    },
+    address: (input) => {
+      const value = input.value.trim();
+      if (value.length === 0) return false;
+      const isConfirmed = window.AJDAddressAutocomplete?.isAddressConfirmed
+        ? window.AJDAddressAutocomplete.isAddressConfirmed(input)
+        : true;
+      return isConfirmed && input.checkValidity();
     },
     message: (input) => input.value.trim().length > 0,
   };
