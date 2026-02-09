@@ -587,6 +587,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
+  z-index: 9999;
 }
 
 .popup-content {
