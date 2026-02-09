@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const nunjucks = require('nunjucks');
 
 module.exports = function (eleventyConfig) {
@@ -46,6 +48,16 @@ module.exports = function (eleventyConfig) {
     require('eleventy-plugin-postcss').default || require('eleventy-plugin-postcss');
   eleventyConfig.addPlugin(postcssPlugin, {
     plugins: [require('cssnano')],
+  });
+
+  eleventyConfig.addFilter('fileLastMod', (inputPath) => {
+    if (!inputPath) {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    const absolutePath = path.resolve(process.cwd(), inputPath);
+    const stats = fs.statSync(absolutePath);
+    return stats.mtime.toISOString().slice(0, 10);
   });
 
   return {
