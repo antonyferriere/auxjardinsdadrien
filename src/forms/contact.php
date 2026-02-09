@@ -41,13 +41,14 @@ try {
 $name = isset($_POST['name']) ? trim(strip_tags((string) $_POST['name'])) : '';
 $email = isset($_POST['email']) ? filter_var((string) $_POST['email'], FILTER_VALIDATE_EMAIL) : false;
 $phone = isset($_POST['phone']) ? trim(strip_tags((string) $_POST['phone'])) : '';
+$address = isset($_POST['address']) ? trim(strip_tags((string) $_POST['address'])) : '';
 $message = isset($_POST['message']) ? trim(strip_tags((string) $_POST['message'])) : '';
 
-if ($name === '' || $email === false || $message === '') {
+if ($name === '' || $email === false || $phone === '' || $address === '' || $message === '') {
   form_respond(
     $wantsJson,
     422,
-    ['success' => false, 'message' => 'Les champs nom, email et message sont obligatoires.'],
+    ['success' => false, 'message' => 'Les champs nom, email, mobile, adresse et message sont obligatoires.'],
     $responseOptions
   );
 }
@@ -63,11 +64,13 @@ if ($messageLength > 4000) {
 }
 
 $normalizedPhone = $phone !== '' ? $phone : 'Non renseigne';
+$normalizedAddress = $address !== '' ? $address : 'Non renseignee';
 
 $bodyLines = [
   '<p><b>Nom : </b>' . $name . '<br>',
   '<b>Email : </b>' . $email . '<br>',
-  '<b>Mobile : </b>' . $normalizedPhone . '</p>',
+  '<b>Mobile : </b>' . $normalizedPhone . '<br>',
+  '<b>Adresse : </b>' . $normalizedAddress . '</p>',
   '<p>' . nl2br(htmlspecialchars($message, ENT_QUOTES | ENT_HTML5)) . '</p>'
 ];
 $body = implode(PHP_EOL, $bodyLines);

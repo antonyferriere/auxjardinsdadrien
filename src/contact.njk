@@ -27,6 +27,7 @@
 
 {% block scripts %}
 <script src="/scripts/form-utils.js{{ cacheBuster.query }}" defer></script>
+<script src="/scripts/address-autocomplete.js{{ cacheBuster.query }}" defer></script>
 <script src="/scripts/contact.js{{ cacheBuster.query }}" defer></script>
 <script
   defer
@@ -77,7 +78,26 @@
           <input type="email" id="email" name="email" placeholder="Votre email" required />
         </div>
         <div class="form-field">
-          <input type="tel" id="phone" name="phone" placeholder="Votre mobile" />
+          <input type="tel" id="phone" name="phone" placeholder="Votre mobile" required />
+        </div>
+        <div class="form-field has-icon">
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Votre adresse"
+            autocomplete="street-address"
+            data-address-autocomplete
+            required
+          />
+          <span class="field-icon field-icon-right" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path
+                d="M12 22c3.8-5 7-8.6 7-12a7 7 0 1 0-14 0c0 3.4 3.2 7 7 12zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </span>
         </div>
         <div class="form-field">
           <textarea id="message" name="message" placeholder="Votre message" required></textarea>

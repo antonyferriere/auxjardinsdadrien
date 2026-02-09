@@ -349,6 +349,13 @@
   gap: var(--spacing-md);
   max-width: 600px;
   position: relative;
+  --form-control-icon-size: 1.5rem;
+  --field-popover-bg: var(--surface-1);
+  --field-popover-hover: var(--surface-2);
+  --field-popover-text: var(--text);
+  --field-popover-border: var(--separator);
+  --field-popover-shadow: var(--shadow-sm);
+  --field-popover-offset: 0.35rem;
 }
 
 .form-steps {
@@ -383,6 +390,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
+  position: relative;
 }
 
 .form-field label {
@@ -400,22 +408,97 @@
   color: var(--text);
   font-size: 1rem;
   font-family: inherit;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-field.has-icon input,
+.form-field.has-icon select {
+  padding-right: calc(var(--spacing-sm) + 2rem);
+}
+
+.field-icon {
+  position: absolute;
+  top: 50%;
+  right: 0.9rem;
+  transform: translateY(-50%);
+  width: var(--form-control-icon-size);
+  height: var(--form-control-icon-size);
+  color: var(--primary);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.field-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.form-field.has-icon input.is-invalid + .field-icon,
+.form-field.has-icon select.is-invalid + .field-icon {
+  color: var(--error);
+}
+
+.address-autocomplete-menu {
+  position: absolute;
+  top: calc(100% + var(--field-popover-offset));
+  left: 0;
+  right: 0;
+  z-index: 30;
+  border: 1px solid var(--field-popover-border);
+  border-radius: var(--border-radius);
+  background: var(--field-popover-bg);
+  box-shadow: var(--field-popover-shadow);
+  max-height: 15rem;
+  overflow-y: auto;
+}
+
+.address-autocomplete-menu[hidden] {
+  display: none;
+}
+
+.address-autocomplete-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+}
+
+.address-autocomplete-option {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.5rem var(--spacing-sm);
+  font: inherit;
+  color: var(--field-popover-text);
+  transition: background-color 0.15s ease;
 }
 
 .form-field select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding-right: calc(var(--spacing-sm) + 2.5rem);
-  background-image:
-    linear-gradient(45deg, transparent 50%, var(--primary) 50%),
-    linear-gradient(135deg, var(--primary) 50%, transparent 50%);
-  background-position:
-    calc(100% - 1.5rem) 50%,
-    calc(100% - 1rem) 50%;
-  background-size: 0.55rem 0.55rem;
-  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.form-field select option {
+  background-color: var(--field-popover-bg);
+  color: var(--field-popover-text);
+}
+
+.form-field select option:checked,
+.form-field select option:hover,
+.form-field select option:focus,
+.address-autocomplete-option:hover,
+.address-autocomplete-option.is-active,
+.address-autocomplete-option:focus,
+.address-autocomplete-option:focus-visible {
+  background: linear-gradient(0deg, var(--field-popover-hover), var(--field-popover-hover));
+  color: var(--field-popover-text);
 }
 
 .form-field select::-ms-expand {
@@ -432,7 +515,7 @@
 .form-field select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
 }
 
 .form-actions {
@@ -493,7 +576,7 @@
 .form-field input.is-invalid:focus,
 .form-field textarea.is-invalid:focus,
 .form-field select.is-invalid:focus {
-  box-shadow: 0 0 0 1px var(--error);
+  box-shadow: inset 0 0 0 1px var(--error);
 }
 
 .popup {

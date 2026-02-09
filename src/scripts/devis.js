@@ -64,7 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const validators = {
-    city: (input) => input.value.trim().length > 0,
+    address: (input) => {
+      const value = input.value.trim();
+      if (value.length === 0) return false;
+      const isConfirmed = window.AJDAddressAutocomplete?.isAddressConfirmed
+        ? window.AJDAddressAutocomplete.isAddressConfirmed(input)
+        : true;
+      return isConfirmed && input.checkValidity();
+    },
     project: (select) => select.value.trim().length > 0,
     description: (textarea) => textarea.value.trim().length > 0,
     name: (input) => input.value.trim().length > 0,
@@ -74,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     phone: (input) => {
       const value = input.value.trim();
-      return value.length === 0 || input.checkValidity();
+      return value.length > 0 && input.checkValidity();
     },
   };
 
