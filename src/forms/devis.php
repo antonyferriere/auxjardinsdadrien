@@ -7,8 +7,8 @@ require_once __DIR__ . '/form_utils.php';
 use PHPMailer\PHPMailer\Exception as MailException;
 
 $responseOptions = [
-  'returnPath' => '/estimer',
-  'returnLabel' => "Retourner au formulaire d'estimation",
+  'returnPath' => '/devis',
+  'returnLabel' => "Retourner au formulaire de devis",
   'successDefaultMessage' => 'Votre demande a bien ete envoyee.',
 ];
 
@@ -85,7 +85,7 @@ $mailer = form_create_mailer();
 try {
   form_dispatch_mail(
     $mailer,
-    '[auxjardinsdadrien.com] Demande d\'estimation',
+    '[auxjardinsdadrien.com] Demande de devis',
     $body,
     (string) $email,
     $name
@@ -94,11 +94,11 @@ try {
   form_respond(
     $wantsJson,
     200,
-    ['success' => true, 'message' => 'Merci, nous revenons vers vous avec une estimation personnalisee.'],
+    ['success' => true, 'message' => 'Merci, nous revenons vers vous avec un devis personnalise.'],
     $responseOptions
   );
 } catch (MailException $exception) {
-  error_log('[estimation.php] PHPMailer exception: ' . $exception->getMessage());
+  error_log('[devis.php] PHPMailer exception: ' . $exception->getMessage());
 }
 
 form_respond(

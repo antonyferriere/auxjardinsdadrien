@@ -1,3 +1,9 @@
 RewriteEngine On
+
+# Redirect legacy estimate URL to the new quote page
+RewriteCond %{HTTPS} off
+RewriteRule ^estimer/?$ https://%{HTTP_HOST}/devis [L,R=301,NC]
+RewriteRule ^estimer/?$ /devis [L,R=301,NC]
+
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

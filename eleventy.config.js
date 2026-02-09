@@ -7,6 +7,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src');
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addWatchTarget('src/robots.txt');
+  eleventyConfig.addPassthroughCopy('src/.htaccess');
+  eleventyConfig.addWatchTarget('src/.htaccess');
   eleventyConfig.addPassthroughCopy('src/site.webmanifest');
   eleventyConfig.addWatchTarget('src/site.webmanifest');
   eleventyConfig.addPassthroughCopy('src/icons');

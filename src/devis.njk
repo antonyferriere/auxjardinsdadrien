@@ -2,11 +2,11 @@
 
 {%
   set seo = {
-    title: "Estimer votre projet de jardin | Aux Jardins d’Adrien",
-    description: "Obtenez une estimation gratuite et rapide pour vos travaux paysagers à Vence.",
-    canonical: "https://www.auxjardinsdadrien.com/estimer",
+    title: "Demander un devis pour votre jardin | Aux Jardins d’Adrien",
+    description: "Obtenez un devis gratuit et rapide pour vos travaux paysagers à Vence.",
+    canonical: "https://www.auxjardinsdadrien.com/devis",
     ogImage: "https://www.auxjardinsdadrien.com/images/logo_auxjardinsdadrien_light.png",
-    breadcrumb: "Estimation"
+    breadcrumb: "Devis"
   }
 %}
 
@@ -21,7 +21,7 @@
 
 {% block scripts %}
 <script src="/scripts/form-utils.js{{ cacheBuster.query }}" defer></script>
-<script src="/scripts/estimation.js{{ cacheBuster.query }}" defer></script>
+<script src="/scripts/devis.js{{ cacheBuster.query }}" defer></script>
 <script
   defer
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -32,14 +32,14 @@
 
 {% block content %}
 <!-- TITLE  -->
-<section class="title" aria-label="Estimation de projet">
+<section class="title" aria-label="Demande de devis">
   <div class="title-img">
     <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
     <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
     <div class="title-content">
-      <h1>Estimez votre projet de jardin</h1>
+      <h1>Demandez votre devis de jardin</h1>
       <p class="sub">
-        Donnez-nous quelques informations pour recevoir une première estimation gratuite de vos travaux paysagers.
+        Donnez-nous quelques informations pour recevoir un premier devis gratuit de vos travaux paysagers.
       </p>
     </div>
   </div>
@@ -48,12 +48,12 @@
 <!-- ESTIMATION FORM -->
 <section class="estimation">
   <div class="container">
-    <h2>Pourquoi demander une estimation ?</h2>
+    <h2>Pourquoi demander un devis ?</h2>
     <p>
       Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
     </p>
     <div class="zone-intervention-content">
-      <form id="estimation-form" class="form" action="/forms/estimation.php" method="post">
+      <form id="estimation-form" class="form" action="/forms/devis.php" method="post">
         <div class="honeypot" aria-hidden="true">
           <label for="estimation-check">Laissez ce champ vide</label>
           <input
