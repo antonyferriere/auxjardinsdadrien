@@ -1,3 +1,4 @@
+{% from "_social-icon.njk" import socialIcon %}
 <footer class="footer">
   <div class="container footer-grid">
     <div>
@@ -15,13 +16,13 @@
     <div>
       <div class="footer-social">
         <a class="btn btn-social" href="https://www.facebook.com/auxjardinsdadrien" aria-label="Accéder à notre Facebook">
-          <i data-lucide="facebook" absolute-stroke="true" class="icon-social"></i>
+          {{ socialIcon('facebook') }}
         </a>
         <a class="btn btn-social" href="https://www.instagram.com/aux_jardins_dadrien/" aria-label="Accéder à notre Instagram">
-          <i data-lucide="instagram" absolute-stroke="true" class="icon-social"></i>
+          {{ socialIcon('instagram') }}
         </a>
         <!--<a class="btn btn-social" href="#" aria-label="Accéder à notre LinkedIn">
-          <i data-lucide="linkedin" absolute-stroke="true" class="icon-social"></i>
+          {{ socialIcon('linkedin') }}
         </a>-->
       </div>
       <div class="footer-small">© <span id="year"></span> — Tous droits réservés.</div>
