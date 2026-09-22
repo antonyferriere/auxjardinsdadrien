@@ -13,12 +13,6 @@
       "description": "Dalles et plantations structurent l espace de reception."
     },
     {
-      "url": "/images/gallery/creation/eclairage1.jpg",
-      "filename": "eclairage1.jpg",
-      "title": "Mise en lumiere",
-      "description": "Projection de l eclairage scenographique."
-    },
-    {
       "url": "/images/gallery/creation/IMG-20251031-WA0004.jpg",
       "filename": "IMG-20251031-WA0004.jpg",
       "title": "Cheminement principal",
@@ -50,22 +44,10 @@
       "description": "Preparation des circulations et massifs."
     },
     {
-      "url": "/images/gallery/creation/eclairage2.jpg",
-      "filename": "eclairage2.jpg",
-      "title": "Balises lumineuses",
-      "description": "Points lumineux pour securiser le parcours."
-    },
-    {
       "url": "/images/gallery/creation/IMG-20251031-WA0007.jpg",
       "filename": "IMG-20251031-WA0007.jpg",
       "title": "Acces jardin",
       "description": "Transition soigne entre terrasse et massif arbore."
-    },
-    {
-      "url": "/images/gallery/creation/eclairage3.jpg",
-      "filename": "eclairage3.jpg",
-      "title": "Ambiance nocturne",
-      "description": "Jeu d ombres mettant en valeur le jardin."
     },
     {
       "url": "/images/gallery/creation/plantes2.jpg",
@@ -144,42 +126,6 @@
       "filename": "terrasse1.jpg",
       "title": "Terrasse finalisee",
       "description": "Espace de vie convivial relie au jardin."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-1.jpg",
-      "filename": "chantier3-1.jpg",
-      "title": "Vue d ensemble du chantier",
-      "description": "Avancement du projet de creation paysagere."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-2.jpg",
-      "filename": "chantier3-2.jpg",
-      "title": "Cheminements stabilises",
-      "description": "Chemin en place et integration des niveaux."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-1590.jpg",
-      "filename": "chantier3-1590.jpg",
-      "title": "Transition minerale",
-      "description": "Lien entre terrasses et massifs vegetaux."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-2551.jpg",
-      "filename": "chantier3-2551.jpg",
-      "title": "Integration des murets",
-      "description": "Traitement des soutenements de talus."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-2552.jpg",
-      "filename": "chantier3-2552.jpg",
-      "title": "Acces vers la terrasse",
-      "description": "Escalier et plate forme harmonises."
-    },
-    {
-      "url": "/images/gallery/creation/chantier3-2553.jpg",
-      "filename": "chantier3-2553.jpg",
-      "title": "Finalisation du chantier",
-      "description": "Derniers reglages avant plantations."
     }
   ],
   "entretien": [
