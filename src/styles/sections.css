@@ -643,3 +643,17 @@
   .hero-illustrated { min-height: 640px; }
   .hero-illustrated .title-content { padding-block: 100px 64px; }
 }
+
+/* Overscan exists before JS starts, so enabling movement never zooms the image. */
+.hero-illustrated { --hero-travel: 64px; }
+.hero-illustrated .hero-picture {
+  inset: calc(-1 * var(--hero-travel)) 0;
+  transform: translate3d(0, var(--hero-offset, 0px), 0);
+}
+@media (max-width: 1024px) {
+  .hero-illustrated { --hero-travel: 32px; }
+}
+@media (max-width: 600px), (prefers-reduced-motion: reduce) {
+  .hero-illustrated { --hero-travel: 0px; }
+  .hero-illustrated .hero-picture { transform: none; }
+}
