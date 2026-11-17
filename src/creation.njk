@@ -30,10 +30,9 @@
 {% block content %}
 <!-- TITRE DE PAGE  -->
 <section class="title" aria-label="Mot du président">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
-    <!-- Image pour le thème sombre -->
-    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "creation" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Création de jardins sur-mesure</h1>
       <p class="sub">

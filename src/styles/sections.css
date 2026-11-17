@@ -609,3 +609,37 @@
 .popup.is-error .popup-content p {
   color: var(--error);
 }
+
+/* A single illustrative photograph is shared by both themes. */
+.hero-illustrated {
+  isolation: isolate;
+  height: auto;
+  min-height: 700px;
+  display: grid;
+  place-items: center;
+}
+.hero-picture { position: absolute; inset: 0; z-index: -2; }
+.hero-photo { object-position: var(--hero-focus, 50% 50%); }
+.hero-illustrated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(13 20 10 / 15%), rgb(13 20 10 / 60%) 35%, rgb(13 20 10 / 60%) 65%, rgb(13 20 10 / 18%));
+}
+[data-theme='dark'] .hero-illustrated::after {
+  background: linear-gradient(180deg, rgb(13 13 13 / 22%), rgb(13 13 13 / 64%) 35%, rgb(13 13 13 / 64%) 65%, rgb(13 13 13 / 24%));
+}
+.hero-illustrated .title-content {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding-block: 120px 80px;
+}
+.hero-illustrated .btn-ghost { color: #fff; border-color: rgb(255 255 255 / 85%); background: rgb(13 20 10 / 35%); }
+.hero-illustrated .btn-ghost:hover { background: rgb(13 20 10 / 65%); }
+@media (max-width: 600px) {
+  .hero-illustrated { min-height: 640px; }
+  .hero-illustrated .title-content { padding-block: 100px 64px; }
+}
