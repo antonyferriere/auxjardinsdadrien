@@ -40,9 +40,9 @@
 {% block content %}
 <!-- TITLE -->
 <section class="title">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
-    <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "contact" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Contact</h1>
       <p class="sub">Parlons de votre projet de jardin à Vence et sur la Côte d’Azur.</p>
