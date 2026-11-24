@@ -34,9 +34,9 @@
 {% block content %}
 <!-- TITLE  -->
 <section class="title" aria-label="Demande de devis">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
-    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "devis" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Demandez votre devis de jardin</h1>
       <p class="sub">
