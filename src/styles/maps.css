@@ -31,6 +31,10 @@
   background: var(--surface-2);
 }
 
+:root[data-theme='dark'] #google-map .leaflet-tile-pane {
+  filter: invert(100%) hue-rotate(180deg) brightness(90%) contrast(90%);
+}
+
 .leaflet-control-container .leaflet-top,
 .leaflet-control-container .leaflet-bottom {
   color: var(--text-1);
