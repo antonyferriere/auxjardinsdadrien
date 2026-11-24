@@ -3,68 +3,12 @@ const VENCE_COORDINATES = [43.7223, 7.1136];
 const INTERVENTION_RADIUS = 30000; // 30 km radius
 const MAP_ZOOM = 10;
 
-let map;
-let circle;
-let activeTileLayer;
-let tileLayers = {};
-let mapLoader;
-
 const MAP_SVG = `
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="20" cy="20" r="18" fill="#8daf23" stroke="#ffffff" stroke-width="4"/>
     <circle cx="20" cy="20" r="8" fill="#ffffff"/>
   </svg>
 `;
-
-function getCurrentTheme() {
-  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-}
-
-function createTileLayers() {
-  tileLayers = {
-    light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19,
-    }),
-    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution:
-        '&copy; <a href="https://carto.com/attributions">CARTO</a> &copy; OpenStreetMap contributors',
-      maxZoom: 19,
-    }),
-  };
-}
-
-function showLoader() {
-  if (mapLoader) {
-    mapLoader.classList.remove('hidden');
-  }
-}
-
-function hideLoader() {
-  if (mapLoader) {
-    mapLoader.classList.add('hidden');
-  }
-}
-
-function setTileLayer(theme) {
-  if (!map || !tileLayers.light || !tileLayers.dark) return;
-
-  const nextLayer = theme === 'dark' ? tileLayers.dark : tileLayers.light;
-  if (activeTileLayer === nextLayer) return;
-
-  if (activeTileLayer) {
-    activeTileLayer.off('load', hideLoader);
-    activeTileLayer.off('tileerror', hideLoader);
-    map.removeLayer(activeTileLayer);
-  }
-
-  showLoader();
-  nextLayer.once('load', hideLoader);
-  nextLayer.once('tileerror', hideLoader);
-  nextLayer.addTo(map);
-  activeTileLayer = nextLayer;
-}
 
 function buildMarkerIcon() {
   return L.icon({
@@ -78,7 +22,7 @@ function buildMarkerIcon() {
 // Initialisation de la carte Leaflet
 function initMap() {
   const mapContainer = document.getElementById('google-map');
-  mapLoader = document.getElementById('map-loader');
+  const mapLoader = document.getElementById('map-loader');
 
   if (!mapContainer) return;
 
@@ -91,15 +35,21 @@ function initMap() {
     return;
   }
 
-  createTileLayers();
-
-  map = L.map(mapContainer, {
+  const map = L.map(mapContainer, {
     zoomControl: true,
     scrollWheelZoom: true,
     attributionControl: true,
   }).setView(VENCE_COORDINATES, MAP_ZOOM);
 
-  setTileLayer(getCurrentTheme());
+  const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+  });
+  const hideLoader = () => mapLoader?.classList.add('hidden');
+  tiles.once('load', hideLoader);
+  tiles.once('tileerror', hideLoader);
+  tiles.addTo(map);
 
   const marker = L.marker(VENCE_COORDINATES, {
     icon: buildMarkerIcon(),
@@ -117,7 +67,7 @@ function initMap() {
     </div>
   `);
 
-  circle = L.circle(VENCE_COORDINATES, {
+  L.circle(VENCE_COORDINATES, {
     radius: INTERVENTION_RADIUS,
     color: '#8daf23',
     weight: 2,
@@ -130,23 +80,5 @@ function initMap() {
     map.invalidateSize();
   }, 100);
 }
-
-function updateMapStyle() {
-  setTileLayer(getCurrentTheme());
-}
-
-// Observer pour les changements de thème
-const observer = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-      updateMapStyle();
-    }
-  });
-});
-
-observer.observe(document.documentElement, {
-  attributes: true,
-  attributeFilter: ['data-theme'],
-});
 
 document.addEventListener('DOMContentLoaded', initMap);

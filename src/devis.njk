@@ -34,9 +34,9 @@
 {% block content %}
 <!-- TITLE  -->
 <section class="title" aria-label="Demande de devis">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/creation_light.webp" alt="" aria-hidden="true" />
-    <img class="title-bg img-dark" src="/images/creation_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "devis" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Demandez votre devis de jardin</h1>
       <p class="sub">
@@ -54,7 +54,7 @@
       Cette étape nous permet de cerner vos attentes et de vous proposer un budget indicatif avant notre visite sur place.
     </p>
     <div class="zone-intervention-content">
-      <form id="estimation-form" class="form" action="/forms/devis.php" method="post">
+      <form id="estimation-form" class="form" action="mailto:auxjardinsdadrien@gmail.com" method="get">
         <div class="honeypot" aria-hidden="true">
           <label for="estimation-check">Laissez ce champ vide</label>
           <input
@@ -137,6 +137,7 @@
             </button>
           </div>
         </div>
+        <p class="form-mailto-note">Votre messagerie s’ouvrira avec un e-mail prérempli. Vérifiez son contenu, puis cliquez sur Envoyer dans votre messagerie pour nous transmettre votre demande.</p>
       </form>
       <div>
         <div class="map-container">
@@ -149,12 +150,6 @@
     </div>
   </div>
 
-  <div id="estimation-popup" class="popup" hidden>
-    <div class="popup-content">
-      <p id="estimation-popup-message">Merci, nous revenons vers vous tres vite.</p>
-      <button id="close-popup" class="btn btn-primary">Fermer</button>
-    </div>
-  </div>
 </section>
 {% endblock %}
 

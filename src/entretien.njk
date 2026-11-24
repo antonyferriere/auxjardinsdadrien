@@ -28,10 +28,9 @@
 {% block content %}
 <!-- TITRE DE PAGE  -->
 <section class="title" aria-label="Mot du président">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/entretien_light.webp" alt="" aria-hidden="true" />
-    <!-- Image pour le thème sombre -->
-    <img class="title-bg img-dark" src="/images/entretien_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "entretien" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Entretien de jardins à Vence et sur la Côte d’Azur</h1>
       <p class="sub">

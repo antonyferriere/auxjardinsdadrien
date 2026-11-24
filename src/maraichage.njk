@@ -26,10 +26,9 @@
 {% block content %}
 <!-- TITLE  -->
 <section class="title" aria-label="Mot du président">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/maraichage_light.webp" alt="" aria-hidden="true" />
-    <!-- Image pour le thème sombre -->
-    <img class="title-bg img-dark" src="/images/maraichage_dark.webp" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "maraichage" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Maraîchage à Vence – Des légumes locaux cultivés avec passion</h1>
       <p class="sub">

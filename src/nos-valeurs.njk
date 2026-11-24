@@ -24,10 +24,9 @@
 {% block content %}
 <!-- TITLE  --> 
 <section class="title" aria-label="Mot du président">
-  <div class="title-img">
-    <img class="title-bg img-light" src="/images/equipe.jpg" alt="" aria-hidden="true" />
-    <!-- Image pour le thème sombre -->
-    <img class="title-bg img-dark" src="/images/equipe.jpg" alt="" aria-hidden="true" />
+  <div class="title-img hero-illustrated">
+    {% set heroImage = "nos-valeurs" %}
+    {% include "_hero-picture.njk" %}
     <div class="title-content">
       <h1>Nos valeurs</h1>
       <p class="sub">
