@@ -3,6 +3,14 @@ const path = require('path');
 const nunjucks = require('nunjucks');
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setServerOptions({
+    port: 8080,
+    https: {
+      key: './localhost.key',
+      cert: './localhost.crt',
+    },
+  });
+
   eleventyConfig.setTemplateFormats(['njk']);
   eleventyConfig.setLibrary('njk', nunjucks.configure(['src/layouts', 'src/partials', 'src']));
 
