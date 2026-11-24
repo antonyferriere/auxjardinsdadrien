@@ -114,7 +114,29 @@
     return { success, data, response };
   }
 
+  // Build a plain-text draft from the form's own fields; never submit data to a server.
+  function openEmailDraft(form, { subject, fields, recipient = 'auxjardinsdadrien@gmail.com' }) {
+    const lines = fields.map(([label, name]) => {
+      const field = form.elements.namedItem(name);
+      const value = field && 'value' in field ? field.value.trim() : '';
+      return `${label} : ${value}`;
+    });
+
+    const body = [
+      'Bonjour,',
+      '',
+      'Je vous contacte depuis le site Aux Jardins d’Adrien.',
+      '',
+      ...lines.flatMap((line) => [line, '']),
+      'Cordialement,',
+    ].join('\n');
+
+    const url = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = url;
+  }
+
   window.AJDFormUtils = {
+    openEmailDraft,
     createPopupController,
     toggleSubmitting,
     prepareFormData,
