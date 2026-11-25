@@ -46,6 +46,7 @@
 
 /* Helper : focus visible */
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 3px solid var(--focus, currentColor);
+  box-shadow: 0 0 0 3px var(--bg);
   outline-offset: 3px;
 }
