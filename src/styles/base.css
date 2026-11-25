@@ -15,6 +15,19 @@ body {
   background: var(--bg);
 }
 
+html { scroll-padding-top: 8rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  :focus-visible { outline: 3px solid Highlight; }
+}
+
 [hidden] {
   display: none !important;
 }
