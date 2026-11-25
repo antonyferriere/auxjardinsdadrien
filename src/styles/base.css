@@ -332,7 +332,12 @@ section {
 }
 
 .section-elevated {
-  background: var(--gradient-surface, var(--surface-2));
+  background: var(--section-wash, var(--gradient-surface, var(--surface-2)));
+}
+
+:root:not([data-theme='dark']) .section-elevated {
+  --text-2: #48563F;
+  --primary: #405C27;
 }
 
 .section-staff {
