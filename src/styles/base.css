@@ -34,7 +34,7 @@ html {
 body {
   font-family: var(--font-text);
   color: var(--text);
-  font-size: clamp(1rem, .96rem + .25vw, 1.125rem);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
   line-height: var(--line-height);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -44,7 +44,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-title);
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
   overflow-wrap: anywhere;
   text-wrap: balance;
   margin: 0 0 0.5em;
@@ -89,6 +89,9 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
+a:not(.btn) {
+  text-underline-offset: 0.2em;
+}
 a:hover {
   text-decoration: underline;
 }
@@ -110,21 +113,24 @@ a:hover {
   text-decoration: none;
   text-shadow: none;
   white-space: nowrap;
-  transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+  text-align: center;
+  min-height: 44px;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   background: var(--primary);
   color: var(--bg);
   cursor: pointer;
 }
 
 .btn:hover {
-  transform: translateY(-4px);
-  filter: brightness(1.1);
+  transform: translateY(-1px);
   text-decoration: none;
 }
 
 .btn:active {
-  transform: translateY(0);
-  filter: brightness(1.1);
+  transform: scale(0.98);
 }
 
 .btn-lg {
@@ -138,17 +144,20 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--primary);
-  border: 1px solid var(--primary);
+  background: var(--gradient-action, linear-gradient(125deg, #526f29, #405c27));
+  color: var(--on-action, white);
+  border-color: transparent;
+  box-shadow: var(--shadow-sm);
 }
 .btn-secondary {
-  background: var(--accent);
-  border: 1px solid var(--accent);
+  background: var(--surface-1);
+  color: var(--text);
+  border-color: var(--text-2);
 }
 .btn-ghost {
   color: #fff;
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(13, 20, 10, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -157,13 +166,13 @@ a:hover {
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(21 32 22 / 87%);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 35px rgba(0, 0, 0, 0.15);
 }
 
 .btn-ghost:active {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgb(21 32 22 / 92%);
   transform: scale(0.98);
 }
 
@@ -242,6 +251,28 @@ a:hover {
 .btn-social .icon-social {
   width: 1rem;
   height: 1rem;
+}
+
+.btn:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  transform: none;
+}
+.btn-social {
+  min-width: 44px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn:hover,
+  .btn:active {
+    transition: none;
+    transform: none;
+  }
 }
 
 .wide {
@@ -335,5 +366,9 @@ section {
   margin-inline: auto;
   overflow-wrap: break-word;
 }
-.container > * { min-inline-size: 0; }
-.hero-content h1 { font-size: clamp(2.25rem, 1.4rem + 4vw, 5rem); }
+.container > * {
+  min-inline-size: 0;
+}
+.hero-content h1 {
+  font-size: clamp(2.25rem, 1.4rem + 4vw, 5rem);
+}
