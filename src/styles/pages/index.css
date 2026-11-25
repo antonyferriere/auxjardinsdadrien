@@ -1,8 +1,3 @@
-.promesses .card { text-align: left; border-inline-start: 3px solid var(--primary); }
-.promesses .tax-credit { background: var(--gradient-surface, var(--surface-1)); }
-.promesses .tax-credit .card-title { color: var(--text); }
-.promesses .card-content { padding-inline: clamp(1rem, 3vw, 2rem); }
-
 /* ===============================
    PROMESSES
    =============================== */
