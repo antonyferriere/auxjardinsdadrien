@@ -44,6 +44,12 @@
   --shadow-sm: 0 6px 24px rgb(20 33 20 / 8%);
 }
 
+:root:not([data-theme='dark']) {
+  --section-wash: linear-gradient(125deg, #E6DFC9, #D7DCC7 52%, #C2CFB6);
+  --card-wash: linear-gradient(150deg, #FFFDF7 12%, #E4EAD9);
+  --card-shadow: 0 0 0 1px rgb(73 89 57 / 24%), 0 6px 24px rgb(37 50 28 / 10%);
+}
+
 [data-theme='dark'] {
   /* Polices Dark (Dark mode premium) */
   --font-title: 'Josefin Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
