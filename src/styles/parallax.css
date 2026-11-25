@@ -42,13 +42,22 @@
   content: '';
   background-image: url('/images/equipe.jpg');
 }
+@media (min-width: 1025px) {
+  .hero-slide[data-parallax] { --parallax-travel: 80px; }
+  .article-media[data-parallax] { --parallax-travel: 44px; }
+}
 @media (max-width: 1024px) {
   [data-parallax] { --parallax-travel: 16px; }
   .title-img[data-parallax], .hero-slide[data-parallax], .section-staff[data-parallax] {
     --parallax-travel: 32px;
   }
 }
-@media (max-width: 600px), (prefers-reduced-motion: reduce) {
+@media (max-width: 600px) {
+  [data-parallax] { --parallax-travel: 12px; }
+  .gallery-item[data-parallax] { --parallax-travel: 8px; }
+  .hero-slide[data-parallax], .title-img[data-parallax], .section-staff[data-parallax] { --parallax-travel: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
   [data-parallax].section-media-img-container > img { scale: 1; }
   [data-parallax][data-parallax] { --parallax-travel: 0px; --parallax-offset: 0px !important; }
 }
