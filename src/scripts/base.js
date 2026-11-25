@@ -57,6 +57,7 @@ function openNav() {
   requestAnimationFrame(() => scrim.classList.add('show'));
   burger.setAttribute('aria-expanded', 'true');
   mobileNav.setAttribute('aria-hidden', 'false');
+  mobileNav.querySelector('a')?.focus();
   document.body.style.overflow = 'hidden';
 }
 function closeNav() {
@@ -67,6 +68,7 @@ function closeNav() {
     scrim.hidden = true;
   }, 200);
   burger.setAttribute('aria-expanded', 'false');
+  burger.focus();
   mobileNav.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
 }
@@ -75,6 +77,20 @@ if (burger)
     mobileNav.classList.contains('open') ? closeNav() : openNav();
   });
 if (scrim) scrim.addEventListener('click', closeNav);
+document.addEventListener('keydown', event => {
+  if (!mobileNav?.classList.contains('open')) return;
+  if (event.key === 'Escape') closeNav();
+  if (event.key !== 'Tab') return;
+  const links = mobileNav.querySelectorAll('a[href]');
+  const boundary = event.shiftKey ? links[0] : links[links.length - 1];
+  if (document.activeElement === boundary) {
+    event.preventDefault();
+    (event.shiftKey ? links[links.length - 1] : links[0]).focus();
+  }
+});
+matchMedia('(min-width: 980px)').addEventListener('change', event => {
+  if (event.matches && mobileNav?.classList.contains('open')) closeNav();
+});
 
 /* Fermer menu sur clic d'un lien */
 mobileNav?.addEventListener('click', (e) => {
