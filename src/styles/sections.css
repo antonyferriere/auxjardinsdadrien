@@ -78,7 +78,7 @@
 }
 
 .quote-content p {
-  font-size: clamp(1.625rem, 3.1vw, 2.75rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
   text-wrap: balance;
   line-height: 1.32;
   font-family: var(--font-title);
@@ -309,6 +309,7 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   min-height: clamp(15rem, 42vw, 32rem);
+  height: 100%;
 }
 
 .article-img {
@@ -344,13 +345,19 @@
 
 .section-staff .quote-content {
   padding: clamp(1.5rem, 5vw, 4rem);
-  background: linear-gradient(130deg, rgb(17 33 21 / 90%), rgb(17 33 21 / 75%));
-  border-radius: var(--border-radius);
 }
-.article-content { max-width: 65ch; }
+.article-content {
+  max-width: 65ch;
+}
 @media (min-width: 768px) {
-  .article:nth-of-type(even) .article-media { grid-column: 2; grid-row: 1; }
-  .article:nth-of-type(even) .article-content { grid-column: 1; grid-row: 1; }
+  .article:nth-of-type(even) .article-media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .article:nth-of-type(even) .article-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }
 .article-content > * {
   margin: 0;
