@@ -34,7 +34,7 @@ html {
 body {
   font-family: var(--font-text);
   color: var(--text);
-  font-size: clamp(1rem, .96rem + .25vw, 1.125rem);
+  font-size: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
   line-height: var(--line-height);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -44,7 +44,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-title);
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
   overflow-wrap: anywhere;
   text-wrap: balance;
   margin: 0 0 0.5em;
@@ -89,7 +89,9 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
-a:not(.btn) { text-underline-offset: .2em; }
+a:not(.btn) {
+  text-underline-offset: 0.2em;
+}
 a:hover {
   text-decoration: underline;
 }
@@ -110,11 +112,13 @@ a:hover {
   line-height: var(--line-height);
   text-decoration: none;
   text-shadow: none;
-  white-space: normal;
+  white-space: nowrap;
   text-align: center;
   min-height: 44px;
-  max-width: 100%;
-  transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   background: var(--primary);
   color: var(--bg);
   cursor: pointer;
@@ -126,7 +130,7 @@ a:hover {
 }
 
 .btn:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }
 
 .btn-lg {
@@ -153,7 +157,7 @@ a:hover {
 .btn-ghost {
   color: #fff;
   position: relative;
-  background: rgb(21 32 22 / 76%);
+  background: rgba(13, 20, 10, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -249,11 +253,26 @@ a:hover {
   height: 1rem;
 }
 
-.btn:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; box-shadow: 0 0 0 4px var(--bg); }
-.btn:disabled { cursor: not-allowed; opacity: .65; transform: none; }
-.btn-social { min-width: 44px; }
+.btn:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  transform: none;
+}
+.btn-social {
+  min-width: 44px;
+}
 @media (prefers-reduced-motion: reduce) {
-  .btn, .btn:hover, .btn:active { transition: none; transform: none; }
+  .btn,
+  .btn:hover,
+  .btn:active {
+    transition: none;
+    transform: none;
+  }
 }
 
 .wide {
@@ -347,5 +366,9 @@ section {
   margin-inline: auto;
   overflow-wrap: break-word;
 }
-.container > * { min-inline-size: 0; }
-.hero-content h1 { font-size: clamp(2.25rem, 1.4rem + 4vw, 5rem); }
+.container > * {
+  min-inline-size: 0;
+}
+.hero-content h1 {
+  font-size: clamp(2.25rem, 1.4rem + 4vw, 5rem);
+}
