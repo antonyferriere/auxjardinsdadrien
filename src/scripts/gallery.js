@@ -185,7 +185,7 @@ function renderPagination() {
 
   // Logique d'affichage des pages (max 5 numéros visibles)
   let startPage = Math.max(1, currentPage - 2);
-  let endPage = Math.min(totalPages, startPage + 4);
+  let endPage = Math.min(totalPages, startPage + 2);
 
   if (endPage - startPage < 4) {
     startPage = Math.max(1, endPage - 4);
