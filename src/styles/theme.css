@@ -3,7 +3,9 @@
    =============================== */
 :root {
   --container: 1220px;
-  --border-radius: 1rem;
+  --duration-fast: 160ms;
+  --ease-out: cubic-bezier(.2,.7,.3,1);
+  --border-radius: 1.25rem;
   --border-radius-btn: 50px;
 
   --font-size: 16px; /* Taille par défaut */
@@ -20,31 +22,50 @@
   --font-title: 'Raleway', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-text: 'Source Sans Pro', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   /* Couleurs Light (Luxe minimal – Côte d’Azur) */
-  --bg: #ffffff; /* blanc pur */
-  --text: #2a2a2a; /* gris anthracite */
-  --text-2: color-mix(in oklab, var(--text) 80%, var(--bg));
-  --primary: #8daf23; /* vert olive */
-  --accent: #5bc0eb; /* bleu azur */
-  --separator: #e9e9e9; /* gris clair */
-  --surface-1: color-mix(in oklab, var(--primary) 2%, var(--bg));
-  --surface-2: color-mix(in oklab, var(--primary) 4%, var(--bg));
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --error: #c0392b; /* rouge vif */
+  color-scheme: light;
+  --bg: #F5F3EC;
+  --text: #283328;
+  --text-2: #526048;
+  --brand: #8DAF23;
+  --primary: #54702C;
+  --accent: #5BC0EB;
+  --separator: #D6DCD0;
+  --surface-1: #FAF8F3;
+  --surface-2: #E8EBE1;
+  --on-action: #fff;
+  --action-end: #405C27;
+  --action-start: #526F29;
+  --mineral: #F1EEE4;
+  --botanical: #E5EBDD;
+  --error: #AB382E;
+  --gradient-action: linear-gradient(125deg, var(--action-start), var(--primary), var(--action-end));
+  --gradient-surface: linear-gradient(135deg, var(--surface-1), var(--mineral) 58%, var(--botanical));
+  --focus: var(--primary);
+  --shadow-sm: 0 6px 24px rgb(20 33 20 / 8%);
 }
 
 [data-theme='dark'] {
   /* Polices Dark (Dark mode premium) */
   --font-title: 'Josefin Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-text: 'Work Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  /* Couleurs Dark (Dark mode premium) */
-  --bg: #0d0d0d; /* noir profond */
-  --text: #f0f0f0; /* blanc cassé */
-  --text-2: color-mix(in oklab, var(--text) 80%, var(--bg));
-  --primary: #a9d93b; /* vert fluo */
-  --accent: #c8a35d; /* doré patiné */
-  --separator: #242424; /* gris très foncé */
-  --surface-1: color-mix(in oklab, var(--bg) 98%, white);
-  --surface-2: color-mix(in oklab, var(--bg) 96%, white);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --error: #c0392b; /* rouge vif */
+  color-scheme: dark;
+  --bg: #1C231E;
+  --text: #EEEFE6;
+  --text-2: #B8C2AF;
+  --brand: #A9D93B;
+  --primary: #A9D93B;
+  --accent: #C8A35D;
+  --separator: #3E4A3E;
+  --surface-1: #283229;
+  --surface-2: #303B30;
+  --on-action: #182016;
+  --action-end: #779D35;
+  --action-start: #B6DD65;
+  --mineral: #202820;
+  --botanical: #354437;
+  --error: #FFAB9F;
+  --gradient-action: linear-gradient(125deg, var(--action-start), var(--primary), var(--action-end));
+  --gradient-surface: linear-gradient(135deg, var(--surface-1), var(--mineral) 58%, var(--botanical));
+  --focus: var(--primary);
+  --shadow-sm: 0 6px 24px rgb(20 33 20 / 22%);
 }

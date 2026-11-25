@@ -286,7 +286,7 @@ section {
 }
 
 .section-elevated {
-  background: var(--surface-2);
+  background: var(--gradient-surface, var(--surface-2));
 }
 
 .section-staff {
