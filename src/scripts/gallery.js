@@ -133,31 +133,23 @@ function renderGallery() {
   galleryContainer.innerHTML = '';
 
   pageImages.forEach((image, index) => {
-    const item = document.createElement('div');
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.setAttribute('aria-label', image.title);
+    item.setAttribute('aria-haspopup', 'dialog');
     item.className = 'gallery-item';
+    item.setAttribute('data-parallax', '');
     item.dataset.category = image.category;
-    item.style.animationDelay = `${(index + 1) * 0.1}s`;
 
     const img = document.createElement('img');
     img.src = image.src;
     img.alt = image.title;
     img.loading = 'lazy';
 
-    // Gestion d'erreur pour charger la vraie image
-    const realImg = new Image();
-    realImg.onload = () => {
-      img.src = image.src;
-    };
-    realImg.onerror = () => {
-      // Garder l'image fallback si la vraie image n'existe pas
-      console.log(`Image non trouvée: ${image.src}`);
-    };
-    realImg.src = image.src;
-
-    const overlay = document.createElement('div');
+    const overlay = document.createElement('span');
     overlay.className = 'gallery-overlay';
 
-    const caption = document.createElement('p');
+    const caption = document.createElement('span');
     caption.className = 'gallery-caption';
     caption.textContent = image.title;
 
@@ -167,12 +159,14 @@ function renderGallery() {
 
     // Event listener pour lightbox
     item.addEventListener('click', () => {
+      galleryTrigger = item;
       currentImageIndex = startIndex + index;
       openLightbox();
     });
 
     galleryContainer.appendChild(item);
   });
+  document.dispatchEvent(new Event('parallax:refresh'));
 }
 
 // Rendu pagination
@@ -191,7 +185,7 @@ function renderPagination() {
 
   // Logique d'affichage des pages (max 5 numéros visibles)
   let startPage = Math.max(1, currentPage - 2);
-  let endPage = Math.min(totalPages, startPage + 4);
+  let endPage = Math.min(totalPages, startPage + 2);
 
   if (endPage - startPage < 4) {
     startPage = Math.max(1, endPage - 4);
@@ -284,29 +278,33 @@ const lightboxNext = document.getElementById('lightbox-next');
 const lightboxCounter = document.getElementById('lightbox-counter');
 
 let currentImageIndex = 0;
+let galleryTrigger;
+lightbox.setAttribute('role', 'dialog');
+lightbox.setAttribute('aria-modal', 'true');
+lightbox.setAttribute('aria-labelledby', 'lightbox-title');
+lightboxClose.setAttribute('aria-label', 'Fermer');
+lightboxPrev.setAttribute('aria-label', 'Photo précédente');
+lightboxNext.setAttribute('aria-label', 'Photo suivante');
 
 function openLightbox() {
   const image = filteredImages[currentImageIndex];
 
-  lightboxImage.src = image.fallbackSrc;
+  lightboxImage.src = image.src;
   lightboxImage.alt = image.title;
   lightboxTitle.textContent = image.title;
   lightboxDescription.textContent = image.description;
   lightboxCounter.textContent = `${currentImageIndex + 1} / ${filteredImages.length}`;
 
-  // Essayer de charger la vraie image
-  const realImg = new Image();
-  realImg.onload = () => {
-    lightboxImage.src = image.src;
-  };
-  realImg.src = image.src;
-
-  lightbox.classList.add('show');
+  if (!lightbox.classList.contains('show')) {
+    lightbox.classList.add('show');
+    lightboxClose.focus();
+  }
   document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
   lightbox.classList.remove('show');
+  galleryTrigger?.focus({ preventScroll: true });
   document.body.style.overflow = '';
 }
 
@@ -334,6 +332,15 @@ document.addEventListener('keydown', (e) => {
   if (!lightbox.classList.contains('show')) return;
 
   switch (e.key) {
+    case 'Tab':
+      if (e.shiftKey && document.activeElement === lightboxClose) {
+        e.preventDefault();
+        lightboxNext.focus();
+      } else if (!e.shiftKey && document.activeElement === lightboxNext) {
+        e.preventDefault();
+        lightboxClose.focus();
+      }
+      break;
     case 'Escape':
       closeLightbox();
       break;

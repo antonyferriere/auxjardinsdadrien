@@ -4,7 +4,9 @@
    - 100svh, overlay pour lisibilité
    =============================== */
 const slideDelay = 5500;
-const heroSlide = document.querySelector('.hero-slide');
+const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+motionPreference.addEventListener('change', restartTimer);
+const heroSlide = document.querySelector('.hero-background');
 const dots = Array.from(document.querySelectorAll('.dot'));
 
 // Définir le chemin de base pour les images
@@ -93,6 +95,7 @@ function updateDots() {
 }
 
 function startTimer() {
+  if (motionPreference.matches) return;
   slideTimer = setInterval(nextSlide, slideDelay);
 }
 function restartTimer() {
