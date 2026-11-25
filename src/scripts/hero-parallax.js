@@ -6,7 +6,7 @@
     const controller = new AbortController();
     const { signal } = controller;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const mobile = matchMedia('(max-width: 600px)');
+    const travelCache = new WeakMap();
     const frames = new Set();
     const visible = new Set();
     let frame = 0;
@@ -18,7 +18,10 @@
       // including illustrations far below the first screen.
       const updates = [...visible].map(element => {
         const rect = element.getBoundingClientRect();
-        const configuredTravel = parseFloat(getComputedStyle(element).getPropertyValue('--parallax-travel')) || 0;
+        if (!travelCache.has(element)) {
+          travelCache.set(element, parseFloat(getComputedStyle(element).getPropertyValue('--parallax-travel')) || 0);
+        }
+        const configuredTravel = travelCache.get(element);
         const travel = element.classList.contains('section-media-img-container')
           ? Math.min(configuredTravel, rect.height * 0.05) : configuredTravel;
         const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
@@ -50,13 +53,14 @@
       current.forEach(element => {
         if (frames.has(element)) return;
         frames.add(element);
-        visible.add(element);
-        observer?.observe(element);
+        if (observer) observer.observe(element);
+        else visible.add(element);
       });
       schedule();
     };
     const configure = () => {
-      enabled = !reduced.matches && !mobile.matches;
+      frames.forEach(element => travelCache.delete(element));
+      enabled = !reduced.matches;
       cancelAnimationFrame(frame);
       frame = 0;
       frames.forEach(element => element.style.removeProperty('--parallax-offset'));
@@ -68,7 +72,6 @@
     // Lazy images may change the geometry of natural-ratio media.
     document.addEventListener('load', schedule, { capture: true, signal });
     reduced.addEventListener('change', configure, { signal });
-    mobile.addEventListener('change', configure, { signal });
     refresh();
     configure();
     dispose = () => {
