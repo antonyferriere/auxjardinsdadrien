@@ -9,7 +9,7 @@
 }
 .footer a {
   color: var(--text);
-  text-underline-offset: .2em;
+  text-underline-offset: 0.2em;
 }
 .footer-grid {
   display: grid;
@@ -25,7 +25,7 @@
   display: flex;
   gap: var(--spacing-xs);
   flex-direction: column;
-  row-gap: .5rem;
+  row-gap: 0.5rem;
 }
 .footer-social {
   margin-bottom: var(--spacing-md);
@@ -34,8 +34,8 @@
 }
 .footer .btn-social {
   background: var(--accent);
-  border-color: var(--text);
-  text-underline-offset: .2em;
+  border-color: var(--accent);
+  text-underline-offset: 0.2em;
   color: var(--bg);
 }
 .footer-small {
