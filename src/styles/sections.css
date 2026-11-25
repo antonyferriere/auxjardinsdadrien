@@ -149,8 +149,7 @@
 }
 
 .card.card-flat {
-  background: var(--bg);
-  box-shadow: none;
+  padding-bottom: var(--spacing-md);
 }
 .card-flat > *:last-child {
   padding-bottom: 0;
@@ -179,10 +178,17 @@
   display: block;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .card:hover .card-img img { transform: scale(1.035); }
+  .card:hover .card-img img {
+    transform: scale(1.035);
+  }
 }
-.card:focus-within { outline: 2px solid var(--primary); outline-offset: 3px; }
-.card[data-href]:active { transform: scale(.995); }
+.card:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.card[data-href]:active {
+  transform: scale(0.995);
+}
 
 .card-icon {
   width: 56px;
