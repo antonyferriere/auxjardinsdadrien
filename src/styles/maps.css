@@ -15,7 +15,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   background: var(--surface-2);
-  height: 500px;
+  height: clamp(17rem, 55svh, 31.25rem);
 }
 
 #google-map {
