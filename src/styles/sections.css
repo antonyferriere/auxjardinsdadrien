@@ -623,7 +623,7 @@
 .hero-illustrated {
   isolation: isolate;
   height: auto;
-  min-height: 700px;
+  min-height: clamp(28rem, 78svh, 50rem);
   display: grid;
   place-items: center;
 }
@@ -666,7 +666,6 @@
 }
 .hero-illustrated .btn-ghost {
   color: #fff;
-  border-color: rgb(255 255 255 / 85%);
   background: rgb(13 20 10 / 35%);
 }
 .hero-illustrated .btn-ghost:hover {
@@ -674,7 +673,7 @@
 }
 @media (max-width: 600px) {
   .hero-illustrated {
-    min-height: 640px;
+    min-height: min(76svh, 40rem);
   }
   .hero-illustrated .title-content {
     padding-block: 100px 64px;
