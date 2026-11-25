@@ -21,7 +21,7 @@ function setup({ reduced = false, mobile = false, observer = true } = {}) {
   const small = Object.assign(new EventTarget(), { matches: mobile });
   class Observer {
     constructor(callback) { notify = callback; }
-    observe(e) { observed.add(e); }
+    observe(e) { observed.add(e); notify([{target: e, isIntersecting: true}]); }
     unobserve(e) { observed.delete(e); }
     disconnect() { observed.clear(); }
   }
@@ -47,7 +47,8 @@ test('viewport progress moves lower-page images continuously and stays within ov
   }
 });
 test('mobile/reduced motion reset offsets and reactivate on preference changes', () => {
-  for (const options of [{mobile:true},{reduced:true}]) {
+  assert.equal(setup({mobile:true}).hero.values.size, 1);
+  for (const options of [{mobile:true,reduced:true},{reduced:true}]) {
     const e=setup(options); e.scroll(-400); assert.equal(e.hero.values.size,0);
     e.small.matches=false; e.motion.matches=false; e.motion.dispatchEvent(new Event('change'));
     assert.equal(e.offset(e.hero),24);
