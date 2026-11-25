@@ -13,10 +13,25 @@
   padding-top: var(--spacing-sm);
 }
 .header.page-top {
-  background: linear-gradient(to bottom, rgb(14 23 15 / 75%), rgb(14 23 15 / 25%));
+  --header-fade: clamp(1.5rem, 3vw, 3rem);
+  background: transparent;
   box-shadow: none;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
   border: none;
+}
+/* Extend only the decorative background into the hero, without affecting navigation. */
+.header.page-top::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 calc(-1 * var(--header-fade)) 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgb(14 23 15 / 75%) 0%,
+    rgb(14 23 15 / 25%) calc(100% - var(--header-fade)),
+    rgb(14 23 15 / 0%) 100%
+  );
 }
 .header-row {
   display: grid;
