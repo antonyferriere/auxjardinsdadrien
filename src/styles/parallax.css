@@ -1,0 +1,54 @@
+/* Permanent vertical overscan prevents exposed edges without changing layout.
+   Individual translate composes with existing hover scale transforms. */
+[data-parallax] { --parallax-travel: 24px; }
+.title-img[data-parallax], .hero-slide[data-parallax], .section-staff[data-parallax] {
+  --parallax-travel: 64px;
+}
+[data-parallax].title-img > .hero-picture,
+[data-parallax].title-img > .title-bg,
+[data-parallax].card-img > img,
+[data-parallax].gallery-item > img,
+[data-parallax].article-media > img,
+[data-parallax].before-after-figure > img,
+[data-parallax] > .hero-background,
+[data-parallax].section-staff::before {
+  position: absolute;
+  inset: calc(-1 * var(--parallax-travel)) 0;
+  width: 100%;
+  height: calc(100% + 2 * var(--parallax-travel));
+  object-fit: cover;
+  translate: 0 var(--parallax-offset, 0px);
+}
+/* Natural-ratio images keep their intrinsic layout size. */
+[data-parallax].section-media-img-container > img {
+  display: block;
+  scale: 1.12;
+  translate: 0 var(--parallax-offset, 0px);
+}
+.hero-slide[data-parallax], .section-staff[data-parallax] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-image: none;
+}
+.hero-background, .section-staff[data-parallax]::before {
+  z-index: -1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.section-staff[data-parallax]::before {
+  content: '';
+  background-image: url('/images/equipe.jpg');
+}
+@media (max-width: 1024px) {
+  [data-parallax] { --parallax-travel: 16px; }
+  .title-img[data-parallax], .hero-slide[data-parallax], .section-staff[data-parallax] {
+    --parallax-travel: 32px;
+  }
+}
+@media (max-width: 600px), (prefers-reduced-motion: reduce) {
+  [data-parallax].section-media-img-container > img { scale: 1; }
+  [data-parallax][data-parallax] { --parallax-travel: 0px; --parallax-offset: 0px !important; }
+}

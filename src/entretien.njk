@@ -28,7 +28,7 @@
 {% block content %}
 <!-- TITRE DE PAGE  -->
 <section class="title" aria-label="Mot du président">
-  <div class="title-img hero-illustrated">
+  <div class="title-img hero-illustrated" data-parallax>
     {% set heroImage = "entretien" %}
     {% include "_hero-picture.njk" %}
     <div class="title-content">
@@ -66,7 +66,7 @@
 <section class="article">
   <div class="container">
     <div class="article-grid">
-      <div class="article-media">
+      <div class="article-media" data-parallax>
         <!-- Image pour le thème clair -->
         <img
           class="article-img img-light"
@@ -113,7 +113,7 @@
     <h2>Nos prestations ponctuelles</h2>
     <ul class="cards">
       <li class="card" data-href="/devis">
-        <div class="card-img">
+        <div class="card-img" data-parallax>
           <!-- Image pour le thème clair -->
           <img
             class="img-light"
@@ -143,7 +143,7 @@
       </li>
 
       <li class="card" data-href="/devis">
-        <div class="card-img">
+        <div class="card-img" data-parallax>
           <!-- Image pour le thème clair -->
           <img
             class="img-light"
@@ -173,7 +173,7 @@
       </li>
 
       <li class="card" data-href="/devis">
-        <div class="card-img">
+        <div class="card-img" data-parallax>
           <!-- Image pour le thème clair -->
           <img
             class="img-light"
@@ -211,7 +211,7 @@
     <h2>Avant / Après</h2>
     <p>Visualisez l'impact de nos interventions sur les jardins que nous remettons en valeur : un extérieur soigné, structuré et prêt à traverser les saisons.</p>
     <div class="before-after-slider" data-before-after>
-      <figure class="before-after-figure">
+      <figure class="before-after-figure" data-parallax>
         <img
           class="before-after-image before-after-image--before"
           src="/images/entretien_avant.webp"

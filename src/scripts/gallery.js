@@ -135,6 +135,7 @@ function renderGallery() {
   pageImages.forEach((image, index) => {
     const item = document.createElement('div');
     item.className = 'gallery-item';
+    item.setAttribute('data-parallax', '');
     item.dataset.category = image.category;
     item.style.animationDelay = `${(index + 1) * 0.1}s`;
 
@@ -173,6 +174,7 @@ function renderGallery() {
 
     galleryContainer.appendChild(item);
   });
+  document.dispatchEvent(new Event('parallax:refresh'));
 }
 
 // Rendu pagination

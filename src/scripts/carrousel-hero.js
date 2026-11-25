@@ -4,7 +4,7 @@
    - 100svh, overlay pour lisibilité
    =============================== */
 const slideDelay = 5500;
-const heroSlide = document.querySelector('.hero-slide');
+const heroSlide = document.querySelector('.hero-background');
 const dots = Array.from(document.querySelectorAll('.dot'));
 
 // Définir le chemin de base pour les images
