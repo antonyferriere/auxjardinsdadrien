@@ -73,12 +73,14 @@
   align-items: center;
 }
 .quote-content {
-  max-width: 800px;
+  max-width: 45rem;
+  margin-inline: auto;
 }
 
 .quote-content p {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.5;
+  text-wrap: balance;
+  line-height: 1.32;
   font-family: var(--font-title);
   margin: 0 0 var(--spacing-md);
   font-style: italic;
@@ -87,7 +89,7 @@
 .quote-content cite {
   font-style: normal;
   font-size: 1.1rem;
-  color: var(--accent);
+  color: inherit;
   font-weight: 500;
 }
 
@@ -299,13 +301,14 @@
 .article-grid {
   display: grid;
   gap: var(--spacing-md);
-  align-items: start;
+  align-items: stretch;
 }
 
 .article-media {
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
+  min-height: clamp(15rem, 42vw, 32rem);
   height: 100%;
 }
 
@@ -340,13 +343,31 @@
   text-align: left;
 }
 
+.section-staff .quote-content {
+  padding: clamp(1.5rem, 5vw, 4rem);
+}
+.article-content {
+  max-width: 65ch;
+}
+@media (min-width: 768px) {
+  .article:nth-of-type(even) .article-media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .article:nth-of-type(even) .article-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
 .article-content > * {
   margin: 0;
 }
 
 @media (min-width: 768px) {
   .article-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
   }
 }
 
